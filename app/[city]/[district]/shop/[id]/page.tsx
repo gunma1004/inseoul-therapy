@@ -10,31 +10,31 @@ interface PageProps {
   }>;
 }
 
-const SITE_URL = "https://gis-massage.netlify.app";
+const SITE_URL = "https://kkulma.netlify.app";
 
 // 🌟 1단: '출장'과 '마사지'가 연달아 붙지 않는 수식어 패턴 풀
 const shopActionModifiers = [
-  '릴렉스 마사지·홈타이', '소프트스웨디시 마사지·홈타이', '아로마케어 마사지·홈타이',
-  '감성힐링 마사지·홈타이', '프리미엄 마사지·홈타이', '바디케어 마사지·홈타이',
-  '딥티슈이완 마사지·홈타이', '전신힐링 마사지·홈타이', '맞춤형케어 마사지·홈타이',
-  '안심방문 마사지·홈타이', 'VIP스웨디시 마사지·홈타이', '명품테라피 마사지·홈타이',
-  '소프트감성 마사지·홈타이', '림프순환 마사지·홈타이', '포근한힐링 마사지·홈타이',
-  '체형맞춤 마사지·홈타이', '타이스트레칭 마사지·홈타이', '스페셜바디 마사지·홈타이'
+  '릴렉스 마사지·홈타이', '스웨디시 마사지·홈타이', '아로마 마사지·홈타이',
+  '감성 마사지·홈타이', '프리미엄 마사지·홈타이', '바디케어 마사지·홈타이',
+  '이완 마사지·홈타이', '전신힐링 마사지·홈타이', '맞춤형케어 마사지·홈타이',
+  '안심 마사지·홈타이', 'VIP스웨디시 마사지·홈타이', '명품 마사지·홈타이',
+  '감성 마사지·홈타이', '림프 마사지·홈타이', '힐링 마사지·홈타이',
+  '체형 맞 마사지·홈타이', '타이스트레칭 마사지·홈타이', '스페셜 마사지·홈타이'
 ];
 
 // 🌟 2단: 시/구 단위 연계 안마 예약 키워드 풀
 const cityBookingActions = [
-  '안마 예약', '안마 방문예약', '테라피 예약', '힐링 안마예약',
-  '바디케어 예약', '홈케어 예약', '방문 안마안내', '스웨디시 예약'
+  '안마 예약', '안심예약', '테라피 예약', '힐링예약',
+  '케어 예약', '케어 예약', '방문 안내', '스웨디시 예약'
 ];
 
 // 🌟 디스크립션 가격 및 소구점 조합 풀
 const priceHooks = [
-  '건식 6만원부터 심야할증 없이 방문합니다.',
-  '건식 7만원부터 심야할증 없이 방문합니다.',
-  '스웨디시 8만원부터 추가비용 없이 방문합니다.',
-  '아로마 7만원부터 합리적인 정찰제로 방문합니다.',
-  '타이 6만원부터 현장 결제 후불제로 방문합니다.'
+  '건식 심야할증 없이 방문합니다.',
+  '아로마 추가비용없이 방문가능.',
+  '타이 스웨디시 아로마 합리적인 비용으로 방문합니다.',
+  '아로마 합리적인 정찰제로 방문합니다.',
+  '타이 아로마 현장결제로방문합니다.'
 ];
 
 // 🌟 정확한 샵별 코스 및 가격 정보 반영 (5개 제휴점 전체)
@@ -317,19 +317,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const locationPrefix = `${cityText} ${districtName}`;
 
   // 🌟 순차적 인덱스 계산 (shopData[id] 반영 -> 1~5번 샵 간 고유 조합 보장)
-  const seedString = `${locationPrefix}-${id}-giinseo-district-shop-seo`;
+  const seedString = `${locationPrefix}-${id}-kkulma-district-shop-seo`;
   const charSum = seedString.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
   
   const part1Idx = charSum % shopActionModifiers.length;
   const part2Idx = (charSum * 3) % cityBookingActions.length;
   const priceIdx = (charSum * 7) % priceHooks.length;
 
-  // 💡 [서초구 출장 릴렉스 마사지·홈타이 | 서울 안마 예약 | 기인서테라피] 형식 (약 45~50자)
-  const formattedTitle = `${districtName} 출장 ${shopActionModifiers[part1Idx]} | ${cityText} ${cityBookingActions[part2Idx]} | 기인서테라피`;
+  // 💡 [서초구 출장 릴렉스 마사지·홈타이 | 서울 안마 예약 | 꿀마] 형식 (약 45~50자)
+  const formattedTitle = `${districtName} 출장 ${shopActionModifiers[part1Idx]} | ${cityText} ${cityBookingActions[part2Idx]} | 꿀마`;
   
   // 💡 [서울 서초구 출장 마사지·홈타이·안마. 검증된 전문 관리사 100% 후불제. 건식 7만원부터 심야할증 없이 방문합니다.] 형식
-  const formattedDesc = `${locationPrefix} 출장 마사지·홈타이·안마. 검증된 전문 관리사 100% 후불제. ${priceHooks[priceIdx]}`;
-
+  const formattedDesc = `${locationPrefix} 출장마사지·홈타이·안마. 검증된 전문 관리사 100% 후불제. ${priceHooks[priceIdx]}`;
+  
   return {
     metadataBase: new URL(SITE_URL),
     title: {
@@ -346,7 +346,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       `${cityText} 안마`,
       `${locationPrefix} 아로마마사지`,
       `${locationPrefix} 스웨디시`,
-      "기인서테라피"
+      "꿀마"
     ],
     openGraph: {
       title: formattedTitle,
@@ -376,7 +376,7 @@ export default async function DistrictShopDetailPage({ params }: PageProps) {
     <div className="bg-slate-50 text-slate-800 min-h-screen flex flex-col font-sans pb-28">
       <header className="bg-white border-b border-slate-200 sticky top-0 z-40 px-4 py-3 shadow-sm">
         <div className="max-w-4xl mx-auto flex justify-between items-center">
-          <Link href="/" className="text-xl font-bold text-sky-600">기인서테라피</Link>
+          <Link href="/" className="text-xl font-bold text-sky-600">꿀마</Link>
           <Link href={`/${city}/${district}`} className="text-xs font-bold text-sky-600 bg-sky-50 px-3 py-1.5 rounded-xl border border-sky-100 hover:bg-sky-600 hover:text-white transition-all">
             &larr; {districtName} 목록으로
           </Link>

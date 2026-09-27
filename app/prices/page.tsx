@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-const SITE_URL = "https://gis-massage.netlify.app";
-const SITE_NAME = "기인서테라피";
+const SITE_URL = "https://kkulma.netlify.app";
+const SITE_NAME = "꿀마";
 
 export const metadata: Metadata = {
   title: `코스별 가격 안내 | 투명한 100% 후불 정찰제 - ${SITE_NAME}`,
-  description: "서울·경기·인천 기인서테라피 투명한 코스별 가격 안내! 릴렉스, 타이, 아로마, VIP 맞춤 케어 비용과 100% 안심 후불제 예약 시스템을 확인하세요.",
+  description: "서울·경기·인천 꿀마 투명한 코스별 가격 안내! 릴렉스, 타이, 아로마, VIP 맞춤 케어 비용과 100% 안심 후불제 예약 시스템을 확인하세요.",
   keywords: [
-    "기인서테라피 가격",
+    "꿀마 가격",
     "테라피 가격",
     "홈케어 요금",
     "타이마사지 비용",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: `코스별 가격 안내 | ${SITE_NAME} 투명한 후불 정찰제`,
     description: "선입금 없는 100% 안심 후불제! 릴렉스, 타이, 아로마 맞춤 코스별 요금을 투명하게 비교해 보세요.",
     url: `${SITE_URL}/prices`,
-    siteName: `${SITE_NAME} (GIS Massage)`,
+    siteName: `${SITE_NAME} (Kkulma)`,
     locale: "ko_KR",
     type: "website",
     images: [

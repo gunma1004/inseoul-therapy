@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-const SITE_URL = "https://gis-massage.netlify.app";
-const SITE_NAME = "기인서테라피";
+const SITE_URL = "https://kkulma.netlify.app";
+const SITE_NAME = "꿀마";
 
 export const metadata: Metadata = {
   title: `실제 고객 생생후기 | 만족도 4.9 안심 이용 리뷰 - ${SITE_NAME}`,
-  description: "서울·경기·인천 기인서테라피 실제 이용 고객 100% 솔직 후기 모음! 엄선된 제휴 샵 이용 만족도, 관리사 실력, 선입금 없는 안심 후불제 리뷰를 확인해 보세요.",
+  description: "서울·경기·인천 꿀마 실제 이용 고객 100% 솔직 후기 모음! 엄선된 제휴 샵 이용 만족도, 관리사 실력, 선입금 없는 안심 후불제 리뷰를 확인해 보세요.",
   keywords: [
-    "기인서테라피 후기",
+    "꿀마 후기",
     "마사지 이용후기",
     "힐링테라피 솔직리뷰",
     "스웨디시 후기",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: `실제 고객 생생후기 | ${SITE_NAME} 검증된 100% 솔직 리뷰`,
     description: "선입금 없는 안심 후불제와 엄선된 프리미엄 케어! 서울·경기·인천 고객님들이 직접 작성한 생생한 피로회복 후기를 만나보세요.",
     url: `${SITE_URL}/reviews`,
-    siteName: `${SITE_NAME} (GIS Massage)`,
+    siteName: `${SITE_NAME} (Kkulma)`,
     locale: "ko_KR",
     type: "website",
     images: [
@@ -50,7 +50,7 @@ const reviews = [
     rate: "★★★★★ 5.0",
     course: "감성 스웨디시 90분",
     badge: "재이용 고객",
-    text: "야근 후에 피로가 심해 기인서테라피에서 신청했는데 안내도 친절하고 빠르게 연결되었어요. 어깨와 목에 뭉친 피로가 싹 풀려서 밤에 정말 꿀잠 잤습니다. 다음에도 다시 이용할 생각입니다!",
+    text: "야근 후에 피로가 심해 꿀마에서 신청했는데 안내도 친절하고 빠르게 연결되었어요. 어깨와 목에 뭉친 피로가 싹 풀려서 밤에 정말 꿀잠 잤습니다. 다음에도 다시 이용할 생각입니다!",
   },
   {
     name: "경기 수원시 영통구 고객님",
@@ -82,7 +82,7 @@ const reviews = [
     rate: "★★★★★ 5.0",
     course: "감성 스웨디시 60분",
     badge: "재이용 고객",
-    text: "타 플랫폼은 선입금 유도가 많아서 불안했는데, 기인서테라피는 확실한 투명 정찰제 및 후불 시스템이라 믿음이 갑니다. 친절하고 프라이빗한 케어 감사합니다.",
+    text: "타 플랫폼은 선입금 유도가 많아서 불안했는데, 꿀마는 확실한 투명 정찰제 및 후불 시스템이라 믿음이 갑니다. 친절하고 프라이빗한 케어 감사합니다.",
   },
 ];
 

@@ -1,20 +1,20 @@
 import Link from 'next/link';
 import type { Metadata } from "next";
 
-const SITE_URL = "https://gis-massage.netlify.app";
-const SITE_NAME = "기인서테라피";
+const SITE_URL = "https://kkulma.netlify.app";
+const SITE_NAME = "꿀마";
 
 export const metadata: Metadata = {
   title: `${SITE_NAME} | 서울 25개 구 전체 지역별 제휴 힐링 테라피 안내`,
-  description: "서울 전 지역(25개 구) 세부 동별 제휴 샵 정보를 편리하게 확인하세요. 기인서테라피에서 쾌적하고 신뢰할 수 있는 웰니스 프로그램을 만나보세요.",
+  description: "서울 전 지역(25개 구) 세부 동별 제휴 출장 마사지 정보를 편리하게 확인하세요. 꿀마에서 쾌적하고 신뢰할 수 있는 웰니스 프로그램을 만나보세요.",
   alternates: {
     canonical: `${SITE_URL}/seoul`,
   },
   openGraph: {
     title: `${SITE_NAME} | 서울 25개 구 전체 지역별 제휴 힐링 테라피`,
-    description: "서울 전 지역(25개 구) 세부 동별 제휴 샵 정보를 편리하게 확인하세요.",
+    description: "서울 전 지역(25개 구) 세부 동별 제휴 출장 마사지 정보를 편리하게 확인하세요.",
     url: `${SITE_URL}/seoul`,
-    siteName: `${SITE_NAME} (GIS Massage)`,
+    siteName: `${SITE_NAME} (Kkulma)`,
     locale: "ko_KR",
     type: "website",
   },
@@ -55,7 +55,7 @@ export default function SeoulRegionPage() {
       <header className="bg-white border-b border-slate-200 sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
           <Link href="/" className="text-xl font-bold text-sky-600">
-            기인서테라피 (GIS Massage)
+            꿀마 (Kkulma)
           </Link>
           <Link href="/" className="text-sm text-slate-500 hover:text-slate-800">
             &larr; 홈으로 돌아가기
@@ -112,8 +112,8 @@ export default function SeoulRegionPage() {
       </section>
 
       <footer className="bg-white border-t border-slate-200 py-8 text-center text-xs text-slate-400 mt-20">
-        <p>© 2026 기인서테라피 (GIS Massage). All rights reserved.</p>
-        <p className="mt-1">도메인: https://gis-massage.netlify.app/seoul/</p>
+        <p>© 2026 꿀마 (Kkulma). All rights reserved.</p>
+        <p className="mt-1">도메인: https://kkulma.netlify.app/seoul/</p>
       </footer>
     </main>
   );

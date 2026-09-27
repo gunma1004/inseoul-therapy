@@ -14,11 +14,11 @@ export default function NavigationHeader() {
         {/* 로고 영역 */}
         <Link href="/" className="flex items-center gap-2.5 group">
           <div className="w-9 h-9 bg-sky-600 rounded-xl flex items-center justify-center text-white font-black text-sm shadow-sm group-hover:scale-105 transition-transform">
-            GIS
+            KM
           </div>
           <div className="flex flex-col">
             <span className="text-lg font-black tracking-tight text-slate-900 leading-none">
-              기인서테라피 <span className="text-xs text-sky-600 font-semibold tracking-normal">GIS Massage</span>
+              꿀마 <span className="text-xs text-sky-600 font-semibold tracking-normal">KKULMA</span>
             </span>
           </div>
         </Link>

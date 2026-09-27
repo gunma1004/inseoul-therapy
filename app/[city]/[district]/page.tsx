@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { regionData } from "@/lib/regions";
-import RandomDistrictShopList from "@/components/RandomDistrictShopList";
 
 interface PageProps {
   params: Promise<{
@@ -10,37 +9,32 @@ interface PageProps {
   }>;
 }
 
-const SITE_URL = "https://gis-massage.netlify.app";
+const SITE_URL = "https://kkulma.netlify.app";
 
-// 🌟 1단: '출장'을 배제한 구 단위 메인 복합 코스 패턴 풀 (18개)
-const districtServicePatterns = [
-  '릴렉스 마사지·홈타이', '소프트스웨디시 마사지·홈타이', '아로마케어 마사지·홈타이',
-  '감성힐링 마사지·홈타이', '프리미엄 마사지·홈타이', '바디케어 마사지·홈타이',
-  '딥티슈이완 마사지·홈타이', '전신힐링 마사지·홈타이', '맞춤형케어 마사지·홈타이',
-  '안심방문 마사지·홈타이', 'VIP스웨디시 마사지·홈타이', '명품테라피 마사지·홈타이',
-  '소프트감성 마사지·홈타이', '림프순환 마사지·홈타이', '포근한힐링 마사지·홈타이',
-  '체형맞춤 마사지·홈타이', '타이스트레칭 마사지·홈타이', '스페셜바디 마사지·홈타이'
-];
-
-// 🌟 2단: 구 단위 안마 예약/안내 패턴 풀 (8개)
 const districtBookingActions = [
-  '안마 예약', '실시간 안마 방문예약', '테라피 코스 예약', '힐링 안마예약',
-  '바디케어 추천예약', '웰니스 안마 안내', '동별 안마 방문안내', '스웨디시 통합예약'
+  '안마 예약', '실시간 방문예약', '테라피 코스 예약', '힐링 안마예약',
+  '바디케어 추천예약', '웰니스 안마 안내', '스웨디시 통합예약', '출장 홈타이 안내'
 ];
 
-// 🌟 3단: 플랫폼 정체성 및 소구 키워드 풀 (8개)
 const districtPlatformHooks = [
-  '기인서테라피', 'GIS 마사지', '안심 웰니스', '1:1 방문케어',
-  '프라이빗 케어', '힐링 네트워크', '안심 후불제', '전신 피로해소'
+  '꿀마', 'KKULMA', '안심 웰니스', '프라이빗 케어',
+  '힐링 네트워크', '안심 후불제', '전신 피로해소', '1:1 맞춤 케어'
 ];
 
-// 🌟 디스크립션 가격 및 소구점 조합 풀
 const priceHooks = [
   '건식 6만원부터 심야할증 없이 방문합니다.',
   '건식 7만원부터 심야할증 없이 방문합니다.',
   '스웨디시 8만원부터 추가비용 없이 방문합니다.',
   '아로마 7만원부터 합리적인 정찰제로 방문합니다.',
   '타이 6만원부터 현장 결제 후불제로 방문합니다.'
+];
+
+const shops = [
+  { id: 1, name: "한국골든테라피", badge: "VIP 골든 힐링 케어", desc: "골든 품격의 감성 릴렉싱! 전문 관리사들의 정성스러운 맞춤 테라피", phone: "0507-1280-3361", image: "/shop1.jpg" },
+  { id: 2, name: "한국미인테라피", badge: "재방문율 최우수", desc: "최고급 천연 오일을 활용한 감성 아로마 전신 바디케어 프로그램", phone: "0507-1280-3303", image: "/shop2.jpg" },
+  { id: 3, name: "주주테라피", badge: "만족도 1위 추천", desc: "재방문율 1위 만족도! 정통 힐링 테라피부터 올인원 VIP 코스까지", phone: "0507-1280-3193", image: "/shop3.jpg" },
+  { id: 4, name: "퀸즈홈테라피", badge: "여왕처럼 누리는 VIP", desc: "여왕처럼 누리는 고품격 테라피! 전문 관리사들의 1:1 맞춤 방문 힐링", phone: "0507-1280-3334", image: "/shop4.jpg" },
+  { id: 5, name: "오늘밤테라피", badge: "야간 힐링 만족 1위", desc: "선입금 없는 100% 후불제! 깊은 밤 지친 하루의 피로를 완벽하게", phone: "0507-1280-3223", image: "/shop5.jpg" }
 ];
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -52,47 +46,27 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   
   const cityName = city.toLowerCase() === "seoul" ? "서울" : city.toLowerCase() === "incheon" ? "인천" : "경기";
   const districtName = districtInfo ? districtInfo.name : district;
-  const locationKeyword = `${cityName} ${districtName}`;
 
-  const seedString = `${locationKeyword}-${district.toLowerCase()}-gis-district-careplace-style-seo`;
+  const seedString = `${cityName}-${district.toLowerCase()}-kkulma-district-seo`;
   const charSum = seedString.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
   
-  const part1Idx = charSum % districtServicePatterns.length;
   const part2Idx = (charSum * 3) % districtBookingActions.length;
   const part3Idx = (charSum * 5) % districtPlatformHooks.length;
   const priceIdx = (charSum * 7) % priceHooks.length;
 
-  // 💡 [서초구 릴렉스 마사지·홈타이 | 서초구 안마 예약 | 기인서테라피] 형식 (약 45~50자)
-  const finalTitle = `${districtName} ${districtServicePatterns[part1Idx]} | ${districtName} ${districtBookingActions[part2Idx]} | ${districtPlatformHooks[part3Idx]}`;
+  // 💡 [강남구 마사지 | 강남구 안마 예약 | 꿀마] 형식
+  const finalTitle = `${districtName} 마사지 | ${districtName} ${districtBookingActions[part2Idx]} | ${districtPlatformHooks[part3Idx]}`;
   
-  // 💡 [서울 서초구 마사지·홈타이·안마. 검증된 전문 관리사 100% 후불제. 건식 7만원부터 심야할증 없이 방문합니다.] 형식
-  const finalDescription = `${locationKeyword} 마사지·홈타이·안마. 검증된 전문 관리사 100% 후불제. ${priceHooks[priceIdx]}`;
+  // 💡 [강남구 출장 마사지 및 홈타이...] 형식으로 강제 시작
+  const finalDescription = `${districtName} 출장 마사지 및 프리미엄 홈타이 전문. 검증된 관리사의 100% 후불제 안심 케어. ${priceHooks[priceIdx]}`;
 
   return {
     metadataBase: new URL(SITE_URL),
-    title: {
-      absolute: finalTitle,
-    },
+    title: { absolute: finalTitle },
     description: finalDescription,
-    alternates: {
-      canonical: `${SITE_URL}/${city}/${district}`,
-    },
-    keywords: [
-      `${locationKeyword} 마사지`,
-      `${districtName} 홈타이`,
-      `${districtName} 스웨디시`,
-      `${districtName} 안마`,
-      `${locationKeyword} 아로마마사지`,
-      `${locationKeyword} 타이마사지`,
-      "기인서테라피"
-    ],
-    openGraph: {
-      title: finalTitle,
-      description: finalDescription,
-      url: `${SITE_URL}/${city}/${district}`,
-      locale: "ko_KR",
-      type: "website",
-    },
+    alternates: { canonical: `${SITE_URL}/${city}/${district}` },
+    keywords: [`${districtName} 마사지`, `${districtName} 출장마사지`, `${districtName} 홈타이`, `${districtName} 스웨디시`, "꿀마"],
+    openGraph: { title: finalTitle, description: finalDescription, url: `${SITE_URL}/${city}/${district}`, locale: "ko_KR", type: "website" },
   };
 }
 
@@ -106,21 +80,13 @@ export default async function DistrictPage({ params }: PageProps) {
   const districtName = districtInfo ? districtInfo.name : district;
   const fullTitle = `${cityName} ${districtName}`;
 
-  const shops = [
-    { id: 1, name: `✨ ${fullTitle} 제휴 웰니스 테라피 1호점`, desc: "고품격 릴렉싱 & 딥티슈 피로회복! 전문 테라피스트의 품격 있는 1:1 맞춤 바디케어", phone: "0507-1280-3361", price: "맞춤 코스별 상이", image: "/shop1.jpg" },
-    { id: 2, name: `🌸 ${fullTitle} 제휴 아로마 케어 2호점`, desc: "최고급 천연 오일을 활용한 감성 아로마 전신 바디케어 프로그램", phone: "0507-1280-3303", price: "맞춤 코스별 상이", image: "/shop2.jpg" },
-    { id: 3, name: `💎 ${fullTitle} 제휴 프리미엄 3호점`, desc: "재방문율 높은 만족도! 철저한 위생 관리와 프라이빗 힐링 바디케어 서비스 제공", phone: "0507-1280-3193", price: "맞춤 코스별 상이", image: "/shop3.jpg" },
-    { id: 4, name: `👑 ${fullTitle} 제휴 바디케어 4호점`, desc: "품격 있게 누리는 휴식 공간! 전문 힐러들의 체형 맞춤형 피로회복 특화 프로그램", phone: "0507-1280-3334", price: "맞춤 코스별 상이", image: "/shop4.jpg" },
-    { id: 5, name: `🌙 ${fullTitle} 제휴 힐링 스팟 5호점`, desc: "엄선된 우수 제휴점! 수도권 전지역 쾌적하고 편안한 힐링 바디케어", phone: "0507-1280-3223", price: "맞춤 코스별 상이", image: "/shop5.jpg" }
-  ];
-
   return (
     <div className="bg-slate-50 text-slate-800 min-h-screen flex flex-col font-sans selection:bg-sky-500 selection:text-white">
       <header className="bg-white border-b border-slate-200 sticky top-0 z-40 px-4 py-3 shadow-sm">
         <div className="max-w-4xl mx-auto flex justify-between items-center">
-          <Link href="/" className="text-xl font-bold text-sky-600">Wellness Guide</Link>
-          <Link href="/" className="text-xs font-bold text-sky-600 bg-sky-50 px-3 py-1.5 rounded-xl border border-sky-100 hover:bg-sky-600 hover:text-white transition-all">
-            &larr; 메인 홈으로
+          <Link href="/" className="text-xl font-bold text-sky-600">꿀마 (Kkulma)</Link>
+          <Link href={`/${city}`} className="text-xs font-bold text-sky-600 bg-sky-50 px-3 py-1.5 rounded-xl border border-sky-100 hover:bg-sky-600 hover:text-white transition-all">
+            &larr; {cityName} 지역으로
           </Link>
         </div>
       </header>
@@ -128,9 +94,9 @@ export default async function DistrictPage({ params }: PageProps) {
       <main className="max-w-4xl mx-auto px-4 py-8 w-full flex-1 space-y-10">
         <section className="relative rounded-3xl overflow-hidden border border-slate-200 shadow-sm bg-gradient-to-b from-slate-900 to-slate-800 p-8 text-white space-y-3">
           <span className="text-sky-400 text-xs font-black tracking-widest uppercase">LOCAL HEALING GUIDE</span>
-          <h1 className="text-2xl md:text-4xl font-black">{fullTitle} 프리미엄 힐링 테라피 안내</h1>
+          <h1 className="text-2xl md:text-4xl font-black">{districtName} 출장 마사지 & 프리미엄 테라피</h1>
           <p className="text-xs md:text-sm text-slate-300 max-w-xl leading-relaxed">
-            {fullTitle} 고객님을 위한 엄선된 테라피 및 에스테틱 바디케어 제휴 샵 안내입니다. 검증된 프로그램과 투명한 정보를 확인해 보세요.
+            {districtName} 고객님을 위한 엄선된 출장 테라피 제휴 샵 안내입니다. 빠르고 편안한 방문 케어를 경험해 보세요.
           </p>
         </section>
 
@@ -154,8 +120,35 @@ export default async function DistrictPage({ params }: PageProps) {
           </section>
         )}
 
-        {/* 클라이언트 셔플 컴포넌트 호출 */}
-        <RandomDistrictShopList shops={shops} fullTitle={fullTitle} city={city} district={district} />
+        {/* 추천 제휴샵 5곳 리스트 */}
+        <section className="bg-white border border-slate-200 p-6 rounded-3xl space-y-4 shadow-sm">
+          <div className="text-center">
+            <span className="text-sky-600 text-xs font-bold tracking-widest uppercase">TOP PARTNER SHOPS</span>
+            <h3 className="text-base md:text-xl font-black text-slate-900 mt-1">
+              ✨ {districtName} BEST 추천 제휴 샵
+            </h3>
+          </div>
+          <div className="grid grid-cols-1 gap-3">
+            {shops.map((s) => (
+              <div key={s.id} className="p-4 rounded-2xl border bg-slate-50 border-slate-200 hover:border-sky-300 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all">
+                <div className="flex items-center gap-3.5 min-w-0">
+                  <img src={s.image} alt={s.name} className="w-14 h-14 rounded-xl object-cover shrink-0 border border-slate-200" />
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-2">
+                      <span className="font-extrabold text-sm text-slate-900 truncate">{s.name}</span>
+                    </div>
+                    <p className="text-[11px] text-slate-500 truncate mt-0.5">{s.desc}</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 shrink-0">
+                  <a href={`tel:${s.phone}`} className="px-3.5 py-2 rounded-xl text-xs font-bold bg-sky-600 text-white shadow-xs hover:bg-sky-700 transition-all">
+                    📞 전화 예약
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
       </main>
     </div>
   );
