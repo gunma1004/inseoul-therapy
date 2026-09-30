@@ -58,25 +58,8 @@ const shopDatabase: Record<string, {
     image: "/shop1.jpg",
     desc: "골든 품격의 감성 릴렉싱! 전문 관리사들의 정성스러운 맞춤 테라피로 일상의 피로를 완벽하게 해소해 드립니다.",
     courses: [
-      {
-        category: "스웨디시 코스",
-        badge: "인기 추천",
-        desc: "부드럽고 섬세한 터치로 전신의 피로를 깊이 있게 이완해 주는 프리미엄 스웨디시 케어.",
-        items: [
-          { time: "60분", price: "140,000원" },
-          { time: "90분", price: "190,000원", recommend: true }
-        ]
-      },
-      {
-        category: "프리미엄 코스",
-        badge: "시그니처",
-        desc: "만족도 높은 힐링 테크닉으로 전신의 활력을 되찾아주는 맞춤형 바디케어.",
-        items: [
-          { time: "60분", price: "110,000원" },
-          { time: "90분", price: "130,000원", recommend: true },
-          { time: "120분", price: "150,000원" }
-        ]
-      }
+      { category: "스웨디시 코스", badge: "인기 추천", desc: "부드럽고 섬세한 터치로 전신의 피로를 깊이 있게 이완해 주는 프리미엄 스웨디시 케어.", items: [{ time: "60분", price: "140,000원" }, { time: "90분", price: "190,000원", recommend: true }] },
+      { category: "프리미엄 코스", badge: "시그니처", desc: "만족도 높은 힐링 테크닉으로 전신의 활력을 되찾아주는 맞춤형 바디케어.", items: [{ time: "60분", price: "110,000원" }, { time: "90분", price: "130,000원", recommend: true }, { time: "120분", price: "150,000원" }] }
     ]
   },
   "2": {
@@ -86,33 +69,9 @@ const shopDatabase: Record<string, {
     image: "/shop2.jpg",
     desc: "최고급 천연 오일을 활용한 감성 아로마 전신 바디케어 프로그램 및 스웨디시 제휴 샵.",
     courses: [
-      {
-        category: "아로디시 코스",
-        desc: "부드러운 아로마 감성과 힐링 케어를 동시에 즐길 수 있는 실속 프로그램.",
-        items: [
-          { time: "90분", price: "100,000원" },
-          { time: "120분", price: "130,000원", recommend: true }
-        ]
-      },
-      {
-        category: "VIP 스웨디시 코스",
-        badge: "인기 추천",
-        desc: "고급 오일과 깊은 이완 테크닉으로 최고의 휴식을 선사하는 프리미엄 케어.",
-        items: [
-          { time: "60분", price: "110,000원" },
-          { time: "90분", price: "130,000원", recommend: true },
-          { time: "120분", price: "150,000원" }
-        ]
-      },
-      {
-        category: "한국인 스웨디시 코스",
-        badge: "BEST",
-        desc: "한국인 전문 관리사의 섬세하고 수준 높은 프리미엄 맞춤 테라피.",
-        items: [
-          { time: "60분", price: "140,000원" },
-          { time: "90분", price: "180,000원", recommend: true }
-        ]
-      }
+      { category: "아로디시 코스", desc: "부드러운 아로마 감성과 힐링 케어를 동시에 즐길 수 있는 실속 프로그램.", items: [{ time: "90분", price: "100,000원" }, { time: "120분", price: "130,000원", recommend: true }] },
+      { category: "VIP 스웨디시 코스", badge: "인기 추천", desc: "고급 오일과 깊은 이완 테크닉으로 최고의 휴식을 선사하는 프리미엄 케어.", items: [{ time: "60분", price: "110,000원" }, { time: "90분", price: "130,000원", recommend: true }, { time: "120분", price: "150,000원" }] },
+      { category: "한국인 스웨디시 코스", badge: "BEST", desc: "한국인 전문 관리사의 섬세하고 수준 높은 프리미엄 맞춤 테라피.", items: [{ time: "60분", price: "140,000원" }, { time: "90분", price: "180,000원", recommend: true }] }
     ]
   },
   "3": {
@@ -122,60 +81,12 @@ const shopDatabase: Record<string, {
     image: "/shop3.jpg",
     desc: "재방문율 1위 만족도! 정통 타이 마사지부터 올인원 VIP 코스까지 체계적인 프로그램.",
     courses: [
-      {
-        category: "타이코스",
-        desc: "뭉치고 굳은 전신 근육을 시원하게 풀어주는 정통 스트레칭 마사지.",
-        items: [
-          { time: "60분", price: "60,000원" },
-          { time: "90분", price: "80,000원", recommend: true },
-          { time: "120분", price: "100,000원" }
-        ]
-      },
-      {
-        category: "전신아로마",
-        desc: "고급 천연 오일로 피로와 긴장을 부드럽게 완화시켜주는 전신 릴렉스 케어.",
-        items: [
-          { time: "60분", price: "70,000원" },
-          { time: "90분", price: "90,000원", recommend: true },
-          { time: "120분", price: "110,000원" }
-        ]
-      },
-      {
-        category: "VIP 감성힐링코스",
-        badge: "★추천",
-        desc: "감각적이고 섬세한 터치로 깊은 이완과 힐링을 선사하는 인기 코스.",
-        items: [
-          { time: "60분", price: "90,000원" },
-          { time: "90분", price: "110,000원", recommend: true },
-          { time: "120분", price: "130,000원" }
-        ]
-      },
-      {
-        category: "VIP 스페셜코스",
-        badge: "★추천",
-        desc: "더욱 품격 있고 여유로운 휴식을 완성하는 프리미엄 스페셜 관리.",
-        items: [
-          { time: "60분", price: "100,000원" },
-          { time: "90분", price: "120,000원", recommend: true },
-          { time: "120분", price: "140,000원" }
-        ]
-      },
-      {
-        category: "VIP 프리미엄 코스",
-        desc: "타이 & 아로마 & 풋코스를 모두 즐길 수 있는 올인원 150분 힐링.",
-        items: [
-          { time: "150분", price: "160,000원", recommend: true }
-        ]
-      },
-      {
-        category: "한국인스웨디시",
-        badge: "BEST",
-        desc: "한국인 전문 관리사의 세심한 터치로 완성되는 최고급 스웨디시.",
-        items: [
-          { time: "60분", price: "140,000원" },
-          { time: "90분", price: "180,000원", recommend: true }
-        ]
-      }
+      { category: "타이코스", desc: "뭉치고 굳은 전신 근육을 시원하게 풀어주는 정통 스트레칭 마사지.", items: [{ time: "60분", price: "60,000원" }, { time: "90분", price: "80,000원", recommend: true }, { time: "120분", price: "100,000원" }] },
+      { category: "전신아로마", desc: "고급 천연 오일로 피로와 긴장을 부드럽게 완화시켜주는 전신 릴렉스 케어.", items: [{ time: "60분", price: "70,000원" }, { time: "90분", price: "90,000원", recommend: true }, { time: "120분", price: "110,000원" }] },
+      { category: "VIP 감성힐링코스", badge: "★추천", desc: "감각적이고 섬세한 터치로 깊은 이완과 힐링을 선사하는 인기 코스.", items: [{ time: "60분", price: "90,000원" }, { time: "90분", price: "110,000원", recommend: true }, { time: "120분", price: "130,000원" }] },
+      { category: "VIP 스페셜코스", badge: "★추천", desc: "더욱 품격 있고 여유로운 휴식을 완성하는 프리미엄 스페셜 관리.", items: [{ time: "60분", price: "100,000원" }, { time: "90분", price: "120,000원", recommend: true }, { time: "120분", price: "140,000원" }] },
+      { category: "VIP 프리미엄 코스", desc: "타이 & 아로마 & 풋코스를 모두 즐길 수 있는 올인원 150분 힐링.", items: [{ time: "150분", price: "160,000원", recommend: true }] },
+      { category: "한국인스웨디시", badge: "BEST", desc: "한국인 전문 관리사의 세심한 터치로 완성되는 최고급 스웨디시.", items: [{ time: "60분", price: "140,000원" }, { time: "90분", price: "180,000원", recommend: true }] }
     ]
   },
   "4": {
@@ -185,53 +96,11 @@ const shopDatabase: Record<string, {
     image: "/shop4.jpg",
     desc: "여왕처럼 누리는 고품격 테라피! 전문 관리사들의 품격 있는 1:1 맞춤 방문 힐링 서비스.",
     courses: [
-      {
-        category: "건식 힐링 코스",
-        desc: "오일 없이 건식 지압과 스트레칭으로 굳은 전신 근육을 시원하게 풀어주는 코스.",
-        items: [
-          { time: "60분", price: "60,000원" },
-          { time: "90분", price: "80,000원", recommend: true },
-          { time: "120분", price: "100,000원" }
-        ]
-      },
-      {
-        category: "아로마 힐링 코스",
-        desc: "고급 아로마 오일을 사용하여 뭉친 피로를 부드럽게 이완시키는 방문 케어.",
-        items: [
-          { time: "60분", price: "70,000원" },
-          { time: "90분", price: "80,000원", recommend: true },
-          { time: "120분", price: "100,000원" }
-        ]
-      },
-      {
-        category: "힐링스웨디시 코스",
-        badge: "인기",
-        desc: "부드럽고 감성적인 오일 테라피로 심신의 안정을 찾아주는 스웨디시.",
-        items: [
-          { time: "60분", price: "80,000원" },
-          { time: "90분", price: "100,000원", recommend: true },
-          { time: "120분", price: "120,000원" }
-        ]
-      },
-      {
-        category: "VIP스페셜코스",
-        badge: "★추천",
-        desc: "최고의 만족감을 선사하는 고품격 프리미엄 맞춤 스페셜 케어.",
-        items: [
-          { time: "60분", price: "100,000원" },
-          { time: "90분", price: "120,000원", recommend: true },
-          { time: "120분", price: "150,000원" }
-        ]
-      },
-      {
-        category: "한국 관리사 코스",
-        badge: "BEST",
-        desc: "한국인 관리사의 전문적인 손길로 진행되는 맞춤형 프리미엄 코스.",
-        items: [
-          { time: "60분", price: "150,000원" },
-          { time: "90분", price: "180,000원", recommend: true }
-        ]
-      }
+      { category: "건식 힐링 코스", desc: "오일 없이 건식 지압과 스트레칭으로 굳은 전신 근육을 시원하게 풀어주는 코스.", items: [{ time: "60분", price: "60,000원" }, { time: "90분", price: "80,000원", recommend: true }, { time: "120분", price: "100,000원" }] },
+      { category: "아로마 힐링 코스", desc: "고급 아로마 오일을 사용하여 뭉친 피로를 부드럽게 이완시키는 방문 케어.", items: [{ time: "60분", price: "70,000원" }, { time: "90분", price: "80,000원", recommend: true }, { time: "120분", price: "100,000원" }] },
+      { category: "힐링스웨디시 코스", badge: "인기", desc: "부드럽고 감성적인 오일 테라피로 심신의 안정을 찾아주는 스웨디시.", items: [{ time: "60분", price: "80,000원" }, { time: "90분", price: "100,000원", recommend: true }, { time: "120분", price: "120,000원" }] },
+      { category: "VIP스페셜코스", badge: "★추천", desc: "최고의 만족감을 선사하는 고품격 프리미엄 맞춤 스페셜 케어.", items: [{ time: "60분", price: "100,000원" }, { time: "90분", price: "120,000원", recommend: true }, { time: "120분", price: "150,000원" }] },
+      { category: "한국 관리사 코스", badge: "BEST", desc: "한국인 관리사의 전문적인 손길로 진행되는 맞춤형 프리미엄 코스.", items: [{ time: "60분", price: "150,000원" }, { time: "90분", price: "180,000원", recommend: true }] }
     ]
   },
   "5": {
@@ -241,60 +110,12 @@ const shopDatabase: Record<string, {
     image: "/shop5.jpg",
     desc: "선입금 없는 100% 후불제! 깊은 밤 지친 하루의 피로를 타이부터 스웨디시까지 완벽하게 날려버리세요.",
     courses: [
-      {
-        category: "타이코스",
-        desc: "오일 없이 정통 건식 지압과 스트레칭으로 피로를 시원하게 해소.",
-        items: [
-          { time: "60분", price: "60,000원" },
-          { time: "90분", price: "80,000원", recommend: true },
-          { time: "120분", price: "100,000원" }
-        ]
-      },
-      {
-        category: "전신아로마",
-        desc: "천연 오일의 부드러움으로 전신을 편안하게 이완시켜주는 아로마 케어.",
-        items: [
-          { time: "60분", price: "70,000원" },
-          { time: "90분", price: "90,000원", recommend: true },
-          { time: "120분", price: "110,000원" }
-        ]
-      },
-      {
-        category: "VIP 감성힐링코스",
-        badge: "★추천",
-        desc: "섬세하고 감각적인 터치로 깊은 힐링을 선사하는 인기 코스.",
-        items: [
-          { time: "60분", price: "90,000원" },
-          { time: "90분", price: "110,000원", recommend: true },
-          { time: "120분", price: "130,000원" }
-        ]
-      },
-      {
-        category: "VIP 스페셜코스",
-        badge: "★추천",
-        desc: "완벽한 휴식을 위한 고품격 프리미엄 스페셜 관리 프로그램.",
-        items: [
-          { time: "60분", price: "100,000원" },
-          { time: "90분", price: "120,000원", recommend: true },
-          { time: "120분", price: "140,000원" }
-        ]
-      },
-      {
-        category: "VIP 프리미엄 코스",
-        desc: "타이 & 아로마 & 풋코스를 종합적으로 즐기는 150분 올인원 코스.",
-        items: [
-          { time: "150분", price: "160,000원", recommend: true }
-        ]
-      },
-      {
-        category: "한국인스웨디시",
-        badge: "BEST",
-        desc: "한국인 전문 관리사의 디테일하고 품격 있는 스웨디시 테라피.",
-        items: [
-          { time: "60분", price: "140,000원" },
-          { time: "90분", price: "180,000원", recommend: true }
-        ]
-      }
+      { category: "타이코스", desc: "오일 없이 정통 건식 지압과 스트레칭으로 피로를 시원하게 해소.", items: [{ time: "60분", price: "60,000원" }, { time: "90분", price: "80,000원", recommend: true }, { time: "120분", price: "100,000원" }] },
+      { category: "전신아로마", desc: "천연 오일의 부드러움으로 전신을 편안하게 이완시켜주는 아로마 케어.", items: [{ time: "60분", price: "70,000원" }, { time: "90분", price: "90,000원", recommend: true }, { time: "120분", price: "110,000원" }] },
+      { category: "VIP 감성힐링코스", badge: "★추천", desc: "섬세하고 감각적인 터치로 깊은 힐링을 선사하는 인기 코스.", items: [{ time: "60분", price: "90,000원" }, { time: "90분", price: "110,000원", recommend: true }, { time: "120분", price: "130,000원" }] },
+      { category: "VIP 스페셜코스", badge: "★추천", desc: "완벽한 휴식을 위한 고품격 프리미엄 스페셜 관리 프로그램.", items: [{ time: "60분", price: "100,000원" }, { time: "90분", price: "120,000원", recommend: true }, { time: "120분", price: "140,000원" }] },
+      { category: "VIP 프리미엄 코스", desc: "타이 & 아로마 & 풋코스를 종합적으로 즐기는 150분 올인원 코스.", items: [{ time: "150분", price: "160,000원", recommend: true }] },
+      { category: "한국인스웨디시", badge: "BEST", desc: "한국인 전문 관리사의 디테일하고 품격 있는 스웨디시 테라피.", items: [{ time: "60분", price: "140,000원" }, { time: "90분", price: "180,000원", recommend: true }] }
     ]
   }
 };
@@ -313,7 +134,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   
   const locationKeyword = `${cityName} ${districtName} ${dongName}`;
 
-  // 🌟 순차적 인덱스 계산 (shop.id 반영 -> 1~5번 샵 간 고유 조합 보장)
   const seedString = `${locationKeyword}-${id}-kkulma-dong-shop-seo`;
   const charSum = seedString.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
   
@@ -321,10 +141,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const part2Idx = (charSum * 3) % districtBookingActions.length;
   const priceIdx = (charSum * 7) % priceHooks.length;
 
-  // 💡 [동 출장 릴렉스 마사지·홈타이 | 서초구 안마 예약 | 꿀마] 형식 (약 45~50자)
   const formattedTitle = `${dongName} 출장 ${shopActionModifiers[part1Idx]} | ${districtName} ${districtBookingActions[part2Idx]} | 꿀마`;
-  
-  // 💡 [서울 서초구 양재동 출장 마사지·홈타이·안마. 검증된 전문 관리사 100% 후불제. 건식 7만원부터 심야할증 없이 방문합니다.] 형식
   const formattedDesc = `${locationKeyword} 출장 마사지·홈타이·안마. 검증된 전문 관리사 100% 후불제. ${priceHooks[priceIdx]}`;
 
   return {
@@ -356,6 +173,38 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
+// 🌟 네이버 SEO용 고유 샵 상세 소개 및 FAQ 생성기
+function getUniqueShopContent(dongName: string, shopName: string, shopDesc: string, shopId: string) {
+  const seed = `${dongName}-${shopName}-${shopId}`;
+  let hash = 0;
+  for (let i = 0; i < seed.length; i++) {
+    hash = seed.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  const absHash = Math.abs(hash);
+
+  const extros = [
+    `${dongName} 지역을 중심으로 빠르고 정확한 방문 시스템을 자랑하는 ${shopName}입니다. ${shopDesc} 바쁜 일상 속에 쌓인 스트레스와 피로를 풀고 싶으실 때, 언제 어디서든 전화 한 통이면 내 집이 최고급 힐링 공간으로 변신합니다.`,
+    `${shopName}은(는) ${dongName} 내 최고 수준의 테라피스트들로 구성된 프리미엄 홈케어 제휴 샵입니다. ${shopDesc} 쾌적하고 위생적인 관리 시스템과 체계화된 코스 매뉴얼을 통해 고객님의 컨디션에 딱 맞는 최적의 릴렉싱 타임을 선사합니다.`,
+    `프라이빗한 공간에서 누리는 완벽한 휴식, ${dongName} 대표 힐링 명소 ${shopName}에 오신 것을 환영합니다. ${shopDesc} 100% 현장 결제 시스템으로 운영되어 예약금 사기 걱정 없이 안심하고 부르실 수 있으며, 내상 없는 정직한 관리로 단골 만족도가 매우 높습니다.`
+  ];
+
+  const faqs = [
+    [
+      { q: `${shopName}의 방문 소요 시간은 어떻게 되나요?`, a: `현재 고객님이 계신 ${dongName} 인근 지역이라면 배차 확인 후 통상 30분 전후로 신속하게 방문드리고 있습니다.` },
+      { q: `결제는 현장에서 카드로도 가능한가요?`, a: `네, 현금 결제는 물론 계좌 이체와 카드 결제 모두 가능합니다. 100% 후불제이므로 관리사 도착 후 편하신 방법으로 결제하시면 됩니다.` }
+    ],
+    [
+      { q: `${shopName} 관리사님들의 실력은 어떤가요?`, a: `저희 샵의 모든 테라피스트는 체계적인 마사지 교육 과정을 이수한 20대 전문 한국인 관리사들로, 압 조절부터 감성 케어까지 완벽한 스킬을 보유하고 있습니다.` },
+      { q: `늦은 새벽 시간에도 ${dongName}으로 예약이 되나요?`, a: `네, 365일 24시간 연중무휴로 운영되고 있어 심야나 새벽 늦은 시간에도 할증 없이 정찰제로 편안하게 이용하실 수 있습니다.` }
+    ]
+  ];
+
+  return {
+    intro: extros[absHash % extros.length],
+    faq: faqs[absHash % faqs.length]
+  };
+}
+
 export default async function DongShopDetailPage({ params }: PageProps) {
   const resolvedParams = await params;
   const { city, district, dong, id } = resolvedParams;
@@ -370,6 +219,9 @@ export default async function DongShopDetailPage({ params }: PageProps) {
 
   const fullLocation = `${cityName} ${districtName} ${dongName}`;
   const displayShopTitle = `${fullLocation} 출장 방문 마사지 - ${shop.name}`;
+
+  // 🌟 고유 소개글 및 FAQ 데이터 생성
+  const uniqueContent = getUniqueShopContent(dongName, shop.name, shop.desc, id);
 
   const allShopsList = Object.entries(shopDatabase).map(([sId, sVal]) => ({
     id: sId,
@@ -398,7 +250,7 @@ export default async function DongShopDetailPage({ params }: PageProps) {
   };
 
   return (
-    <div className="bg-slate-50 text-slate-800 min-h-screen flex flex-col font-sans pb-28">
+    <div className="bg-slate-50 text-slate-800 min-h-screen flex flex-col font-sans pb-28 selection:bg-sky-500 selection:text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -426,50 +278,24 @@ export default async function DongShopDetailPage({ params }: PageProps) {
               📍 {fullLocation} 방문 제휴처
             </span>
             <h1 className="text-xl md:text-3xl font-black text-slate-900 leading-tight">{displayShopTitle}</h1>
-            <p className="text-xs md:text-sm text-slate-600 leading-relaxed bg-slate-50 p-4 rounded-2xl border border-slate-100">{shop.desc}</p>
+            
+            {/* 🌟 SEO 텍스트 고유화를 위해 생성한 서술형 단락 렌더링 */}
+            <div className="text-xs md:text-sm text-slate-600 leading-relaxed bg-slate-50 p-4 md:p-5 rounded-2xl border border-slate-100 break-keep text-justify">
+              <p>{uniqueContent.intro}</p>
+            </div>
           </div>
         </section>
 
-        {/* 전체 제휴 샵 목록 보기 카드 섹션 */}
-        <section className="bg-white border border-slate-200 p-6 rounded-3xl space-y-4 shadow-sm">
-          <div className="text-center">
-            <span className="text-sky-600 text-xs font-bold tracking-widest uppercase">PARTNER SHOPS IN {dongName}</span>
-            <h3 className="text-base md:text-xl font-black text-slate-900 mt-1">
-              ✨ {fullLocation} 추천 제휴 샵 (총 5곳)
-            </h3>
-          </div>
-          <div className="grid grid-cols-1 gap-3">
-            {allShopsList.map((s) => (
-              <div 
-                key={s.id} 
-                className={`p-4 rounded-2xl border flex items-center justify-between gap-4 transition-all ${
-                  s.active 
-                    ? "bg-sky-50/60 border-sky-400 shadow-xs" 
-                    : "bg-slate-50 border-slate-200 hover:border-sky-300"
-                }`}
-              >
-                <div className="flex items-center gap-3.5 min-w-0">
-                  <img src={s.image} alt={s.name} className="w-14 h-14 rounded-xl object-cover shrink-0 border border-slate-200" />
-                  <div className="min-w-0">
-                    <div className="flex items-center gap-2">
-                      <span className="font-extrabold text-sm text-slate-900 truncate">{s.name}</span>
-                      {s.active && <span className="text-[10px] bg-sky-600 text-white font-bold px-2 py-0.5 rounded-full">선택됨</span>}
-                    </div>
-                    <p className="text-[11px] text-slate-500 truncate mt-0.5">{s.desc}</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2 shrink-0">
-                  <Link
-                    href={`/${city}/${district}/${dong}/shop/${s.id}`}
-                    className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all ${
-                      s.active
-                        ? "bg-sky-600 text-white shadow-xs"
-                        : "bg-white text-slate-700 border border-slate-200 hover:bg-sky-600 hover:text-white hover:border-sky-600"
-                    }`}
-                  >
-                    {s.active ? "안내 보기" : "샵 선택"}
-                  </Link>
-                </div>
+        {/* 🌟 SEO 점수 상승을 위한 샵 전용 고유 FAQ 섹션 */}
+        <section className="bg-white border border-slate-200 p-6 md:p-8 rounded-3xl space-y-5 shadow-sm">
+          <h3 className="text-base md:text-lg font-black text-slate-900 flex items-center gap-2">
+            <span className="text-sky-500">💡</span> {shop.name} 매장 이용 FAQ
+          </h3>
+          <div className="space-y-4">
+            {uniqueContent.faq.map((item, idx) => (
+              <div key={idx} className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                <p className="font-bold text-sm text-sky-700 mb-1.5">Q. {item.q}</p>
+                <p className="text-xs md:text-sm text-slate-600 leading-relaxed">A. {item.a}</p>
               </div>
             ))}
           </div>
@@ -500,6 +326,51 @@ export default async function DongShopDetailPage({ params }: PageProps) {
                       <span className="text-sm font-black text-sky-600">{item.price}</span>
                     </div>
                   ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* 전체 제휴 샵 목록 보기 카드 섹션 */}
+        <section className="bg-white border border-slate-200 p-6 rounded-3xl space-y-4 shadow-sm">
+          <div className="text-center">
+            <span className="text-sky-600 text-xs font-bold tracking-widest uppercase">PARTNER SHOPS IN {dongName}</span>
+            <h3 className="text-base md:text-xl font-black text-slate-900 mt-1">
+              ✨ {fullLocation} 추천 제휴 샵 (총 5곳)
+            </h3>
+          </div>
+          <div className="grid grid-cols-1 gap-3">
+            {allShopsList.map((s) => (
+              <div 
+                key={s.id} 
+                className={`p-4 rounded-2xl border flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all ${
+                  s.active 
+                    ? "bg-sky-50/60 border-sky-400 shadow-xs" 
+                    : "bg-slate-50 border-slate-200 hover:border-sky-300"
+                }`}
+              >
+                <div className="flex items-center gap-3.5 min-w-0">
+                  <img src={s.image} alt={s.name} className="w-14 h-14 rounded-xl object-cover shrink-0 border border-slate-200" />
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-2">
+                      <span className="font-extrabold text-sm text-slate-900 truncate">{s.name}</span>
+                      {s.active && <span className="text-[10px] bg-sky-600 text-white font-bold px-2 py-0.5 rounded-full">선택됨</span>}
+                    </div>
+                    <p className="text-[11px] text-slate-500 truncate mt-0.5">{s.desc}</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 shrink-0 mt-2 sm:mt-0">
+                  <Link
+                    href={`/${city}/${district}/${dong}/shop/${s.id}`}
+                    className={`w-full sm:w-auto px-4 py-2 text-center rounded-xl text-xs font-bold transition-all ${
+                      s.active
+                        ? "bg-sky-600 text-white shadow-xs"
+                        : "bg-white text-slate-700 border border-slate-200 hover:bg-sky-600 hover:text-white hover:border-sky-600"
+                    }`}
+                  >
+                    {s.active ? "안내 보기" : "샵 선택 &rarr;"}
+                  </Link>
                 </div>
               </div>
             ))}

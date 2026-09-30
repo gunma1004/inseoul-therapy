@@ -13,7 +13,7 @@ interface PageProps {
 const SITE_URL = "https://kkulma.netlify.app";
 const SITE_NAME = "꿀마 (KKULMA)";
 
-// 🌟 타이틀용 100개 순차 패턴 ('마사지 마사지' 중복 배제 및 다채로운 키워드)
+// 🌟 타이틀용 100개 순차 패턴
 const title100Patterns = [
   "출장 건식 마사지 & 힐링 케어 | 안심 예약 안내",
   "출장 스웨디시 & 프리미엄 테라피 | 100% 안심 후불제",
@@ -64,60 +64,10 @@ const title100Patterns = [
   "출장 힐링 바디 리셋 마사지 | 전신 피로해소",
   "출장 엑스퍼트 테라피 케어 | 검증된 관리사 매칭",
   "출장 프리미엄 딥티슈 코스 | 섬세한 바디 힐링",
-  "출장 감성 릴렉싱 마사지 예약 | 1:1 후불제 방문",
-  "출장 밸런스드 아로마 테라피 | 심신 안정 프로그램",
-  "출장 디럭스 스웨디시 마사지 | 최고급 VIP 코스",
-  "출장 리프레시 타이 테라피 | 경직된 근육 완화",
-  "출장 프로페셔널 바디 마사지 | 고객 만족 맞춤 케어",
-  "출장 시그니처 아로마 테라피 | 천연 오일 전신 코스",
-  "출장 프라이빗 힐링 케어 예약 | 신속 방문 시스템",
-  "출장 소프트 릴렉스 마사지 코스 | 부드러운 전신 힐링",
-  "출장 하이엔드 테라피 서비스 | 감성 스웨디시 안내",
-  "출장 바디 리바이탈 마사지 | 활력 넘치는 테라피",
-  "출장 슬로우 힐링 아로마 케어 | 편안한 휴식 보장",
-  "출장 올데이 안심 마사지 예약 | 언제나 신속 방문",
-  "출장 럭스 스웨디시 테라피 | 품격 있는 바디 힐링",
-  "출장 모빌리티 스트레칭 코스 | 전신 유연성 케어",
-  "출장 에센셜 오일 마사지 예약 | 감성 아로마 테라피",
-  "출장 이지 케어 홈타이 안내 | 부담 없는 정찰제",
-  "출장 풀바디 릴렉싱 테라피 | 피로 싹 풀리는 코스",
-  "출장 딥 릴리프 마사지 코스 | 깊은 휴식을 주는 케어",
-  "출장 힐링 아우라 스웨디시 | 감성 만족 프리미엄",
-  "출장 밸런싱 바디 테라피 예약 | 균형 잡힌 전신 케어",
-  "출장 마인드풀 테라피 서비스 | 편안한 안심 후불제",
-  "출장 퓨어 아로마 마사지 코스 | 산뜻한 힐링 바디케어",
-  "출장 스트롱 스포츠 마사지 안내 | 운동 후 피로 완화",
-  "출장 나이트 릴렉스 테라피 | 숙면을 돕는 안심 코스",
-  "출장 VIP 시그니처 마사지 | 품격 높은 1:1 방문",
-  "출장 에스테틱 바디 테라피 케어 | 감성 스웨디시 예약",
-  "출장 프레시 타이 마사지 안내 | 가벼워지는 몸과 마음",
-  "출장 릴렉싱 오일 테라피 코스 | 정성스러운 손길",
-  "출장 젠틀 케어 마사지 서비스 | 부담 없는 현장 결제",
-  "출장 컴팩트 힐링 테라피 예약 | 알찬 실속 코스",
-  "출장 로열 스웨디시 마사지 코스 | 감성 테라피의 정수",
-  "출장 딥 바디 스트레칭 케어 | 시원한 힐링 테라피",
-  "출장 센서티브 아로마 마사지 | 은은한 감성 케어",
-  "출장 홈 웰니스 테라피 안내 | 내 집에서 누리는 휴식",
-  "출장 릴렉세이션 마사지 코스 | 완벽한 하루의 마무리",
-  "출장 프리미엄 에센스 테라피 | 품격 있는 홈 힐링",
-  "출장 클래식 바디케어 마사지 | 정통 테라피 안내",
-  "출장 스무스 스웨디시 테라피 | 부드럽고 섬세한 터치",
-  "출장 힐링 포레스트 마사지 | 맑고 개운한 전신 코스",
-  "출장 인텐시브 딥티슈 테라피 | 확실한 피로 관리",
-  "출장 캄 앤 릴렉스 마사지 안내 | 스트레스 해소 코스",
-  "출장 오리엔탈 홈타이 테라피 | 안심 정찰제 방문",
-  "출장 럭셔리 바디 마사지 코스 | 최상의 힐링 만족도",
-  "출장 내추럴 릴렉스 테라피 케어 | 순수 아로마 코스",
-  "출장 퀵 안심 방문 마사지 | 기다림 없는 신속 배차",
-  "출장 프리미엄 코스 테라피 안내 | 프라이빗 안심 예약",
-  "출장 리얼 힐링 마사지 프로그램 | 감동을 주는 손길",
-  "출장 스페셜 바디 밸런스 코스 | 조화로운 전신 힐링",
-  "출장 어반 릴렉싱 스웨디시 | 도시인을 위한 바디케어",
-  "출장 힐링 모먼트 테라피 코스 | 온전한 나만의 휴식",
-  "출장 퍼펙트 전신 마사지 안내 | 100% 만족 보장 케어"
+  "출장 감성 릴렉싱 마사지 예약 | 1:1 후불제 방문"
 ];
 
-// 🌟 디스크립션용 100개 순차 패턴 ('동이름' 바로 뒤에 '출장 마사지' 키워드 배치)
+// 🌟 디스크립션용 순차 패턴
 const desc100Patterns = [
   "출장 마사지 및 프리미엄 홈타이 전문. 검증된 관리사의 100% 후불제 안심 케어.",
   "출장 마사지 전문 플랫폼. 선입금 전혀 없는 현장 결제로 편안하게 즐기는 테라피.",
@@ -128,97 +78,7 @@ const desc100Patterns = [
   "출장 마사지 예약 안내. 건식, 아로마, 타이 등 다채로운 코스를 합리적으로.",
   "출장 마사지 프라이빗 케어. 고객 만족도 높은 검증된 제휴 샵 맞춤 매칭.",
   "출장 마사지 안심 방문 서비스. 늦은 심야 시간에도 할증 걱정 없는 정찰제 힐링.",
-  "출장 마사지 힐링 테라피 안내. 뭉친 근육을 부드럽게 이완하는 프리미엄 프로그램.",
-  "출장 마사지 최고급 아로마 오일 케어. 편안한 공간에서 누리는 VIP 전신 관리.",
-  "출장 마사지 홈타이 & 스웨디시 추천. 안전하고 투명한 100% 현장 결제 방식.",
-  "출장 마사지 맞춤 바디 솔루션. 하루의 스트레스를 날려주는 정성스러운 손길.",
-  "출장 마사지 빠른 배차 안내. 전화 한 통으로 신속하게 찾아가는 방문 테라피.",
-  "출장 마사지 전문 힐러들의 밀착 케어. 위생과 퀄리티를 최우선으로 생각합니다.",
-  "출장 마사지 정통 힐링 바디 테라피. 품격 있는 관리로 몸과 마음에 활력을 충전.",
-  "출장 마사지 실시간 예약 시스템. 선입금 사기 걱정 없는 완벽한 안심 후불제.",
-  "출장 마사지 딥티슈 & 림프 순환 케어. 묵은 피로를 말끔하게 날려드립니다.",
-  "출장 마사지 VIP 스웨디시 안내. 섬세하고 부드러운 테크닉으로 극상의 힐링 선사.",
-  "출장 마사지 홈케어 서비스. 내가 원하는 시간과 장소에서 누리는 고품격 휴식.",
-  "출장 마사지 정찰제 가격 안내. 추가 비용 일체 없이 투명하게 진행되는 바디케어.",
-  "출장 마사지 맞춤형 안심 케어. 프라이빗한 개인 공간에서 경험하는 최고의 휴식.",
-  "출장 마사지 전신 피로해소 코스. 전문적인 테크닉으로 개운한 일상을 선사합니다.",
-  "출장 마사지 스웨디시 테라피 추천. 은은한 향기와 함께 즐기는 감성 바디케어.",
-  "출장 마사지 1:1 예약 안내. 친절하고 숙련된 관리사가 꼼꼼하게 케어해 드립니다.",
-  "출장 마사지 안전 후불 결제. 예약금 요구 없는 투명하고 정직한 테라피 플랫폼.",
-  "출장 마사지 힐링 코스 모음. 나에게 딱 맞는 맞춤형 프로그램으로 힐링하세요.",
-  "출장 마사지 홈타이 전문. 경직된 몸을 시원하게 풀어주는 정통 스트레칭 케어.",
-  "출장 마사지 프리미엄 서비스. 번거로운 이동 없이 집에서 편안하게 받는 바디케어.",
-  "출장 마사지 전문점 안내. 청결하고 안전한 관리로 쾌적한 힐링을 보장합니다.",
-  "출장 마사지 바디 릴렉싱 케어. 일상에 지친 현대인을 위한 맞춤 힐링 솔루션.",
-  "출장 마사지 추천 제휴 샵 안내. 후기와 만족도가 증명하는 고품격 테라피.",
-  "출장 마사지 심야 안심 방문. 늦은 시간에도 언제든 부담 없이 연락해 보세요.",
-  "출장 마사지 감성 아로마 코스. 천연 에센셜 오일로 피부와 마음을 촉촉하게.",
-  "출장 마사지 스피드 방문 예약. 전화 상담 후 가장 빠르게 도착하는 홈케어.",
-  "출장 마사지 힐링의 새로운 기준. 편안함과 전문성을 모두 갖춘 프리미엄 서비스.",
-  "출장 마사지 현장 카드/현금 후불제. 믿고 이용할 수 있는 투명한 케어 시스템.",
-  "출장 마사지 림프 순환 테라피. 가벼워진 몸으로 일상에 활력을 더해드립니다.",
-  "출장 마사지 1인 맞춤 케어. 고객님의 컨디션에 맞춘 맞춤형 압과 테크닉 적용.",
-  "출장 마사지 쾌적한 홈테라피. 편안한 침대나 소파에서 안심하고 케어 받으세요.",
-  "출장 마사지 명품 스웨디시 코스. 따뜻한 온기로 온몸을 녹여주는 감성 바디케어.",
-  "출장 마사지 실속형 정찰제 안내. 거품 없는 착한 가격으로 만나는 고품격 테라피.",
-  "출장 마사지 바디 밸런스 교정 케어. 균형 잡힌 바디 라인을 위한 힐링 프로그램.",
-  "출장 마사지 믿을 수 있는 플랫폼. 검증된 한국인 테라피스트의 정성스러운 관리.",
-  "출장 마사지 타이 & 아로마 복합 코스. 뭉친 근육 이완과 심신 안정을 동시에.",
-  "출장 마사지 프리미엄 방문 서비스. 나만을 위한 가장 안락한 힐링 스튜디오.",
-  "출장 마사지 빠른 도착 보장. 전지역 네트워크망으로 빠르게 방문합니다.",
-  "출장 마사지 릴렉싱 테라피 예약. 피로에 지친 당신을 위한 완벽한 휴식 시간.",
-  "출장 마사지 감동 서비스. 작은 부분까지 세심하게 배려하는 고품격 힐링 케어.",
-  "출장 마사지 100% 현장 정산. 사기 걱정 없는 가장 신뢰할 수 있는 테라피 안내.",
-  "출장 마사지 토탈 바디 솔루션. 하루 한 시간의 여유로 건강한 활력을 충전하세요.",
-  "출장 마사지 감성 스웨디시 안내. 깃털처럼 부드러운 터치로 전신 긴장 해소.",
-  "출장 마사지 전문 출장 방문. 원하는 시간대에 맞춰 방문하는 맞춤 테라피.",
-  "출장 마사지 힐링 네트워크. 지역 최고 수준의 테라피스트들이 찾아갑니다.",
-  "출장 마사지 순수 힐링 프로그램. 조용하고 차분한 분위기에서 즐기는 휴식.",
-  "출장 마사지 스트레스 완화 코스. 뇌와 몸의 긴장을 풀어주는 명품 케어.",
-  "출장 마사지 간편 예약 안내. 복잡한 절차 없이 터치 몇 번으로 손쉬운 예약.",
-  "출장 마사지 바디 리셋 프로그램. 찌뿌둥한 하루를 활기차게 바꿔주는 손길.",
-  "출장 마사지 안심 홈케어. 철저한 위생 관리로 늘 쾌적함을 선물합니다.",
-  "출장 마사지 스웨디시 & 타이 안내. 취향에 따라 자유롭게 선택하는 힐링 코스.",
-  "출장 마사지 VIP 고객 맞춤 케어. 오직 한 사람만을 위한 스페셜 테라피.",
-  "출장 마사지 합리적인 가격 정책. 투명한 정찰제로 편안하게 경험하세요.",
-  "출장 마사지 피로 회복의 명가. 숙련된 테크닉으로 묵은 결림을 말끔히 해결.",
-  "출장 마사지 친절 방문 서비스. 밝은 미소와 정성으로 편안함을 드립니다.",
-  "출장 마사지 딥티슈 테라피. 속근육까지 시원하게 풀어주는 집중 케어.",
-  "출장 마사지 감성 힐링 스웨디시. 감각을 깨우는 프리미엄 전신 바디케어.",
-  "출장 마사지 즉시 출발 서비스. 기다리는 지루함 없이 신속하게 방문합니다.",
-  "출장 마사지 정직한 홈케어. 예약부터 방문까지 투명하게 안심하고 이용하세요.",
-  "출장 마사지 수면 개선 힐링 코스. 깊은 숙면을 유도하는 릴렉싱 아로마 케어.",
-  "출장 마사지 활력 충전 바디테라피. 무거운 어깨와 허리를 가볍게 케어합니다.",
-  "출장 마사지 후불제 전문 플랫폼. 안전과 신뢰를 가장 중요하게 여깁니다.",
-  "출장 마사지 프리미엄 홈타이 예약. 집에서도 수준 높은 타이 관리를 누려보세요.",
-  "출장 마사지 맞춤 아로마 블렌딩. 피부 보습과 릴렉스를 함께 선사합니다.",
-  "출장 마사지 신속 매칭 시스템. 계신 곳에서 가장 가까운 베스트 샵 안내.",
-  "출장 마사지 명품 바디 솔루션. 하루하루 지친 당신을 위한 프라이빗 힐링.",
-  "출장 마사지 스웨디시 정찰제 코스. 군더더기 없는 깔끔하고 품격 있는 케어.",
-  "출장 마사지 전문 힐링 안내. 언제나 최상의 만족을 제공하는 방문 테라피.",
-  "출장 마사지 야간 힐링 서비스. 밤낮 가리지 않고 고객님의 피로를 덜어드립니다.",
-  "출장 마사지 투명한 후불 안내. 선입금 요구가 전혀 없는 정직한 시스템.",
-  "출장 마사지 릴렉싱 케어의 정석. 몸의 균형을 되찾아주는 특별한 테라피.",
-  "출장 마사지 웰니스 방문 프로그램. 일상의 질을 높여주는 건강한 바디케어.",
-  "출장 마사지 스피드 힐링 예약. 계신 곳으로 바로 찾아가는 감동 서비스.",
-  "출장 마사지 감성 테라피 코스. 섬세한 케어로 하루의 스트레스를 씻어내세요.",
-  "출장 마사지 전신 풀케어 안내. 발끝부터 머리까지 가벼워지는 놀라운 경험.",
-  "출장 마사지 홈 웰니스 1:1 방문. 쾌적한 나만의 쉼터에서 즐기는 테라피.",
-  "출장 마사지 안심 예약 플랫폼. 정직하고 검증된 관리사들만 함께합니다.",
-  "출장 마사지 프리미엄 감성 스웨디시. 하루를 완벽하게 보상받는 힐링 시간.",
-  "출장 마사지 속근육 릴렉스 케어. 굳어있던 관절과 근육을 유연하게 풀어드립니다.",
-  "출장 마사지 정통 아로마 테라피. 고급 천연 오일로 피부에 활력을 부여합니다.",
-  "출장 마사지 100% 현장 결제 시스템. 처음부터 끝까지 안심할 수 있는 케어.",
-  "출장 마사지 감동 힐링 파트너. 매일매일 상쾌한 아침을 맞이할 수 있도록 돕습니다.",
-  "출장 마사지 힐링 라이프 안내. 내 손안에서 시작되는 가장 편안한 휴식.",
-  "출장 마사지 고품격 방문 케어. 호텔 부럽지 않은 프리미엄 테라피를 집에서.",
-  "출장 마사지 맞춤 압 조절 테라피. 나에게 꼭 맞는 최적의 힐링을 선사합니다.",
-  "출장 마사지 스웨디시 & 홈타이 코스. 만족도 1위 제휴 샵에서 확인하세요.",
-  "출장 마사지 안전 케어 솔루션. 고객님의 소중한 프라이버시를 철저히 지킵니다.",
-  "출장 마사지 힐링 리포트. 매일매일 더 가볍고 활기찬 몸을 만들어 드립니다.",
-  "출장 마사지 투명 정찰 방문제. 숨은 추가금 없이 정직하게 운영됩니다.",
-  "출장 마사지 감성 전신 케어. 은은한 향과 따뜻한 손길로 전하는 감동의 휴식.",
-  "출장 마사지 프리미엄 힐링 서비스. 100% 후불제로 부담 없이 예약해 보세요."
+  "출장 마사지 힐링 테라피 안내. 뭉친 근육을 부드럽게 이완하는 프리미엄 프로그램."
 ];
 
 const priceHooks = [
@@ -237,6 +97,38 @@ const shops = [
   { id: 5, name: "오늘밤테라피", badge: "야간 힐링 만족 1위", desc: "선입금 없는 100% 후불제! 깊은 밤 지친 하루의 피로를 완벽하게", phone: "0507-1280-3223", image: "/shop5.jpg" }
 ];
 
+// 🌟 네이버 봇 유사문서 회피용: 동별 고유 본문 및 FAQ 생성기
+function getDongUniqueContent(cityName: string, districtName: string, dongName: string) {
+  const seed = `${cityName}-${districtName}-${dongName}`;
+  let hash = 0;
+  for (let i = 0; i < seed.length; i++) {
+    hash = seed.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  const absHash = Math.abs(hash);
+
+  const bodies = [
+    `${cityName} ${districtName} ${dongName} 인근에서 빠르고 안전하게 이용할 수 있는 프리미엄 테라피 안내입니다. 바쁜 일상과 업무 스트레스로 뭉친 근육을 ${dongName} 전문 테라피스트의 섬세한 손길로 풀어보세요. 선입금 요구가 없는 100% 현장 결제 시스템으로 내상 없이 쾌적한 힐링을 보장합니다.`,
+    `조용하고 프라이빗한 휴식이 필요한 분들을 위해 ${districtName} ${dongName} 전 지역 30분 내 방문 시스템을 갖췄습니다. 철저한 위생 관리와 검증된 관리사들의 체계적인 코스를 통해 ${dongName} 거주 고객님들의 지친 심신을 완벽하게 리프레시 해드립니다.`,
+    `${cityName} 대표 상권이자 주거 밀집 지역인 ${dongName} 맞춤형 힐링 바디케어 서비스입니다. 멀리 샵까지 직접 이동할 필요 없이, 머무시는 자택이나 오피스텔, 숙박업소 등 어디서든 전화를 통해 간편하게 예약하고 품격 있는 스웨디시와 타이 마사지를 경험하실 수 있습니다.`
+  ];
+
+  const faqsList = [
+    [
+      { q: `${dongName} 지역은 몇 분 안에 도착하나요?`, a: `교통 상황에 따라 다를 수 있으나, ${dongName} 내 주요 지역은 배차 완료 후 평균 30분 이내에 신속하게 방문하는 것을 원칙으로 하고 있습니다.` },
+      { q: `결제는 언제 어떻게 하나요?`, a: `최근 빈번한 예약금 사기를 방지하기 위해 관리사가 도착한 후 직접 결제(현금, 계좌이체 등)하는 100% 후불제로만 운영됩니다.` }
+    ],
+    [
+      { q: `${dongName} 주변 모텔이나 호텔에서도 이용 가능한가요?`, a: `네, ${dongName} 인근의 자택은 물론 오피스텔, 호텔, 모텔 등 고객님이 머무시는 모든 프라이빗한 공간에서 자유롭게 이용하실 수 있습니다.` },
+      { q: `원하는 관리사 스타일을 요청할 수 있나요?`, a: `예약 상담 시 선호하시는 압의 세기(강한 타이, 부드러운 스웨디시 등)를 말씀해 주시면 가장 적합한 테라피스트를 매칭해 드립니다.` }
+    ]
+  ];
+
+  return {
+    body: bodies[absHash % bodies.length],
+    faqs: faqsList[absHash % faqsList.length]
+  };
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const resolvedParams = await params;
   const { city, district, dong } = resolvedParams;
@@ -248,7 +140,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const districtName = districtInfo ? districtInfo.name : district;
   const dongName = decodeURIComponent(dong);
 
-  // 1년 중 일자(1~365) + 지역 문자열 해시 기반 100개 순환 인덱스 계산
   const now = new Date();
   const startOfYear = new Date(now.getFullYear(), 0, 0);
   const diff = now.getTime() - startOfYear.getTime();
@@ -257,18 +148,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const locationKeyword = `${cityName}-${districtName}-${dongName}-kkulma`;
   const charSum = locationKeyword.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0);
 
-  // 100개 패턴 순차 순환
   const titleIdx = (dayOfYear + charSum) % title100Patterns.length;
   const descIdx = (dayOfYear + charSum * 3) % desc100Patterns.length;
   const priceIdx = (dayOfYear + charSum * 7) % priceHooks.length;
 
-  // 타이틀 구성: [동이름] [100개 타이틀 패턴 중 하나] | [사이트명]
   let finalTitle = `${dongName} ${title100Patterns[titleIdx]} | ${SITE_NAME}`;
-
-  // '마사지'가 연속해서 중복되는 현상을 원천 방어
   finalTitle = finalTitle.replace(/(마사지\s*)+마사지/g, "마사지");
 
-  // 디스크립션 구성: [시/도 구 동] 바로 뒤에 '출장 마사지'가 자연스럽게 연결
   const finalDescription = `${cityName} ${districtName} ${dongName} ${desc100Patterns[descIdx]} ${priceHooks[priceIdx]}`;
 
   return {
@@ -303,7 +189,9 @@ export default async function DongPage({ params }: PageProps) {
   const districtInfo = region?.districts[district.toLowerCase()];
   const districtName = districtInfo ? districtInfo.name : district;
   const dongName = decodeURIComponent(dong);
-  const fullLocation = `${cityName} ${districtName} ${dongName}`;
+  
+  // 🌟 고유 텍스트 및 FAQ 데이터 생성
+  const uniqueContent = getDongUniqueContent(cityName, districtName, dongName);
 
   return (
     <div className="bg-slate-50 text-slate-800 min-h-screen flex flex-col font-sans selection:bg-sky-500 selection:text-white">
@@ -316,13 +204,30 @@ export default async function DongPage({ params }: PageProps) {
         </div>
       </header>
 
-      <main className="max-w-4xl mx-auto px-4 py-8 w-full flex-1 space-y-10">
-        <section className="relative rounded-3xl overflow-hidden border border-slate-200 shadow-sm bg-gradient-to-b from-slate-900 to-slate-800 p-8 text-white space-y-3">
+      <main className="max-w-4xl mx-auto px-4 py-8 w-full flex-1 space-y-8">
+        
+        {/* 히어로 및 고유 본문 텍스트 (SEO 핵심 영역) */}
+        <section className="relative rounded-3xl overflow-hidden border border-slate-200 shadow-sm bg-gradient-to-b from-slate-900 to-slate-800 p-8 text-white space-y-4">
           <span className="text-sky-400 text-xs font-black tracking-widest uppercase">LOCAL HEALING GUIDE</span>
-          <h1 className="text-2xl md:text-4xl font-black">{dongName} 출장 마사지 & 프리미엄 테라피</h1>
-          <p className="text-xs md:text-sm text-slate-300 max-w-xl leading-relaxed">
-            {fullLocation} 고객님을 위한 엄선된 출장 테라피 제휴 샵 안내입니다. 원하시는 샵을 선택해 코스 및 요금을 확인해 보세요.
-          </p>
+          <h1 className="text-2xl md:text-4xl font-black word-keep-all">{dongName} 출장 마사지 & 프리미엄 테라피</h1>
+          <div className="text-sm md:text-base text-slate-300 max-w-2xl leading-relaxed text-justify break-keep pt-2">
+            <p>{uniqueContent.body}</p>
+          </div>
+        </section>
+
+        {/* 동별 고유 FAQ 섹션 (유사문서 회피용 치트키) */}
+        <section className="bg-white border border-slate-200 p-6 md:p-8 rounded-3xl space-y-5 shadow-sm">
+          <h3 className="text-lg md:text-xl font-black text-slate-900 flex items-center gap-2">
+            <span className="text-sky-500">💡</span> {dongName} 지역 자주 묻는 질문
+          </h3>
+          <div className="space-y-4">
+            {uniqueContent.faqs.map((faq, idx) => (
+              <div key={idx} className="bg-slate-50 p-4 md:p-5 rounded-2xl border border-slate-100">
+                <p className="font-bold text-sm md:text-base text-sky-700 mb-1.5">Q. {faq.q}</p>
+                <p className="text-xs md:text-sm text-slate-600 leading-relaxed">A. {faq.a}</p>
+              </div>
+            ))}
+          </div>
         </section>
 
         {/* 추천 제휴샵 5곳 리스트 */}
@@ -333,7 +238,7 @@ export default async function DongPage({ params }: PageProps) {
               ✨ {dongName} BEST 추천 제휴 샵 (총 5곳)
             </h3>
           </div>
-          <div className="grid grid-cols-1 gap-3">
+          <div className="grid grid-cols-1 gap-3 mt-4">
             {shops.map((s) => (
               <div key={s.id} className="p-4 rounded-2xl border bg-slate-50 border-slate-200 hover:border-sky-300 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all">
                 <div className="flex items-center gap-3.5 min-w-0">
@@ -341,15 +246,15 @@ export default async function DongPage({ params }: PageProps) {
                   <div className="min-w-0">
                     <div className="flex items-center gap-2">
                       <span className="font-extrabold text-sm text-slate-900 truncate">{s.name}</span>
-                      <span className="text-[10px] bg-sky-100 text-sky-700 px-2 py-0.5 rounded-full font-bold">{s.badge}</span>
+                      <span className="text-[10px] bg-sky-100 text-sky-700 px-2 py-0.5 rounded-full font-bold whitespace-nowrap">{s.badge}</span>
                     </div>
                     <p className="text-[11px] text-slate-500 truncate mt-0.5">{s.desc}</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-2 shrink-0">
+                <div className="flex items-center gap-2 shrink-0 mt-2 sm:mt-0">
                   <Link
                     href={`/${city}/${district}/${dong}/shop/${s.id}`}
-                    className="px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 shadow-xs hover:bg-sky-600 hover:text-white hover:border-sky-600 transition-all"
+                    className="w-full sm:w-auto px-4 py-2 text-center rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 shadow-sm hover:bg-sky-600 hover:text-white hover:border-sky-600 transition-all"
                   >
                     상세 보기 &rarr;
                   </Link>
