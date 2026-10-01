@@ -47,8 +47,7 @@ export const metadata: Metadata = {
     images: ["/og-main.png"],
   },
 };
-export default function Page(): React.ReactElement {
-  return (
-    <MainClientUI />
-  );
+
+export default function Page(props: any) {
+  return <MainClientUI />;
 }
