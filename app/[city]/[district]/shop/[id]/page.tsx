@@ -371,7 +371,7 @@ export default async function DistrictShopDetailPage({ params }: PageProps) {
                         : "bg-white text-slate-700 border border-slate-200 hover:bg-sky-600 hover:text-white hover:border-sky-600"
                     }`}
                   >
-                    {s.active ? "안내 보기" : "샵 선택 &rarr;"}
+                    {s.active ? "안내 보기" : "샵 선택 "}
                   </Link>
                 </div>
               </div>
