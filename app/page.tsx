@@ -5,15 +5,16 @@ const SITE_URL = "https://inseoul-therapy.netlify.app";
 const SITE_NAME = "인서울테라피";
 
 export const metadata: Metadata = {
-  // 스팸 키워드 배제 및 클릭 유도형 네이버 검색 최적화 규격 준수
-  title: `${SITE_NAME} | 서울·경기·인천 출장 메마른 대지를 적시는 마사지 & 전신 피로 완화`,
-  description: "서울·경기·인천에서 인서울테라피 출장마사지를 살펴보세요. 프라이빗케어·웜아로마·소프트케어 등 다양한 구성과 60·90·120분 코스의 시간·금액을 한눈에 확인할 수 있습니다.",
+  // 🌟 타이틀: '출장'과 '마사지'를 띄워서 분리
+  title: `${SITE_NAME} | 서울·경기·인천 출장 프리미엄 마사지 & 바디케어`,
+  // 🌟 디스크립션: '출장마사지'를 붙여서 작성
+  description: "서울·경기·인천에서 출장마사지 인서울테라피 서비스를 살펴보세요. 프라이빗케어·웜아로마·소프트케어 등 다양한 구성과 60·90·120분 코스의 시간·금액을 한눈에 확인할 수 있습니다.",
   keywords: [
     "인서울테라피",
     "Inseoul Therapy",
-    "서울 출장 마사지",
-    "경기 출장 마사지",
-    "인천 출장 마사지",
+    "서울 출장마사지",
+    "경기 출장마사지",
+    "인천 출장마사지",
     "수도권 방문테라피",
     "안심 후불제 마사지",
     "프라이빗 출장 홈케어",
@@ -24,8 +25,8 @@ export const metadata: Metadata = {
     canonical: SITE_URL,
   },
   openGraph: {
-    title: `${SITE_NAME} | 서울·경기·인천 출장 메마른 대지를 적시는 마사지 & 전신 피로 완화`,
-    description: "서울·경기·인천에서 인서울테라피 출장마사지를 살펴보세요. 프라이빗케어·웜아로마·소프트케어 등 다양한 구성과 60·90·120분 코스의 시간·금액을 한눈에 확인할 수 있습니다.",
+    title: `${SITE_NAME} | 서울·경기·인천 출장 프리미엄 마사지 & 바디케어`,
+    description: "서울·경기·인천에서 출장마사지 인서울테라피 서비스를 살펴보세요. 프라이빗케어·웜아로마·소프트케어 등 다양한 구성과 60·90·120분 코스의 시간·금액을 한눈에 확인할 수 있습니다.",
     url: SITE_URL,
     siteName: SITE_NAME,
     locale: "ko_KR",
@@ -47,6 +48,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Page() {
+export default function Page(): React.JSX.Element {
   return <MainClientUI />;
 }
