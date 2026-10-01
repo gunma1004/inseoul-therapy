@@ -11,7 +11,7 @@ interface PageProps {
 
 const SITE_URL = "https://inseoul-therapy.netlify.app";
 const SITE_NAME = "인서울테라피";
-// 🌟 구/군 단위 100개 순환 타이틀 패턴
+
 const title100Patterns = [
   "출장 건식 마사지 & 힐링 케어 | 전지역 안심 예약",
   "출장 스웨디시 마사지 & 프리미엄 테라피 | 100% 안심 후불제",
@@ -233,7 +233,6 @@ const shops = [
   { id: 4, name: "퀸즈홈테라피", badge: "여왕처럼 누리는 VIP", desc: "여왕처럼 누리는 고품격 테라피! 전문 관리사들의 1:1 맞춤 방문 힐링", phone: "0507-1280-3334", image: "/shop4.jpg" },
   { id: 5, name: "오늘밤테라피", badge: "야간 힐링 만족 1위", desc: "선입금 없는 100% 후불제! 깊은 밤 지친 하루의 피로를 완벽하게", phone: "0507-1280-3223", image: "/shop5.jpg" }
 ];
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const resolvedParams = await params;
   const { city, district } = resolvedParams;
@@ -306,6 +305,7 @@ export default async function DistrictPage({ params }: PageProps) {
           </p>
         </section>
 
+        {/* 세부 동 선택 그리드 */}
         <section className="bg-white border border-slate-200 p-5 sm:p-7 rounded-3xl space-y-4 shadow-sm">
           <div className="flex items-center justify-between border-b border-slate-100 pb-3">
             <h2 className="text-base sm:text-lg font-black text-slate-900 flex items-center gap-2">
@@ -327,6 +327,7 @@ export default async function DistrictPage({ params }: PageProps) {
           </div>
         </section>
 
+        {/* 구 페이지 추천 제휴 샵 5곳 */}
         <section className="bg-white border border-slate-200 p-5 sm:p-7 rounded-3xl space-y-4 shadow-sm">
           <div className="flex items-center justify-between border-b border-slate-100 pb-3">
             <h2 className="text-base sm:text-lg font-black text-slate-900 flex items-center gap-2">

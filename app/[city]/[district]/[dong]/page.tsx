@@ -13,6 +13,7 @@ interface PageProps {
 const SITE_URL = "https://inseoul-therapy.netlify.app";
 const SITE_NAME = "인서울테라피";
 
+
 // 🌟 타이틀용 100개 순차 패턴 ('출장'과 '마사지' 절대 붙이지 않음)
 const title100Patterns = [
   "출장 건식 마사지 & 힐링 케어 | 전지역 안심 예약",
@@ -235,7 +236,6 @@ const shops = [
   { id: 5, name: "오늘밤테라피", badge: "야간 힐링 만족 1위", desc: "선입금 없는 100% 후불제! 깊은 밤 지친 하루의 피로를 완벽하게", phone: "0507-1280-3223" }
 ];
 
-// 🌟 네이버/구글 봇 유사문서 회피 및 누락 방지용 고유 본문 및 FAQ 생성기
 function getDongUniqueContent(cityName: string, districtName: string, dongName: string) {
   const seed = `${cityName}-${districtName}-${dongName}-seo`;
   let hash = 0;
@@ -246,18 +246,14 @@ function getDongUniqueContent(cityName: string, districtName: string, dongName: 
 
   const bodies = [
     `${cityName} ${districtName} ${dongName} 인근에서 빠르고 안전하게 이용할 수 있는 프리미엄 테라피 안내입니다. 바쁜 일상과 업무 스트레스로 뭉친 근육을 ${dongName} 전문 테라피스트의 섬세한 손길로 풀어보세요. 선입금 요구가 없는 100% 현장 결제 시스템으로 내상 없이 쾌적한 힐링을 보장합니다.`,
-    `조용하고 프라이빗한 휴식이 필요한 분들을 위해 ${districtName} ${dongName} 전 지역 방문 시스템을 갖췄습니다. 철저한 위생 관리와 검증된 관리사들의 체계적인 코스를 통해 ${dongName} 거주 고객님들의 지친 심신을 완벽하게 리프레시 해드립니다[cite: 1].`,
-    `${cityName} 대표 상권이자 주거 밀집 지역인 ${dongName} 맞춤형 힐링 바디케어 서비스입니다. 멀리 샵까지 직접 이동할 필요 없이, 머무시는 자택이나 오피스텔, 숙박업소 등 어디서든 전화를 통해 간편하게 예약하고 품격 있는 스웨디시와 타이 마사지를 경험하실 수 있습니다[cite: 1].`
+    `조용하고 프라이빗한 휴식이 필요한 분들을 위해 ${districtName} ${dongName} 전 지역 방문 시스템을 갖췄습니다. 철저한 위생 관리와 검증된 관리사들의 체계적인 코스를 통해 ${dongName} 거주 고객님들의 지친 심신을 완벽하게 리프레시 해드립니다.`,
+    `${cityName} 대표 상권이자 주거 밀집 지역인 ${dongName} 맞춤형 힐링 바디케어 서비스입니다. 멀리 샵까지 직접 이동할 필요 없이, 머무시는 자택이나 오피스텔, 숙박업소 등 어디서든 전화를 통해 간편하게 예약하고 품격 있는 스웨디시와 타이 마사지를 경험하실 수 있습니다.`
   ];
 
   const faqsList = [
     [
-      { q: `${dongName} 지역은 몇 분 안에 도착하나요?`, a: `교통 상황에 따라 다를 수 있으나, ${dongName} 내 주요 지역은 배차 완료 후 평균 30분 이내에 신속하게 방문하는 것을 원칙으로 하고 있습니다[cite: 1].` },
-      { q: `결제는 언제 어떻게 하나요?`, a: `최근 빈번한 예약금 사기를 방지하기 위해 관리사가 도착한 후 직접 결제(현금, 계좌이체 등)하는 100% 후불제로만 운영됩니다[cite: 1].` }
-    ],
-    [
-      { q: `${dongName} 주변 모텔이나 호텔에서도 이용 가능한가요?`, a: `네, ${dongName} 인근의 자택은 물론 오피스텔, 호텔, 모텔 등 고객님이 머무시는 모든 프라이빗한 공간에서 자유롭게 이용하실 수 있습니다[cite: 1].` },
-      { q: `원하는 관리사 스타일을 요청할 수 있나요?`, a: `예약 상담 시 선호하시는 압의 세기(강한 타이, 부드러운 스웨디시 등)를 말씀해 주시면 가장 적합한 테라피스트를 매칭해 드립니다[cite: 1].` }
+      { q: `${dongName} 지역은 몇 분 안에 도착하나요?`, a: `교통 상황에 따라 다를 수 있으나, ${dongName} 내 주요 지역은 배차 완료 후 평균 30분 이내에 신속하게 방문하는 것을 원칙으로 하고 있습니다.` },
+      { q: `결제는 언제 어떻게 하나요?`, a: `최근 빈번한 예약금 사기를 방지하기 위해 관리사가 도착한 후 직접 결제(현금, 계좌이체 등)하는 100% 후불제로만 운영됩니다.` }
     ]
   ];
 
@@ -324,7 +320,6 @@ export default async function DongPage({ params }: PageProps) {
 
   return (
     <div className="bg-slate-50 text-slate-800 min-h-screen flex flex-col font-sans selection:bg-sky-500 selection:text-white">
-      {/* 상단 네비게이션 */}
       <header className="bg-white border-b border-slate-200 sticky top-0 z-40 px-4 py-3 shadow-sm">
         <div className="max-w-4xl mx-auto flex justify-between items-center">
           <Link href="/" className="text-xl font-black text-sky-600">인서울테라피</Link>
@@ -334,59 +329,39 @@ export default async function DongPage({ params }: PageProps) {
         </div>
       </header>
 
-      {/* 메인 콘텐츠 영역 */}
       <main className="max-w-4xl mx-auto px-4 py-8 w-full flex-1 space-y-6">
-        
-        {/* 상단 히어로 배너 및 SEO 고유 본문 */}
+        {/* 동 페이지 소개 본문이 먼저 노출됨 */}
         <section className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-6 sm:p-8 text-white shadow-lg space-y-3">
-          <span className="text-sky-400 text-xs font-black tracking-widest uppercase">
-            📍 {cityName} {districtName} 홈케어 가이드
-          </span>
-          <h1 className="text-2xl sm:text-3xl font-black tracking-tight">
-            {dongName} 출장 마사지 & 프리미엄 테라피
-          </h1>
-          <p className="text-slate-300 text-xs sm:text-sm max-w-2xl leading-relaxed text-justify break-keep">
-            {uniqueContent.body}
-          </p>
+          <span className="text-sky-400 text-xs font-black tracking-widest uppercase">📍 {cityName} {districtName} 홈케어 가이드</span>
+          <h1 className="text-2xl sm:text-3xl font-black tracking-tight">{dongName} 출장 마사지 & 프리미엄 테라피</h1>
+          <p className="text-slate-300 text-xs sm:text-sm max-w-2xl leading-relaxed text-justify break-keep">{uniqueContent.body}</p>
         </section>
 
-        {/* 제휴 샵 5곳 리스트 */}
+        {/* 동 페이지 샵 5개 리스트 */}
         <section className="bg-white border border-slate-200 p-5 sm:p-7 rounded-3xl space-y-4 shadow-sm">
           <div className="flex items-center justify-between border-b border-slate-100 pb-3">
             <h2 className="text-base sm:text-lg font-black text-slate-900 flex items-center gap-2">
-              <span>✨</span> {dongName} 추천 제휴 샵 (총 5곳)[cite: 1]
+              <span>✨</span> {dongName} 추천 제휴 샵 (총 5곳)
             </h2>
-            <span className="text-xs text-sky-600 font-extrabold bg-sky-50 px-3 py-1 rounded-full border border-sky-100">
-              100% 후불제 보장
-            </span>
+            <span className="text-xs text-sky-600 font-extrabold bg-sky-50 px-3 py-1 rounded-full border border-sky-100">100% 후불제 보장</span>
           </div>
 
           <div className="grid grid-cols-1 gap-3.5 pt-1">
             {shops.map((s) => (
-              <div 
-                key={s.id} 
-                className="p-4 sm:p-5 rounded-2xl border bg-slate-50/80 border-slate-200/80 hover:border-sky-400 hover:bg-white hover:shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all"
-              >
+              <div key={s.id} className="p-4 sm:p-5 rounded-2xl border bg-slate-50/80 border-slate-200/80 hover:border-sky-400 hover:bg-white hover:shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all">
                 <div className="flex items-center gap-4 min-w-0">
-                  <div className="w-14 h-14 bg-sky-100 rounded-2xl flex items-center justify-center text-sky-600 font-black text-lg shrink-0 border border-sky-200">
-                    {s.id}
-                  </div>
+                  <div className="w-14 h-14 bg-sky-100 rounded-2xl flex items-center justify-center text-sky-600 font-black text-lg shrink-0 border border-sky-200">{s.id}</div>
                   <div className="min-w-0 space-y-1">
                     <div className="flex items-center gap-2 flex-wrap">
-                      <span className="font-black text-base text-slate-900">{s.name}[cite: 1]</span>
-                      <span className="text-[10px] bg-sky-50 text-sky-600 px-2.5 py-0.5 rounded-full font-extrabold border border-sky-100">
-                        {s.badge}[cite: 1]
-                      </span>
+                      <span className="font-black text-base text-slate-900">{s.name}</span>
+                      <span className="text-[10px] bg-sky-50 text-sky-600 px-2.5 py-0.5 rounded-full font-extrabold border border-sky-100">{s.badge}</span>
                     </div>
-                    <p className="text-xs text-slate-500 leading-snug line-clamp-1">{s.desc}[cite: 1]</p>
+                    <p className="text-xs text-slate-500 leading-snug line-clamp-1">{s.desc}</p>
                   </div>
                 </div>
-
                 <div className="flex items-center gap-2 shrink-0">
-                  <Link
-                    href={`/${city}/${district}/${dong}/shop/${s.id}`}
-                    className="w-full sm:w-auto px-5 py-2.5 text-center rounded-xl text-xs font-black bg-sky-600 hover:bg-sky-700 text-white shadow-sm transition-all active:scale-95"
-                  >
+                  {/* 동 페이지에서는 해당 동의 샵 상세 페이지로 정확히 연결 */}
+                  <Link href={`/${city}/${district}/${dong}/shop/${s.id}`} className="w-full sm:w-auto px-5 py-2.5 text-center rounded-xl text-xs font-black bg-sky-600 hover:bg-sky-700 text-white shadow-sm transition-all active:scale-95">
                     샵 선택 →
                   </Link>
                 </div>
@@ -395,10 +370,10 @@ export default async function DongPage({ params }: PageProps) {
           </div>
         </section>
 
-        {/* 동별 고유 FAQ 섹션 (검색엔진 신뢰도 및 체류시간 증가) */}
+        {/* 동별 FAQ 섹션 */}
         <section className="bg-white border border-slate-200 p-6 sm:p-7 rounded-3xl space-y-4 shadow-sm">
           <h3 className="text-base sm:text-lg font-black text-slate-900 flex items-center gap-2">
-            <span className="text-sky-500">💡</span> {dongName} 지역 이용 관련 자주 묻는 질문[cite: 1]
+            <span className="text-sky-500">💡</span> {dongName} 지역 이용 관련 자주 묻는 질문
           </h3>
           <div className="space-y-3">
             {uniqueContent.faqs.map((faq, idx) => (
@@ -409,7 +384,6 @@ export default async function DongPage({ params }: PageProps) {
             ))}
           </div>
         </section>
-
       </main>
     </div>
   );
