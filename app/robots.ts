@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://kkulma.netlify.app';
+  const baseUrl = 'https://inseoul-therapy.netlify.app';
 
   return {
     rules: {

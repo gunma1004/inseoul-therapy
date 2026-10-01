@@ -8,15 +8,15 @@ interface PageProps {
   }>;
 }
 
-const SITE_URL = "https://kkulma.netlify.app";
-const SITE_NAME = "꿀마 (KKULMA)";
+const SITE_URL = "https://inseoul-therapy.netlify.app";
+const SITE_NAME = "인서울테라피";
 
 // 🌟 시/도 광역 단위 100개 순환 타이틀 패턴 ('마사지' 연속 중복 방지)
 const title100Patterns = [
   "출장 건식 마사지 & 힐링 케어 | 전지역 안심 예약",
   "출장 스웨디시 & 프리미엄 테라피 | 100% 안심 후불제",
   "출장 아로마 마사지 1:1 맞춤 | 프라이빗 힐링 케어",
-  "출장 정통 타이 마사지 정찰제 | 꿀마 힐링 네트워크",
+  "출장 정통 타이 마사지 정찰제 | 인서울테라피 네트워크",
   "출장 감성 스웨디시 테라피 | 피로해소 웰니스 안내",
   "출장 딥티슈 테라피 케어 | 신속 방문 서비스",
   "출장 힐링 바디케어 코스 예약 | 검증된 관리사 매칭",
@@ -69,7 +69,7 @@ const title100Patterns = [
   "출장 프로페셔널 바디 마사지 | 고객 만족 맞춤 케어",
   "출장 시그니처 아로마 테라피 | 천연 오일 전신 코스",
   "출장 프라이빗 힐링 케어 예약 | 신속 방문 시스템",
-  "출장 소프트 릴렉스 마사지 코스 | 부드러운 전신 힐링",
+  "출장 소프트 릴렉스 마사지 코스 | 부드럽고 전신 힐링",
   "출장 하이엔드 테라피 서비스 | 감성 스웨디시 안내",
   "출장 바디 리바이탈 마사지 | 활력 넘치는 테라피",
   "출장 슬로우 힐링 아로마 케어 | 편안한 휴식 보장",
@@ -258,7 +258,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const diff = now.getTime() - startOfYear.getTime();
   const dayOfYear = Math.floor(diff / (1000 * 60 * 60 * 24));
 
-  const locationKeyword = `${cityName}-${lowerCity}-city-kkulma`;
+  const locationKeyword = `${cityName}-${lowerCity}-city-inseoultherapy`;
   const charSum = locationKeyword.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0);
 
   // 100개 패턴 순환
@@ -282,11 +282,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: { canonical: `${SITE_URL}/${city}` },
     keywords: [
       `${cityName} 출장 마사지`,
-      `${cityName} 마사지`,
       `${cityName} 출장마사지`,
       `${cityName} 홈타이`,
       `${cityName} 스웨디시`,
-      "꿀마"
+      "인서울테라피"
     ],
     openGraph: {
       title: finalTitle,
@@ -310,7 +309,7 @@ export default async function CityPage({ params }: PageProps) {
     <div className="bg-slate-50 text-slate-800 min-h-screen flex flex-col font-sans selection:bg-sky-500 selection:text-white">
       <header className="bg-white border-b border-slate-200 sticky top-0 z-40 px-4 py-3 shadow-sm">
         <div className="max-w-4xl mx-auto flex justify-between items-center">
-          <Link href="/" className="text-xl font-bold text-sky-600">꿀마 (Kkulma)</Link>
+          <Link href="/" className="text-xl font-bold text-sky-600">인서울테라피</Link>
           <Link href="/" className="text-xs font-bold text-sky-600 bg-sky-50 px-3 py-1.5 rounded-xl border border-sky-100 hover:bg-sky-600 hover:text-white transition-all">
             &larr; 메인 홈으로
           </Link>

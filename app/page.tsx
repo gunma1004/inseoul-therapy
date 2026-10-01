@@ -1,34 +1,33 @@
 import { Metadata } from "next";
 import MainClientUI from "./MainClientUI";
 
-const SITE_URL = "https://kkulma.netlify.app";
-const SITE_NAME = "꿀마";
+const SITE_URL = "https://inseoul-therapy.netlify.app";
+const SITE_NAME = "인서울테라피";
 
 export const metadata: Metadata = {
-  // 스팸 키워드 배제 및 네이버 검색 최적화 규격 준수
-  title: `${SITE_NAME} | 경기·인천·서울 프리미엄 힐링 테라피`,
-  description: "경기·인천·서울 지역의 검증된 프리미엄 힐링 테라피 & 바디케어 정보 플랫폼! 내 주변 맞춤형 제휴 샵과 쾌적한 휴식 공간 정보를 확인하세요.",
+  // 스팸 키워드 배제 및 클릭 유도형 네이버 검색 최적화 규격 준수
+  title: `${SITE_NAME} | 서울·경기·인천 출장 메마른 대지를 적시는 마사지 & 전신 피로 완화`,
+  description: "서울·경기·인천에서 인서울테라피 출장마사지를 살펴보세요. 프라이빗케어·웜아로마·소프트케어 등 다양한 구성과 60·90·120분 코스의 시간·금액을 한눈에 확인할 수 있습니다.",
   keywords: [
-    "꿀마",
-    "Kkulma",
-    "힐링테라피플랫폼",
-    "바디케어",
-    "타이 마사지",
-    "아로마 마사지",
-    "릴렉스 테라피",
-    "경기 마사지",
-    "인천 힐링",
-    "서울 에스테틱",
-    "프리미엄 스파"
+    "인서울테라피",
+    "Inseoul Therapy",
+    "서울 출장 마사지",
+    "경기 출장 마사지",
+    "인천 출장 마사지",
+    "수도권 방문테라피",
+    "안심 후불제 마사지",
+    "프라이빗 출장 홈케어",
+    "스웨디시",
+    "홈타이"
   ],
   alternates: {
     canonical: SITE_URL,
   },
   openGraph: {
-    title: `${SITE_NAME} | 경기·인천·서울 힐링 테라피 예약`,
-    description: "내 주변 검증된 힐링 테라피 샵 정보 총집합! 타이, 아로마, 에스테틱 맞춤 휴식 공간을 꿀마에서 만나보세요.",
+    title: `${SITE_NAME} | 서울·경기·인천 출장 메마른 대지를 적시는 마사지 & 전신 피로 완화`,
+    description: "서울·경기·인천에서 인서울테라피 출장마사지를 살펴보세요. 프라이빗케어·웜아로마·소프트케어 등 다양한 구성과 60·90·120분 코스의 시간·금액을 한눈에 확인할 수 있습니다.",
     url: SITE_URL,
-    siteName: `${SITE_NAME} (Kkulma)`,
+    siteName: SITE_NAME,
     locale: "ko_KR",
     type: "website",
     images: [
@@ -36,14 +35,14 @@ export const metadata: Metadata = {
         url: "/og-main.png",
         width: 1200,
         height: 630,
-        alt: "꿀마 - 프리미엄 힐링 & 바디케어 플랫폼",
+        alt: "인서울테라피 - 수도권 프리미엄 출장 홈케어 플랫폼",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_NAME} | 경기·인천·서울 프리미엄 테라피`,
-    description: "경기·인천·서울 검증된 테라피 제휴 정보 및 프리미엄 힐링 가이드",
+    title: `${SITE_NAME} | 서울·경기·인천 출장 리프레쉬 마사지`,
+    description: "서울·경기·인천 출장마사지 제휴 정보 및 100% 안심 후불제 프리미엄 힐링 가이드",
     images: ["/og-main.png"],
   },
 };

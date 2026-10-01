@@ -1,19 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-const SITE_URL = "https://kkulma.netlify.app";
-const SITE_NAME = "꿀마";
+const SITE_URL = "https://inseoul-therapy.netlify.app";
+const SITE_NAME = "인서울테라피";
 
 export const metadata: Metadata = {
-  title: `코스별 가격 안내 | 투명한 100% 후불 정찰제 - ${SITE_NAME}`,
-  description: "서울·경기·인천 꿀마 투명한 코스별 가격 안내! 릴렉스, 타이, 아로마, VIP 맞춤 케어 비용과 100% 안심 후불제 예약 시스템을 확인하세요.",
+  // 🌟 타이틀: '출장'과 '마사지' 분리 및 투명한 가격 안내 결합
+  title: `코스별 가격 안내 | 서울·경기·인천 출장 마사지 정찰제 - ${SITE_NAME}`,
+  // 🌟 디스크립션: 지역명 뒤에 '출장 마사지' 완벽 밀착
+  description: "서울·경기·인천 출장 마사지 투명한 코스별 가격 안내! 릴렉스, 타이, 아로마, VIP 맞춤 케어 비용과 100% 안심 후불제 예약 시스템을 인서울테라피에서 확인하세요.",
   keywords: [
-    "꿀마 가격",
-    "테라피 가격",
-    "홈케어 요금",
-    "타이마사지 비용",
+    "인서울테라피 가격",
+    "출장 마사지 요금",
+    "홈케어 비용",
+    "타이마사지 가격",
     "아로마 테라피 요금",
-    "스웨디시 가격",
+    "스웨디시 비용",
     "후불제 바디케어"
   ],
   alternates: {
@@ -23,7 +25,7 @@ export const metadata: Metadata = {
     title: `코스별 가격 안내 | ${SITE_NAME} 투명한 후불 정찰제`,
     description: "선입금 없는 100% 안심 후불제! 릴렉스, 타이, 아로마 맞춤 코스별 요금을 투명하게 비교해 보세요.",
     url: `${SITE_URL}/prices`,
-    siteName: `${SITE_NAME} (Kkulma)`,
+    siteName: SITE_NAME,
     locale: "ko_KR",
     type: "website",
     images: [

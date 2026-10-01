@@ -1,23 +1,44 @@
 import Link from 'next/link';
 import type { Metadata } from "next";
 
-const SITE_URL = "https://kkulma.netlify.app";
-const SITE_NAME = "꿀마";
+const SITE_URL = "https://inseoul-therapy.netlify.app";
+const SITE_NAME = "인서울테라피";
 
 export const metadata: Metadata = {
-  title: `${SITE_NAME} | 서울 25개 구 전체 지역별 제휴 힐링 테라피 안내`,
-  description: "서울 전 지역(25개 구) 세부 동별 제휴 출장 마사지 정보를 편리하게 확인하세요. 꿀마에서 쾌적하고 신뢰할 수 있는 웰니스 프로그램을 만나보세요.",
+  // 🌟 타이틀: '출장'과 '마사지' 분리
+  title: `서울 출장 프리미엄 마사지 | 당신이 머무는 곳이 가장 완벽한 쉼터 | ${SITE_NAME}`,
+  // 🌟 디스크립션: 지역명 바로 뒤에 '출장 마사지' 밀착
+  description: "서울출장마사지 및 홈타이 정보를 세부 동별로 편리하게 확인하세요. 100% 현장 결제 후불제로 운영되는 검증된 제휴 샵을 인서울테라피에서 만나보세요.",
+  keywords: [
+    "서울 출장 마사지",
+    "서울 출장마사지",
+    "서울 스웨디시",
+    "서울 홈타이",
+    "서울 방문 홈케어",
+    "인서울테라피"
+  ],
   alternates: {
     canonical: `${SITE_URL}/seoul`,
   },
   openGraph: {
-    title: `${SITE_NAME} | 서울 25개 구 전체 지역별 제휴 힐링 테라피`,
-    description: "서울 전 지역(25개 구) 세부 동별 제휴 출장 마사지 정보를 편리하게 확인하세요.",
+    title: `서울 출장 프리미엄 마사지 | 당신이 머무는 곳이 가장 완벽한 쉼터 | ${SITE_NAME}`,
+    description: "서울출장마사지 및 홈타이 정보를 세부 동별로 편리하게 확인하세요. 100% 현장 결제 후불제 인서울테라피.",
     url: `${SITE_URL}/seoul`,
-    siteName: `${SITE_NAME} (Kkulma)`,
+    siteName: SITE_NAME,
     locale: "ko_KR",
     type: "website",
   },
+};
+
+// 🌟 네이버 SEO 씬 콘텐츠(Thin Content) 필터링 방어용 고유 텍스트
+const regionSeoContent = {
+  title: "서울특별시 전 지역 프리미엄 출장 홈케어 안내",
+  body: "인서울테라피는 서울특별시 25개 구 전 지역을 아우르는 촘촘한 방문 네트워크를 통해 언제 어디서든 편안하게 이용할 수 있는 출장 힐링 테라피를 제공합니다. 강남, 서초, 마포, 송파 등 도심 요충지는 물론 세부 골목 구석구석까지 체계화된 배차 시스템으로 신속하게 방문합니다. 내 집에서 누리는 최고급 스웨디시와 타이 마사지를 선입금 없는 100% 안심 후불제로 경험해 보세요. 엄격한 기준으로 선별된 전문 관리사들이 일상에 지친 고객님께 완벽한 휴식을 선사합니다.",
+  faqs: [
+    { q: "서울 25개 구 전 지역 모두 방문이 가능한가요?", a: "네, 서울특별시 내 모든 자치구(25개 구)와 세부 행정동에 전담 제휴 샵 및 매니저가 상시 배치되어 있어 전 지역 원활한 방문이 가능합니다." },
+    { q: "예약 후 도착까지 평균 소요 시간은 얼마나 걸리나요?", a: "강남, 홍대, 잠실 등 서울 주요 권역은 통상 25~30분 이내 신속한 방문을 원칙으로 하며, 교통 상황에 따라 가장 가까운 제휴 샵을 우선 매칭해 드립니다." },
+    { q: "선입금이나 예약금 요구가 정말 없나요?", a: "최근 늘어나는 선입금 사기를 원천 차단하기 위해 인서울테라피의 모든 제휴 샵은 관리사 도착 후 직접 결제하는 '100% 현장 안심 후불제'로만 안전하게 운영됩니다." }
+  ]
 };
 
 // 서울 25개 구 및 세부 동 데이터 전체 연동
@@ -55,7 +76,7 @@ export default function SeoulRegionPage() {
       <header className="bg-white border-b border-slate-200 sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
           <Link href="/" className="text-xl font-bold text-sky-600">
-            꿀마 (Kkulma)
+            인서울테라피
           </Link>
           <Link href="/" className="text-sm text-slate-500 hover:text-slate-800">
             &larr; 홈으로 돌아가기
@@ -71,28 +92,46 @@ export default function SeoulRegionPage() {
         </div>
       </nav>
 
-      <section className="max-w-6xl mx-auto py-10 px-4">
-        <div className="mb-8">
-          <span className="bg-sky-100 text-sky-700 text-xs font-semibold px-2.5 py-1 rounded-md mb-2 inline-block">
-            서울특별시 제휴 샵 안내
+      <section className="max-w-6xl mx-auto py-10 px-4 space-y-10">
+        
+        {/* 🌟 SEO 텍스트 고유 본문 영역 (씬 콘텐츠 필터링 방어) */}
+        <div className="bg-white border border-slate-200 rounded-3xl p-6 md:p-10 shadow-sm space-y-4">
+          <span className="bg-sky-100 text-sky-700 text-xs font-bold px-3 py-1.5 rounded-full inline-block">
+            서울특별시 안심 제휴 샵 안내
           </span>
-          <h1 className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-2">
-            서울 25개 구 전체 지역별 프리미엄 힐링 테라피
+          <h1 className="text-2xl md:text-3xl font-extrabold text-slate-900 leading-tight">
+            {regionSeoContent.title}
           </h1>
-          <p className="text-slate-600 text-sm md:text-base">
-            서울 전 지역(25개 구) 세부 동별 제휴 정보를 편리하게 확인하세요.
+          <p className="text-slate-600 text-sm md:text-base leading-relaxed break-keep">
+            {regionSeoContent.body}
           </p>
         </div>
 
-        {/* 25개 구 전체 렌더링 */}
+        {/* 🌟 SEO FAQ 영역 */}
+        <div className="bg-white border border-slate-200 rounded-3xl p-6 md:p-8 shadow-sm space-y-5">
+          <h2 className="text-lg md:text-xl font-black text-slate-900 flex items-center gap-2">
+            <span className="text-sky-500">💡</span> 서울 지역 이용 FAQ
+          </h2>
+          <div className="space-y-4">
+            {regionSeoContent.faqs.map((faq, idx) => (
+              <div key={idx} className="bg-slate-50 p-4 md:p-5 rounded-2xl border border-slate-100">
+                <p className="font-bold text-sm md:text-base text-sky-700 mb-1.5">Q. {faq.q}</p>
+                <p className="text-xs md:text-sm text-slate-600 leading-relaxed">A. {faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 25개 구 전체 렌더링 (내부 링크 구조) */}
         <div className="space-y-6">
+          <h2 className="text-xl font-extrabold text-slate-900 px-2">📍 서울 25개 구 전체 권역 선택</h2>
           {Object.entries(seoulDistricts).map(([districtKey, districtVal]) => (
             <div key={districtKey} className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
               <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
-                <h2 className="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-sky-600"></span>
                   {districtVal.name}
-                </h2>
+                </h3>
                 <span className="text-xs text-slate-400">{districtVal.dongs.length}개 동 등록</span>
               </div>
               <div className="flex flex-wrap gap-2">
@@ -100,7 +139,7 @@ export default function SeoulRegionPage() {
                   <Link
                     key={idx}
                     href={`/seoul/${districtKey}/${encodeURIComponent(dong)}`}
-                    className="inline-flex items-center px-3 py-1.5 rounded-xl border border-slate-200 bg-slate-50 text-xs font-medium text-slate-700 hover:bg-sky-50 hover:text-sky-600 hover:border-sky-300 transition"
+                    className="inline-flex items-center px-3 py-1.5 rounded-xl border border-slate-200 bg-slate-50 text-xs font-medium text-slate-700 hover:bg-sky-50 hover:text-sky-600 hover:border-sky-300 transition shadow-2xs"
                   >
                     {dong} &rarr;
                   </Link>
@@ -109,11 +148,12 @@ export default function SeoulRegionPage() {
             </div>
           ))}
         </div>
+
       </section>
 
-      <footer className="bg-white border-t border-slate-200 py-8 text-center text-xs text-slate-400 mt-20">
-        <p>© 2026 꿀마 (Kkulma). All rights reserved.</p>
-        <p className="mt-1">도메인: https://kkulma.netlify.app/seoul/</p>
+      <footer className="bg-white border-t border-slate-200 py-8 text-center text-xs text-slate-400 mt-10">
+        <p>© 2026 인서울테라피 (InSeoul Therapy). All rights reserved.</p>
+        <p className="mt-1">도메인: https://inseoul-therapy.netlify.app/seoul</p>
       </footer>
     </main>
   );

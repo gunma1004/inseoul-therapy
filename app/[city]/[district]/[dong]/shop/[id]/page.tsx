@@ -11,31 +11,32 @@ interface PageProps {
   }>;
 }
 
-const SITE_URL = "https://kkulma.netlify.app";
+const SITE_URL = "https://inseoul-therapy.netlify.app";
+const SITE_NAME = "인서울테라피";
 
-// 🌟 1단: '출장'과 '마사지'가 연달아 붙지 않는 수식어 패턴 풀
+// 🌟 1단: '출장'과 '마사지'가 절대 붙지 않도록 사이에 수식어를 넣은 패턴 풀
 const shopActionModifiers = [
   '릴렉스 마사지', '소프트스웨디시 마사지', '아로마케어 마사지',
-  '감성힐링 마사지·', '프리미엄 마사지', '바디케어 마사지',
+  '감성힐링 마사지', '프리미엄 마사지', '바디케어 마사지',
   '딥티슈이완 마사지', '전신힐링 마사지', '맞춤형케어 마사지',
   '안심방문 마사지', 'VIP스웨디시 마사지', '명품테라피 마사지',
   '소프트감성 마사지', '림프순환 마사지', '포근한힐링 마사지',
   '체형맞춤 마사지', '타이스트레칭 마사지', '스페셜바디 마사지'
 ];
 
-// 🌟 2단: 구 단위 연계 안마 예약 키워드 풀
+// 🌟 2단: 구 단위 연계 방문 예약 키워드 풀
 const districtBookingActions = [
-  '홈타이예약', '홈타이방문예약', '테라피 예약', '힐링 홈케어예약',
-  '바디케어 예약', '홈케어 예약', '방문 홈케어안내','스웨디시 예약',
+  '홈타이 예약', '방문 홈타이 안내', '테라피 예약', '힐링 홈케어 예약',
+  '바디케어 매칭', '홈케어 예약', '방문 홈케어 안내','스웨디시 예약'
 ];
 
-// 🌟 디스크립션 가격 및 소구점 조합 풀
+// 🌟 3단: 디스크립션 가격 및 소구점 조합 풀
 const priceHooks = [
   '건식 6만원부터 현장결제로 방문합니다.',
-  '건식 아로마 스웨디스 추가비용없이 방문합니다.',
-  '스웨디시 아로마 타이 합리적인 정찰제로 방문합니다.',
-  '아로마 타이 스웨디시 추가비용없이 방문합니다.',
-  '타이 아모라 스웨디시 추가비용없이 방문합니다.',
+  '건식, 아로마, 스웨디시 추가 비용 없이 방문합니다.',
+  '스웨디시, 아로마, 타이 합리적인 정찰제로 방문합니다.',
+  '아로마, 타이, 스웨디시 100% 안심 후불제로 진행됩니다.',
+  '타이, 아로마, 스웨디시 추가 요금 없이 현장 결제합니다.'
 ];
 
 const shopDatabase: Record<string, {
@@ -132,17 +133,21 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const dongName = decodeURIComponent(dong);
   const shop = shopDatabase[id] || shopDatabase["1"];
   
-  const locationKeyword = `${cityName} ${districtName} ${dongName}`;
-
-  const seedString = `${locationKeyword}-${id}-kkulma-dong-shop-seo`;
+  // 🌟 타이틀 조립 로직: "역삼동 출장 릴렉스 마사지 | 강남구 홈타이 예약 | 인서울테라피" (출장과 마사지 분리!)
+  const seedString = `${cityName}-${districtName}-${dongName}-${id}-inseoultherapy-shop-seo`;
   const charSum = seedString.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
   
   const part1Idx = charSum % shopActionModifiers.length;
   const part2Idx = (charSum * 3) % districtBookingActions.length;
   const priceIdx = (charSum * 7) % priceHooks.length;
 
-  const formattedTitle = `${dongName} 출장 ${shopActionModifiers[part1Idx]} | ${districtName} ${districtBookingActions[part2Idx]} | 꿀마`;
-  const formattedDesc = `${locationKeyword} 출장 마사지·홈타이·안마. 검증된 전문 관리사 100% 후불제. ${priceHooks[priceIdx]}`;
+  let formattedTitle = `${dongName} 출장 ${shopActionModifiers[part1Idx]} | ${districtName} ${districtBookingActions[part2Idx]} | ${SITE_NAME}`;
+  
+  // 만약을 위한 이중 방어막 (출장마사지가 붙어있으면 띄어쓰기로 분리)
+  formattedTitle = formattedTitle.replace(/출장마사지/g, "출장 마사지");
+
+  // 🌟 디스크립션 조립 로직: 동 이름 뒤에 '출장 마사지'가 정확히 띄어쓰기 된 채로 착 달라붙음
+  const formattedDesc = `${cityName} ${districtName} ${dongName} 출장 마사지 및 홈타이 안내. 검증된 전문 관리사의 100% 안심 후불제. ${priceHooks[priceIdx]}`;
 
   return {
     metadataBase: new URL(SITE_URL),
@@ -154,13 +159,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       canonical: `${SITE_URL}/${city}/${district}/${dong}/shop/${id}`,
     },
     keywords: [
-      `${locationKeyword} 마사지`,
-      `${dongName} 출장마사지`,
+      `${dongName} 출장 마사지`,
+      `${dongName} 스웨디시`,
       `${dongName} 홈타이`,
-      `${districtName} 안마`,
-      `${locationKeyword} 아로마마사지`,
-      `${locationKeyword} 스웨디시`,
-      "꿀마"
+      `${districtName} 안심 방문`,
+      `${cityName} ${districtName} 출장`,
+      "인서울테라피"
     ],
     openGraph: {
       title: formattedTitle,
@@ -168,14 +172,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: `${SITE_URL}/${city}/${district}/${dong}/shop/${id}`,
       locale: "ko_KR",
       type: "website",
-      images: [{ url: shop.image, width: 800, height: 600, alt: `${locationKeyword} 마사지` }],
+      images: [{ url: shop.image, width: 800, height: 600, alt: `${dongName} 출장 마사지 제휴샵` }],
     },
   };
 }
 
 // 🌟 네이버 SEO용 고유 샵 상세 소개 및 FAQ 생성기
 function getUniqueShopContent(dongName: string, shopName: string, shopDesc: string, shopId: string) {
-  const seed = `${dongName}-${shopName}-${shopId}`;
+  const seed = `${dongName}-${shopName}-${shopId}-inseoul`;
   let hash = 0;
   for (let i = 0; i < seed.length; i++) {
     hash = seed.charCodeAt(i) + ((hash << 5) - hash);
@@ -194,7 +198,7 @@ function getUniqueShopContent(dongName: string, shopName: string, shopDesc: stri
       { q: `결제는 현장에서 카드로도 가능한가요?`, a: `네, 현금 결제는 물론 계좌 이체와 카드 결제 모두 가능합니다. 100% 후불제이므로 관리사 도착 후 편하신 방법으로 결제하시면 됩니다.` }
     ],
     [
-      { q: `${shopName} 관리사님들의 실력은 어떤가요?`, a: `저희 샵의 모든 테라피스트는 체계적인 마사지 교육 과정을 이수한 20대 전문 한국인 관리사들로, 압 조절부터 감성 케어까지 완벽한 스킬을 보유하고 있습니다.` },
+      { q: `${shopName} 관리사님들의 실력은 어떤가요?`, a: `저희 샵의 모든 테라피스트는 체계적인 교육 과정을 이수한 20대 전문 한국인 관리사들로, 압 조절부터 감성 케어까지 완벽한 스킬을 보유하고 있습니다.` },
       { q: `늦은 새벽 시간에도 ${dongName}으로 예약이 되나요?`, a: `네, 365일 24시간 연중무휴로 운영되고 있어 심야나 새벽 늦은 시간에도 할증 없이 정찰제로 편안하게 이용하실 수 있습니다.` }
     ]
   ];
@@ -218,7 +222,7 @@ export default async function DongShopDetailPage({ params }: PageProps) {
   const shop = shopDatabase[id] || shopDatabase["1"];
 
   const fullLocation = `${cityName} ${districtName} ${dongName}`;
-  const displayShopTitle = `${fullLocation} 출장 방문 마사지 - ${shop.name}`;
+  const displayShopTitle = `${fullLocation} 출장 힐링테라피 제휴샵 - ${shop.name}`;
 
   // 🌟 고유 소개글 및 FAQ 데이터 생성
   const uniqueContent = getUniqueShopContent(dongName, shop.name, shop.desc, id);
@@ -258,7 +262,7 @@ export default async function DongShopDetailPage({ params }: PageProps) {
 
       <header className="bg-white border-b border-slate-200 sticky top-0 z-40 px-4 py-3 shadow-sm">
         <div className="max-w-4xl mx-auto flex justify-between items-center">
-          <Link href="/" className="text-xl font-bold text-sky-600">꿀마</Link>
+          <Link href="/" className="text-xl font-bold text-sky-600">인서울테라피</Link>
           <Link href={`/${city}/${district}/${encodeURIComponent(dongName)}`} className="text-xs font-bold text-sky-600 bg-sky-50 px-3 py-1.5 rounded-xl border border-sky-100 hover:bg-sky-600 hover:text-white transition-all">
             &larr; {dongName} 지역 홈으로
           </Link>
@@ -275,7 +279,7 @@ export default async function DongShopDetailPage({ params }: PageProps) {
           </div>
           <div className="p-6 md:p-8 space-y-4 -mt-8 relative z-10 bg-white rounded-t-3xl border-t border-slate-100">
             <span className="text-xs font-bold text-sky-600 bg-sky-50 px-3 py-1 rounded-lg border border-sky-100">
-              📍 {fullLocation} 방문 제휴처
+              📍 {fullLocation} 안심 제휴처
             </span>
             <h1 className="text-xl md:text-3xl font-black text-slate-900 leading-tight">{displayShopTitle}</h1>
             

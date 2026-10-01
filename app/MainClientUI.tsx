@@ -1,107 +1,76 @@
-"use client";
+import type { Metadata } from "next";
+import "./globals.css";
+import NavigationHeader from "./NavigationHeader";
 
-import { useState } from "react";
-import Link from "next/link";
-import { regionData } from "@/lib/regions";
+const SITE_URL = "https://inseoul-therapy.netlify.app";
+const SITE_NAME = "인서울테라피";
 
-export default function MainClientUI() {
-  const [activeSido, setActiveSido] = useState("seoul");
-  const selectedRegion = regionData[activeSido] || regionData["seoul"];
-  const districtsArray = Object.entries(selectedRegion.districts);
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  title: {
+    // 네이버 검색 최적화 규격 준수
+    default: `${SITE_NAME} | 서울·경기·인천 출장 리프레쉬 마사지 & 프리미엄 테라피`,
+    template: `%s | ${SITE_NAME}`
+  },
+  // 요청하신 디테일한 코스 및 시간 안내를 포함한 클릭 유도형 디스크립션
+  description: "서울·경기·인천에서 인서울테라피 출장마사지를 살펴보세요. 프라이빗케어·웜아로마·소프트케어 등 다양한 구성과 60·90·120분 코스의 시간·금액을 한눈에 확인할 수 있습니다.",
+  keywords: [
+    "인서울테라피",
+    "서울 출장 마사지",
+    "경기 출장 마사지",
+    "인천 출장 마사지",
+    "수도권 방문테라피",
+    "안심 후불제 마사지",
+    "프라이빗 출장 홈케어"
+  ],
+  alternates: {
+    canonical: SITE_URL,
+  },
+  verification: {
+    other: {
+      "naver-site-verification": "81067612bc6994453b9f8ec9eb23b036547fdbf8",
+    },
+  },
+  openGraph: {
+    title: `${SITE_NAME} | 서울·경기·인천 출장 리프레쉬 마사지 & 프리미엄 테라피`,
+    description: "서울·경기·인천에서 인서울테라피 출장마사지를 살펴보세요. 프라이빗케어·웜아로마·소프트케어 등 다양한 구성과 60·90·120분 코스의 시간·금액을 한눈에 확인할 수 있습니다.",
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    locale: "ko_KR",
+    type: "website",
+    images: [
+      {
+        url: "/og-main.png",
+        width: 1200,
+        height: 630,
+        alt: "인서울테라피 수도권 출장 홈케어 플랫폼",
+      },
+    ],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+};
 
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <div className="bg-slate-50 text-slate-800 min-h-screen flex flex-col font-sans">
-      <header className="bg-white border-b border-slate-200 sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto flex items-center justify-between h-16 px-4">
-          <Link href="/" className="flex items-center gap-2.5">
-            <div className="w-9 h-9 bg-sky-600 rounded-lg flex items-center justify-center text-white font-black text-sm">KM</div>
-            <div>
-              <div className="text-base font-extrabold text-slate-900 leading-none">꿀마</div>
-              <div className="text-[10px] text-slate-400 mt-0.5">KKULMA WELLNESS PLATFORM</div>
-            </div>
-          </Link>
-          <div className="flex items-center gap-3">
-            <Link href="/prices" className="text-xs font-bold text-slate-600 hover:text-sky-600">가격안내</Link>
-            <Link href="/reviews" className="text-xs font-bold text-slate-600 hover:text-sky-600">이용후기</Link>
-          </div>
-        </div>
-      </header>
-
-      {/* 🌟 banner.jpg 배너 영역 */}
-      <section className="relative overflow-hidden bg-slate-900 text-center border-b border-slate-200 py-16 px-4">
-        <img 
-          src="/banner.jpg" 
-          alt="꿀마 프리미엄 웰니스 배너" 
-          className="absolute inset-0 w-full h-full object-cover filter brightness-[0.65]" 
-        />
-        <div className="relative z-10 max-w-2xl mx-auto space-y-3">
-          <span className="bg-sky-500 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-sm">
-            PREMIUM WELLNESS SPACE
-          </span>
-          <h1 className="text-2xl md:text-4xl font-black text-white leading-tight">
-            경기·인천·서울 프리미엄 힐링 테라피 & 바디케어 플랫폼
-          </h1>
-          <p className="text-slate-200 text-xs md:text-sm font-medium">
-            수도권 전 지역 투명한 정찰제 및 100% 안심 후불제 시스템으로 쾌적한 휴식을 선사합니다.
-          </p>
-        </div>
-      </section>
-
-      <main className="max-w-6xl mx-auto px-4 py-10 flex-1 w-full space-y-6">
-        <h2 className="text-xl font-extrabold text-slate-900 flex items-center gap-2">
-          <span>📍</span> 수도권 전체 지역별 제휴 파트너 찾기
-        </h2>
-
-        {/* 시도 선택 탭 */}
-        <div className="flex gap-2 overflow-x-auto pb-2">
-          {Object.entries(regionData).map(([key, val]) => (
-            <button
-              key={key}
-              onClick={() => setActiveSido(key)}
-              className={`px-5 py-2.5 rounded-xl border font-bold text-xs md:text-sm transition-all whitespace-nowrap ${
-                activeSido === key
-                  ? "bg-sky-50 text-sky-700 border-sky-400 shadow-sm"
-                  : "bg-white text-slate-600 border-slate-200 hover:bg-slate-100"
-              }`}
-            >
-              {val.name}
-            </button>
-          ))}
-        </div>
-
-        {/* 구/시/군 순서 고정 출력 */}
-        <div className="space-y-4">
-          {districtsArray.map(([distKey, distVal]) => (
-            <div key={distKey} className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
-              <div className="font-extrabold text-slate-900 text-base mb-3 pb-2 border-b border-slate-100 flex items-center justify-between">
-                <span>{distVal.name}</span>
-                <Link href={`/${activeSido}/${distKey}`} className="text-xs font-bold text-sky-600 hover:underline">
-                  전체보기 &rarr;
-                </Link>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {distVal.dongs.map((dong, idx) => (
-                  <Link
-                    key={idx}
-                    href={`/${activeSido}/${distKey}/${encodeURIComponent(dong)}`}
-                    className="px-3 py-1.5 rounded-xl border border-slate-200 bg-slate-50 text-xs font-medium text-slate-700 hover:bg-sky-50 hover:text-sky-600 hover:border-sky-300 transition shadow-2xs"
-                  >
-                    {dong} &rarr;
-                  </Link>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </main>
-
-      <footer className="bg-slate-900 text-slate-400 py-10 mt-16 text-xs">
-        <div className="max-w-6xl mx-auto px-4 space-y-2">
-          <div className="font-bold text-white text-sm">꿀마 (Kkulma Wellness)</div>
-          <p>도메인 주소: https://kkulma.netlify.app/ | 경기·인천·서울 제휴 힐링 플랫폼</p>
-          <p className="text-slate-500 pt-2">© 2026 꿀마. All rights reserved.</p>
-        </div>
-      </footer>
-    </div>
+    <html lang="ko">
+      <body className="bg-slate-50 text-slate-800 min-h-screen flex flex-col font-sans selection:bg-sky-500 selection:text-white">
+        <NavigationHeader />
+        {children}
+      </body>
+    </html>
   );
 }

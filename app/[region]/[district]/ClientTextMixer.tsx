@@ -11,8 +11,8 @@ export default function ClientTextMixer({ locationText }: Props) {
   const [subText, setSubText] = useState("선입금 없는 100% 안심 후불제 시스템");
 
   useEffect(() => {
-    // 🌟 '출장'과 '마사지'를 절대 붙여 쓰지 않고 사이에 수식어('전문', '방문' 등)를 배치하여 분산
-    setHeadline(`${locationText} 출장 전문 힐링 방문 마사지 & 릴렉스 테라피`);
+    // 🌟 '출장'과 '마사지'를 절대 붙여 쓰지 않고 사이에 수식어를 배치하여 분산 (SEO 최적화)
+    setHeadline(`${locationText} 출장 프리미엄 힐링 마사지 & 릴렉스 테라피`);
     setSubText("수도권 평균 25분 내 신속한 방문 · 100% 안심 후불제 시스템");
   }, [locationText]);
 
@@ -24,7 +24,8 @@ export default function ClientTextMixer({ locationText }: Props) {
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
           <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
         </span>
-        실시간 {locationText} 꿀마 힐러 대기중
+        {/* 🌟 꿀마 -> 인서울테라피 브랜드명 교체 */}
+        실시간 {locationText} 인서울테라피 매니저 대기중
       </div>
 
       {/* 핵심 키워드 헤드라인 */}

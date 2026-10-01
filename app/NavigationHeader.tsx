@@ -11,20 +11,23 @@ export default function NavigationHeader() {
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-slate-200 px-4 py-3 shadow-sm">
       <div className="max-w-5xl mx-auto flex items-center justify-between">
         
-        {/* 로고 영역 */}
+        {/* 로고 영역 (인서울테라피 브랜드 적용 및 모바일 레이아웃 최적화) */}
         <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="w-9 h-9 bg-sky-600 rounded-xl flex items-center justify-center text-white font-black text-sm shadow-sm group-hover:scale-105 transition-transform">
-            KM
+          <div className="w-9 h-9 bg-sky-600 rounded-xl flex items-center justify-center text-white font-black text-sm shadow-sm group-hover:scale-105 transition-transform shrink-0">
+            IS
           </div>
           <div className="flex flex-col">
-            <span className="text-lg font-black tracking-tight text-slate-900 leading-none">
-              꿀마 <span className="text-xs text-sky-600 font-semibold tracking-normal">KKULMA</span>
+            <span className="text-base sm:text-lg font-black tracking-tight text-slate-900 leading-none">
+              인서울테라피
+            </span>
+            <span className="text-[9px] sm:text-[10px] text-sky-600 font-bold tracking-wider mt-0.5">
+              INSEOUL THERAPY
             </span>
           </div>
         </Link>
 
         {/* 데스크톱 메뉴 목록 */}
-        <nav className="hidden md:flex items-center gap-6 text-xs font-bold text-slate-600">
+        <nav className="hidden md:flex items-center gap-5 lg:gap-6 text-xs font-bold text-slate-600">
           
           {/* 1. 서비스 */}
           <Link href="/services" className="hover:text-sky-600 transition-colors">
