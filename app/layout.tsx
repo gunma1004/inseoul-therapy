@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     // 네이버 검색 최적화 규격 준수
-    default: `${SITE_NAME} | 서울·경기·인천 출장 리프레쉬 마사지 & 프리미엄 테라피`,
+    default: `${SITE_NAME} | 서울·경기·인천 출장 리프레쉬 마사지 & 당신이 머무는 곳이 가장 완벽한 쉼터`,
     template: `%s | ${SITE_NAME}`
   },
   // 요청하신 디테일한 코스 및 시간 안내를 포함한 클릭 유도형 디스크립션
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: `${SITE_NAME} | 서울·경기·인천 출장 리프레쉬 마사지 & 프리미엄 테라피`,
+    title: `${SITE_NAME} | 서울·경기·인천 출장 리프레쉬 마사지 & 당신이 머무는 곳이 가장 완벽한 쉼터`,
     description: "서울·경기·인천에서 출장마사지를 인서울테라피 살펴보세요. 프라이빗케어·웜아로마·소프트케어 등 다양한 구성과 60·90·120분 코스의 시간·금액을 한눈에 확인할 수 있습니다.",
     url: SITE_URL,
     siteName: SITE_NAME,
