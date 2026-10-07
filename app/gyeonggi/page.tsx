@@ -5,24 +5,25 @@ const SITE_URL = "https://inseoul-therapy.netlify.app";
 const SITE_NAME = "인서울테라피";
 
 export const metadata: Metadata = {
-  // 🌟 타이틀: '출장'과 '마사지' 분리 
-  title: `경기 출장 프리미엄 마사지 | 거센 파도 같던 하루를 잔잔하게 | ${SITE_NAME}`,
-  // 🌟 디스크립션: 지역명 뒤에 '출장 마사지' 완벽 밀착
-  description: "경기도 출장 마사지 및 홈타이 정보를 전체 세부 동·읍·면별로 편리하게 확인하세요. 100% 안심 후불제로 운영되는 검증된 제휴 샵을 인서울테라피에서 만나보세요.",
+  title: "경기 출장 바디 케어 마사지 | 지역별 이용 가이드 - 인서울테라피",
+  description:
+    "인서울테라피 - 선입금 0원 100% 안심 후불제 경기출장마사지 정보. 경기도 전역 일정과 공간에 맞춰 5가지 코스, 14개 시간·가격 선택지와 방문 준비사항을 확인하세요.",
   keywords: [
+    "경기 출장 바디 케어 마사지",
+    "경기출장마사지",
     "경기 출장 마사지",
-    "경기도 출장 마사지",
     "경기 스웨디시",
     "경기 홈타이",
-    "경기 방문 홈케어",
+    "경기 방문 테라피",
     "인서울테라피"
   ],
   alternates: {
     canonical: `${SITE_URL}/gyeonggi`,
   },
   openGraph: {
-    title: `경기 출장 프리미엄 마사지 | 거센 파도 같던 하루를 잔잔하게 | ${SITE_NAME}`,
-    description: "경기도 출장 마사지 및 홈타이 전체 지역 정보를 세부 동·읍·면별로 편리하게 확인하세요. 100% 안심 후불제 인서울테라피.",
+    title: "경기 출장 바디 케어 마사지 | 지역별 이용 가이드 - 인서울테라피",
+    description:
+      "인서울테라피 - 선입금 0원 100% 안심 후불제 경기출장마사지 정보. 경기도 전역 일정과 공간에 맞춰 5가지 코스, 14개 시간·가격 선택지와 방문 준비사항을 확인하세요.",
     url: `${SITE_URL}/gyeonggi`,
     siteName: SITE_NAME,
     locale: "ko_KR",
@@ -30,22 +31,28 @@ export const metadata: Metadata = {
   },
 };
 
-// 🌟 네이버 SEO 씬 콘텐츠(Thin Content) 필터링 방어용 고유 텍스트
+const shops = [
+  { id: 1, name: "한국골든테라피", badge: "VIP 골든 힐링 케어", desc: "골든 품격의 감성 릴렉싱! 전문 관리사들의 정성스러운 맞춤 테라피", phone: "0507-1280-3361", price: "60분 110,000원~" },
+  { id: 2, name: "한국미인테라피", badge: "재방문율 최우수", desc: "최고급 천연 오일을 활용한 감성 아로마 전신 바디케어 프로그램", phone: "0507-1280-3303", price: "90분 100,000원~" },
+  { id: 3, name: "주주테라피", badge: "만족도 1위 추천", desc: "재방문율 1위 만족도! 정통 힐링 테라피부터 올인원 VIP 코스까지", phone: "0507-1280-3193", price: "60분 60,000원~" },
+  { id: 4, name: "퀸즈홈테라피", badge: "여왕처럼 누리는 VIP", desc: "여왕처럼 누리는 고품격 테라피! 전문 관리사들의 1:1 맞춤 방문 힐링", phone: "0507-1280-3334", price: "60분 60,000원~" },
+  { id: 5, name: "오늘밤테라피", badge: "야간 힐링 만족 1위", desc: "선입금 없는 100% 후불제! 깊은 밤 지친 하루의 피로를 완벽하게", phone: "0507-1280-3223", price: "60분 60,000원~" }
+];
+
 const regionSeoContent = {
   title: "경기도 전역 프리미엄 출장 홈케어 안내",
   body: "인서울테라피는 경기도 전역을 아우르는 광역 네트워크를 통해 언제 어디서든 편안하게 이용할 수 있는 출장 힐링 테라피를 제공합니다. 수원, 성남, 고양, 용인 등 주요 도심은 물론 외곽 지역까지 체계화된 시스템으로 빠르게 방문합니다. 내 집에서 누리는 최고급 스웨디시와 타이 마사지를 선입금 없는 100% 안심 후불제로 경험해 보세요. 엄격한 기준으로 선별된 전문 관리사들이 고객님의 지친 일상에 완벽한 휴식을 선사합니다.",
   faqs: [
-    { q: "경기도 외곽 지역도 빠른 방문이 가능한가요?", a: "네, 경기도 내 31개 시·군 대부분의 권역에 전담 제휴 샵과 매니저가 배치되어 있어 외곽 지역이라도 최대한 신속한 방문이 가능하도록 시스템을 구축하고 있습니다." },
-    { q: "예약 후 도착까지 시간은 얼마나 걸리나요?", a: "계신 곳의 지역 및 교통 상황에 따라 약간의 차이가 있으나, 평균적으로 배차 완료 후 30분 전후로 도착할 수 있도록 가장 가까운 제휴 샵을 우선 매칭해 드립니다." },
-    { q: "예약금이나 선입금이 정말 없나요?", a: "최근 늘어나는 선입금 사기를 원천 차단하기 위해 저희 인서울테라피의 모든 제휴 샵은 관리사 도착 후 직접 결제하는 '100% 현장 안심 후불제'로만 운영됩니다." }
+    { q: "경기도 외곽 지역도 빠른 방문이 가능한가요?", a: "네, 경기도 내 31개 시·군 주요 권역에 전담 제휴 샵과 매니저가 배치되어 있어 최대한 신속한 방문이 가능하도록 시스템을 구축하고 있습니다." },
+    { q: "예약 후 도착까지 시간은 얼마나 걸리나요?", a: "계신 곳의 지역 및 교통 상황에 따라 차이가 있으나, 평균적으로 배차 완료 후 25~30분 전후로 도착할 수 있도록 가장 가까운 제휴 샵을 우선 매칭해 드립니다." },
+    { q: "예약금이나 선입금이 정말 없나요?", a: "선입금 사기를 원천 차단하기 위해 인서울테라피의 모든 제휴 샵은 관리사 도착 후 직접 확인하고 결제하는 '100% 현장 안심 후불제'로만 안전하게 운영됩니다." }
   ]
 };
 
-// 경기도 주요 시·군 및 세부 동/읍/면 데이터 전체 연동
 const gyeonggiDistricts = {
   suwon_jangan: { name: "수원시 장안구", dongs: ["파장동", "정자동", "영화동", "송죽동", "조원동", "율천동"] },
   suwon_gwonseon: { name: "수원시 권선구", dongs: ["세류동", "평동", "권선동", "곡선동", "입북동", "서둔동"] },
-  suwon_paldal: { name: "수원시 팔달구", dongs: ["매교동", "매산동", "고등동", "화서동", "수창동", "지동"] },
+  suwon_paldal: { name: "수원시 팔달구", dongs: ["매교동", "매산동", "고등동", "화서동", "지동", "우만동", "인계동"] },
   suwon_yeongtong: { name: "수원시 영통구", dongs: ["매탄동", "원천동", "영통동", "망포동", "광교동"] },
   seongnam_sujeong: { name: "성남시 수정구", dongs: ["신흥동", "태평동", "수진동", "단대동", "산성동", "복정동"] },
   seongnam_jungwon: { name: "성남시 중원구", dongs: ["성남동", "중앙동", "금광동", "은행동", "하대원동", "도촌동"] },
@@ -90,30 +97,65 @@ const gyeonggiDistricts = {
 };
 
 export default function GyeonggiRegionPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "경기도 전 지역 출장 홈케어 마사지 서비스",
+    provider: {
+      "@type": "LocalBusiness",
+      name: SITE_NAME,
+      telephone: "0507-1280-3199",
+      url: SITE_URL,
+    },
+    areaServed: {
+      "@type": "AdministrativeArea",
+      name: "경기도",
+    },
+    description:
+      "경기도 전 지역 100% 안심 후불제 출장 홈타이 및 바디케어 서비스 안내",
+  };
+
   return (
     <main className="min-h-screen bg-slate-50 text-slate-800">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <header className="bg-white border-b border-slate-200 sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
           <Link href="/" className="text-xl font-bold text-sky-600">
             인서울테라피
           </Link>
-          <Link href="/" className="text-sm text-slate-500 hover:text-slate-800">
-            &larr; 홈으로 돌아가기
-          </Link>
+          <div className="flex items-center gap-2">
+            <a
+              href="tel:050712803199"
+              className="text-xs font-bold text-white bg-sky-600 px-3.5 py-1.5 rounded-xl hover:bg-sky-700 transition shadow-xs"
+            >
+              📞 24시 전화예약
+            </a>
+            <Link
+              href="/"
+              className="text-xs font-bold text-slate-600 bg-slate-100 px-3 py-1.5 rounded-xl hover:bg-slate-200 transition"
+            >
+              ← 홈으로
+            </Link>
+          </div>
         </div>
       </header>
 
       <nav className="bg-white border-b border-slate-200 py-3 px-4 text-xs text-slate-500">
         <div className="max-w-6xl mx-auto flex items-center gap-2">
-          <Link href="/" className="text-sky-600 font-semibold hover:underline">홈</Link>
+          <Link href="/" className="text-sky-600 font-semibold hover:underline">
+            홈
+          </Link>
           <span>&gt;</span>
-          <span>경기 지역 안내</span>
+          <span className="text-slate-800 font-bold">경기 지역 안내</span>
         </div>
       </nav>
 
       <section className="max-w-6xl mx-auto py-10 px-4 space-y-10">
-        
-        {/* 🌟 SEO 텍스트 고유 본문 영역 (씬 콘텐츠 필터링 방어) */}
+        {/* SEO 본문 영역 */}
         <div className="bg-white border border-slate-200 rounded-3xl p-6 md:p-10 shadow-sm space-y-4">
           <span className="bg-sky-100 text-sky-700 text-xs font-bold px-3 py-1.5 rounded-full inline-block">
             경기도 안심 제휴 샵 안내
@@ -126,32 +168,100 @@ export default function GyeonggiRegionPage() {
           </p>
         </div>
 
-        {/* 🌟 SEO FAQ 영역 */}
+        {/* 경기 전지역 대표 제휴 샵 카드 (총 5곳) */}
+        <div className="bg-white border border-slate-200 p-6 md:p-8 rounded-3xl space-y-4 shadow-sm">
+          <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+            <h2 className="text-lg md:text-xl font-black text-slate-900 flex items-center gap-2">
+              <span>✨</span> 경기 전 지역 대표 추천 제휴 샵 (총 5곳)
+            </h2>
+            <span className="text-xs text-sky-600 font-extrabold bg-sky-50 px-3 py-1 rounded-full border border-sky-100">
+              100% 안심 후불제
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 gap-3.5 pt-2">
+            {shops.map((s) => (
+              <div
+                key={s.id}
+                className="p-4 sm:p-5 rounded-2xl border bg-slate-50/80 border-slate-200/80 hover:border-sky-400 hover:bg-white hover:shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all"
+              >
+                <div className="flex items-center gap-4 min-w-0">
+                  <div className="w-14 h-14 bg-sky-100 rounded-2xl flex items-center justify-center text-sky-600 font-black text-lg shrink-0 border border-sky-200">
+                    {s.id}
+                  </div>
+                  <div className="min-w-0 space-y-1">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="font-black text-base text-slate-900">{s.name}</span>
+                      <span className="text-[10px] bg-sky-50 text-sky-600 px-2.5 py-0.5 rounded-full font-extrabold border border-sky-100">
+                        {s.badge}
+                      </span>
+                    </div>
+                    <p className="text-xs text-slate-500 leading-snug line-clamp-1">{s.desc}</p>
+                    <p className="text-xs font-bold text-sky-600">{s.price}</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 shrink-0">
+                  <a
+                    href={`tel:${s.phone}`}
+                    className="w-full sm:w-auto px-4 py-2.5 text-center rounded-xl text-xs font-black bg-sky-600 hover:bg-sky-700 text-white shadow-sm transition-all active:scale-95"
+                  >
+                    📞 전화 예약
+                  </a>
+                  <Link
+                    href={`/gyeonggi/seongnam_bundang/shop/${s.id}`}
+                    className="w-full sm:w-auto px-4 py-2.5 text-center rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 transition-all"
+                  >
+                    코스 상세보기
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* SEO FAQ 영역 */}
         <div className="bg-white border border-slate-200 rounded-3xl p-6 md:p-8 shadow-sm space-y-5">
           <h2 className="text-lg md:text-xl font-black text-slate-900 flex items-center gap-2">
             <span className="text-sky-500">💡</span> 경기도 지역 이용 FAQ
           </h2>
           <div className="space-y-4">
             {regionSeoContent.faqs.map((faq, idx) => (
-              <div key={idx} className="bg-slate-50 p-4 md:p-5 rounded-2xl border border-slate-100">
-                <p className="font-bold text-sm md:text-base text-sky-700 mb-1.5">Q. {faq.q}</p>
-                <p className="text-xs md:text-sm text-slate-600 leading-relaxed">A. {faq.a}</p>
+              <div
+                key={idx}
+                className="bg-slate-50 p-4 md:p-5 rounded-2xl border border-slate-100"
+              >
+                <p className="font-bold text-sm md:text-base text-sky-700 mb-1.5">
+                  Q. {faq.q}
+                </p>
+                <p className="text-xs md:text-sm text-slate-600 leading-relaxed">
+                  A. {faq.a}
+                </p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* 경기도 전체 시·군 렌더링 (내부 링크 구조) */}
+        {/* 시·군·구 전체 권역 렌더링 (구/시 제목 링크화) */}
         <div className="space-y-6">
-          <h2 className="text-xl font-extrabold text-slate-900 px-2">📍 경기 시·군·구 전체 권역 선택</h2>
+          <h2 className="text-xl font-extrabold text-slate-900 px-2">
+            📍 경기 시·군·구 전체 권역 선택
+          </h2>
           {Object.entries(gyeonggiDistricts).map(([districtKey, districtVal]) => (
-            <div key={districtKey} className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+            <div
+              key={districtKey}
+              className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm"
+            >
               <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
-                <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <Link
+                  href={`/gyeonggi/${districtKey}`}
+                  className="text-lg font-bold text-slate-900 hover:text-sky-600 flex items-center gap-2 transition-colors"
+                >
                   <span className="w-2 h-2 rounded-full bg-sky-600"></span>
-                  {districtVal.name}
-                </h3>
-                <span className="text-xs text-slate-400">{districtVal.dongs.length}개 지역 등록</span>
+                  {districtVal.name} 전체보기 &rarr;
+                </Link>
+                <span className="text-xs text-slate-400">
+                  {districtVal.dongs.length}개 지역 등록
+                </span>
               </div>
               <div className="flex flex-wrap gap-2">
                 {districtVal.dongs.map((dong, idx) => (
@@ -167,12 +277,11 @@ export default function GyeonggiRegionPage() {
             </div>
           ))}
         </div>
-
       </section>
 
       <footer className="bg-white border-t border-slate-200 py-8 text-center text-xs text-slate-400 mt-10">
-        <p>© 2026 인서울테라피 (InSeoul Therapy). All rights reserved.</p>
-        <p className="mt-1">도메인: https://inseoul-therapy.netlify.app/gyeonggi</p>
+        <p>© 2026 {SITE_NAME} (InSeoul Therapy). All rights reserved.</p>
+        <p className="mt-1">공식 도메인: {SITE_URL}/gyeonggi</p>
       </footer>
     </main>
   );

@@ -31,6 +31,14 @@ export const metadata: Metadata = {
   },
 };
 
+const shops = [
+  { id: 1, name: "한국골든테라피", badge: "VIP 골든 힐링 케어", desc: "골든 품격의 감성 릴렉싱! 전문 관리사들의 정성스러운 맞춤 테라피", phone: "0507-1280-3361", price: "60분 110,000원~" },
+  { id: 2, name: "한국미인테라피", badge: "재방문율 최우수", desc: "최고급 천연 오일을 활용한 감성 아로마 전신 바디케어 프로그램", phone: "0507-1280-3303", price: "90분 100,000원~" },
+  { id: 3, name: "주주테라피", badge: "만족도 1위 추천", desc: "재방문율 1위 만족도! 정통 힐링 테라피부터 올인원 VIP 코스까지", phone: "0507-1280-3193", price: "60분 60,000원~" },
+  { id: 4, name: "퀸즈홈테라피", badge: "여왕처럼 누리는 VIP", desc: "여왕처럼 누리는 고품격 테라피! 전문 관리사들의 1:1 맞춤 방문 힐링", phone: "0507-1280-3334", price: "60분 60,000원~" },
+  { id: 5, name: "오늘밤테라피", badge: "야간 힐링 만족 1위", desc: "선입금 없는 100% 후불제! 깊은 밤 지친 하루의 피로를 완벽하게", phone: "0507-1280-3223", price: "60분 60,000원~" }
+];
+
 const regionSeoContent = {
   title: "서울특별시 25개 구 전 지역 프리미엄 출장 홈케어 안내",
   body: "인서울테라피는 서울특별시 25개 구 전 지역을 아우르는 촘촘한 방문 네트워크를 통해 언제 어디서든 편안하게 이용할 수 있는 출장 힐링 테라피를 제공합니다. 강남, 서초, 마포, 송파, 영등포 등 주요 비즈니스 및 주거 요충지는 물론 세부 골목 구석구석까지 체계화된 배차 시스템으로 25분 내 신속하게 방문합니다. 내 집에서 누리는 최고급 스웨디시와 타이 마사지를 선입금 없는 100% 안심 후불제로 경험해 보세요. 엄격한 기준으로 선별된 전문 관리사들이 일상에 지친 고객님께 완벽한 휴식을 선사합니다.",
@@ -150,6 +158,57 @@ export default function SeoulRegionPage() {
           </p>
         </div>
 
+        {/* 🌟 [추가된 핵심 섹션] 서울 전지역 대표 제휴 샵 카드 (총 5곳) */}
+        <div className="bg-white border border-slate-200 p-6 md:p-8 rounded-3xl space-y-4 shadow-sm">
+          <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+            <h2 className="text-lg md:text-xl font-black text-slate-900 flex items-center gap-2">
+              <span>✨</span> 서울 전 지역 대표 추천 제휴 샵 (총 5곳)
+            </h2>
+            <span className="text-xs text-sky-600 font-extrabold bg-sky-50 px-3 py-1 rounded-full border border-sky-100">
+              100% 안심 후불제
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 gap-3.5 pt-2">
+            {shops.map((s) => (
+              <div
+                key={s.id}
+                className="p-4 sm:p-5 rounded-2xl border bg-slate-50/80 border-slate-200/80 hover:border-sky-400 hover:bg-white hover:shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all"
+              >
+                <div className="flex items-center gap-4 min-w-0">
+                  <div className="w-14 h-14 bg-sky-100 rounded-2xl flex items-center justify-center text-sky-600 font-black text-lg shrink-0 border border-sky-200">
+                    {s.id}
+                  </div>
+                  <div className="min-w-0 space-y-1">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="font-black text-base text-slate-900">{s.name}</span>
+                      <span className="text-[10px] bg-sky-50 text-sky-600 px-2.5 py-0.5 rounded-full font-extrabold border border-sky-100">
+                        {s.badge}
+                      </span>
+                    </div>
+                    <p className="text-xs text-slate-500 leading-snug line-clamp-1">{s.desc}</p>
+                    <p className="text-xs font-bold text-sky-600">{s.price}</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 shrink-0">
+                  <a
+                    href={`tel:${s.phone}`}
+                    className="w-full sm:w-auto px-4 py-2.5 text-center rounded-xl text-xs font-black bg-sky-600 hover:bg-sky-700 text-white shadow-sm transition-all active:scale-95"
+                  >
+                    📞 전화 예약
+                  </a>
+                  <Link
+                    href={`/seoul/gangnam/shop/${s.id}`}
+                    className="w-full sm:w-auto px-4 py-2.5 text-center rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 transition-all"
+                  >
+                    코스 상세보기
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* SEO FAQ 영역 */}
         <div className="bg-white border border-slate-200 rounded-3xl p-6 md:p-8 shadow-sm space-y-5">
           <h2 className="text-lg md:text-xl font-black text-slate-900 flex items-center gap-2">
@@ -210,7 +269,6 @@ export default function SeoulRegionPage() {
         </div>
       </section>
 
-      {/* 푸터 영역 정상 닫힘 태그 포함 */}
       <footer className="bg-white border-t border-slate-200 py-8 text-center text-xs text-slate-400 mt-10">
         <p>© 2026 {SITE_NAME} (InSeoul Therapy). All rights reserved.</p>
         <p className="mt-1">공식 도메인: {SITE_URL}/seoul</p>
