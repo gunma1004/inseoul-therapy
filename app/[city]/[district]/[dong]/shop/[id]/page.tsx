@@ -14,29 +14,29 @@ interface PageProps {
 const SITE_URL = "https://inseoul-therapy.netlify.app";
 const SITE_NAME = "인서울테라피";
 
-// 🌟 1단: '출장'과 '마사지'가 절대 붙지 않도록 사이에 수식어를 넣은 패턴 풀
+// 🌟 타이틀용 순환 키워드 풀
 const shopActionModifiers = [
-  '릴렉스 마사지', '소프트스웨디시 마사지', '아로마케어 마사지',
-  '감성힐링 마사지', '프리미엄 마사지', '바디케어 마사지',
-  '딥티슈이완 마사지', '전신힐링 마사지', '맞춤형케어 마사지',
-  '안심방문 마사지', 'VIP스웨디시 마사지', '명품테라피 마사지',
-  '소프트감성 마사지', '림프순환 마사지', '포근한힐링 마사지',
-  '체형맞춤 마사지', '타이스트레칭 마사지', '스페셜바디 마사지'
+  "릴렉스 마사지 & 힐링 케어",
+  "스웨디시 마사지 & 프리미엄 테라피",
+  "아로마 마사지 1:1 맞춤 케어",
+  "정통 타이 마사지 정찰제 안내",
+  "감성 스웨디시 마사지 힐링",
+  "딥티슈 마사지 이완 케어",
+  "바디케어 마사지 & 웰니스",
+  "전신 릴렉싱 마사지 코스",
+  "VIP 맞춤형 테라피 마사지",
+  "림프 순환 케어 마사지",
+  "포근한 힐링 아로마 마사지",
+  "체형 맞춤 전신 스트레칭 마사지"
 ];
 
-// 🌟 2단: 구 단위 연계 방문 예약 키워드 풀
-const districtBookingActions = [
-  '홈타이 예약', '방문 홈타이 안내', '테라피 예약', '힐링 홈케어 예약',
-  '바디케어 매칭', '홈케어 예약', '방문 홈케어 안내','스웨디시 예약'
-];
-
-// 🌟 3단: 디스크립션 가격 및 소구점 조합 풀
+// 🌟 디스크립션 가격 및 소구점 조합 풀
 const priceHooks = [
-  '건식 6만원부터 현장결제로 방문합니다.',
-  '건식, 아로마, 스웨디시 추가 비용 없이 방문합니다.',
-  '스웨디시, 아로마, 타이 합리적인 정찰제로 방문합니다.',
-  '아로마, 타이, 스웨디시 100% 안심 후불제로 진행됩니다.',
-  '타이, 아로마, 스웨디시 추가 요금 없이 현장 결제합니다.'
+  "건식 6만원부터 심야할증 없이 방문합니다.",
+  "스웨디시 8만원부터 추가비용 없이 방문합니다.",
+  "아로마 7만원부터 합리적인 정찰제로 방문합니다.",
+  "타이, 아로마, 스웨디시 100% 안심 후불제로 진행됩니다.",
+  "추가 요금 없이 투명한 현장 결제로 신속하게 찾아갑니다."
 ];
 
 const shopDatabase: Record<string, {
@@ -124,60 +124,56 @@ const shopDatabase: Record<string, {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const resolvedParams = await params;
   const { city, district, dong, id } = resolvedParams;
-  
+
   const region = regionData[city.toLowerCase()];
   const districtInfo = region?.districts[district.toLowerCase()];
-  
+
   const cityName = city.toLowerCase() === "seoul" ? "서울" : city.toLowerCase() === "incheon" ? "인천" : "경기";
   const districtName = districtInfo ? districtInfo.name : district;
   const dongName = decodeURIComponent(dong);
   const shop = shopDatabase[id] || shopDatabase["1"];
-  
-  // 🌟 타이틀 조립 로직: "역삼동 출장 릴렉스 마사지 | 강남구 홈타이 예약 | 인서울테라피" (출장과 마사지 분리!)
-  const seedString = `${cityName}-${districtName}-${dongName}-${id}-inseoultherapy-shop-seo`;
-  const charSum = seedString.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
-  
-  const part1Idx = charSum % shopActionModifiers.length;
-  const part2Idx = (charSum * 3) % districtBookingActions.length;
+
+  const seedString = `${cityName}-${districtName}-${dongName}-${id}-shop-seo`;
+  const charSum = seedString.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0);
+
+  const modIdx = charSum % shopActionModifiers.length;
   const priceIdx = (charSum * 7) % priceHooks.length;
 
-  let formattedTitle = `${dongName} 출장 ${shopActionModifiers[part1Idx]} | ${districtName} ${districtBookingActions[part2Idx]} | ${SITE_NAME}`;
-  
-  // 만약을 위한 이중 방어막 (출장마사지가 붙어있으면 띄어쓰기로 분리)
+  // 🌟 [요청사항 반영]
+  // 1) 타이틀: "[동] 마사지 [순환 키워드] | [구] 방문 테라피 | [사이트명]"
+  let formattedTitle = `${dongName} 마사지 ${shopActionModifiers[modIdx]} | ${districtName} 방문 테라피 | ${SITE_NAME}`;
   formattedTitle = formattedTitle.replace(/출장마사지/g, "출장 마사지");
 
-  // 🌟 디스크립션 조립 로직: 동 이름 뒤에 '출장 마사지'가 정확히 띄어쓰기 된 채로 착 달라붙음
-  const formattedDesc = `${cityName} ${districtName} ${dongName} 출장 마사지 및 홈타이 안내. 검증된 전문 관리사의 100% 안심 후불제. ${priceHooks[priceIdx]}`;
+  // 2) 메타디스크립션: "[시] [구] [동] 출장마사지 및 [샵이름] 프리미엄 방문 테라피 안내..."
+  const formattedDesc = `${cityName} ${districtName} ${dongName} 출장마사지 및 ${shop.name} 프리미엄 방문 테라피 안내. 100% 안심 후불제. ${priceHooks[priceIdx]}`;
 
   return {
     metadataBase: new URL(SITE_URL),
-    title: {
-      absolute: formattedTitle,
-    },
+    title: { absolute: formattedTitle },
     description: formattedDesc,
     alternates: {
-      canonical: `${SITE_URL}/${city}/${district}/${dong}/shop/${id}`,
+      canonical: `${SITE_URL}/${city}/${district}/${encodeURIComponent(dongName)}/shop/${id}`
     },
     keywords: [
-      `${dongName} 출장 마사지`,
-      `${dongName} 스웨디시`,
-      `${dongName} 홈타이`,
-      `${districtName} 안심 방문`,
+      `${dongName} 마사지`,
+      `${dongName} 출장마사지`,
+      `${dongName} 방문 테라피`,
+      `${districtName} 방문 테라피`,
+      `${shop.name}`,
       `${cityName} ${districtName} 출장`,
-      "인서울테라피"
+      SITE_NAME
     ],
     openGraph: {
       title: formattedTitle,
       description: formattedDesc,
-      url: `${SITE_URL}/${city}/${district}/${dong}/shop/${id}`,
+      url: `${SITE_URL}/${city}/${district}/${encodeURIComponent(dongName)}/shop/${id}`,
       locale: "ko_KR",
       type: "website",
-      images: [{ url: shop.image, width: 800, height: 600, alt: `${dongName} 출장 마사지 제휴샵` }],
-    },
+      images: [{ url: shop.image, width: 800, height: 600, alt: `${dongName} 출장 마사지 제휴샵` }]
+    }
   };
 }
 
-// 🌟 네이버 SEO용 고유 샵 상세 소개 및 FAQ 생성기
 function getUniqueShopContent(dongName: string, shopName: string, shopDesc: string, shopId: string) {
   const seed = `${dongName}-${shopName}-${shopId}-inseoul`;
   let hash = 0;
@@ -194,11 +190,11 @@ function getUniqueShopContent(dongName: string, shopName: string, shopDesc: stri
 
   const faqs = [
     [
-      { q: `${shopName}의 방문 소요 시간은 어떻게 되나요?`, a: `현재 고객님이 계신 ${dongName} 인근 지역이라면 배차 확인 후 통상 30분 전후로 신속하게 방문드리고 있습니다.` },
+      { q: `${shopName}의 방문 소요 시간은 어떻게 되나요?`, a: `현재 고객님이 계신 ${dongName} 인근 지역이라면 배차 확인 후 통상 25~30분 전후로 신속하게 방문드리고 있습니다.` },
       { q: `결제는 현장에서 카드로도 가능한가요?`, a: `네, 현금 결제는 물론 계좌 이체와 카드 결제 모두 가능합니다. 100% 후불제이므로 관리사 도착 후 편하신 방법으로 결제하시면 됩니다.` }
     ],
     [
-      { q: `${shopName} 관리사님들의 실력은 어떤가요?`, a: `저희 샵의 모든 테라피스트는 체계적인 교육 과정을 이수한 20대 전문 한국인 관리사들로, 압 조절부터 감성 케어까지 완벽한 스킬을 보유하고 있습니다.` },
+      { q: `${shopName} 관리사님들의 실력은 어떤가요?`, a: `저희 샵의 모든 테라피스트는 체계적인 교육 과정을 이수한 전문 관리사들로, 압 조절부터 감성 릴렉스 케어까지 수준 높은 스킬을 보유하고 있습니다.` },
       { q: `늦은 새벽 시간에도 ${dongName}으로 예약이 되나요?`, a: `네, 365일 24시간 연중무휴로 운영되고 있어 심야나 새벽 늦은 시간에도 할증 없이 정찰제로 편안하게 이용하실 수 있습니다.` }
     ]
   ];
@@ -215,16 +211,15 @@ export default async function DongShopDetailPage({ params }: PageProps) {
 
   const region = regionData[city.toLowerCase()];
   const districtInfo = region?.districts[district.toLowerCase()];
-  
+
   const cityName = city.toLowerCase() === "seoul" ? "서울" : city.toLowerCase() === "incheon" ? "인천" : "경기";
   const districtName = districtInfo ? districtInfo.name : district;
   const dongName = decodeURIComponent(dong);
   const shop = shopDatabase[id] || shopDatabase["1"];
 
   const fullLocation = `${cityName} ${districtName} ${dongName}`;
-  const displayShopTitle = `${fullLocation} 출장 힐링테라피 제휴샵 - ${shop.name}`;
+  const displayShopTitle = `${fullLocation} 출장 방문 테라피 제휴샵 - ${shop.name}`;
 
-  // 🌟 고유 소개글 및 FAQ 데이터 생성
   const uniqueContent = getUniqueShopContent(dongName, shop.name, shop.desc, id);
 
   const allShopsList = Object.entries(shopDatabase).map(([sId, sVal]) => ({
@@ -240,17 +235,17 @@ export default async function DongShopDetailPage({ params }: PageProps) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "HealthAndBeautyBusiness",
-    "name": displayShopTitle,
-    "description": shop.desc,
-    "telephone": shop.phone,
-    "url": `${SITE_URL}/${city}/${district}/${dong}/shop/${id}`,
-    "image": `${SITE_URL}${shop.image}`,
-    "address": {
+    name: displayShopTitle,
+    description: shop.desc,
+    telephone: shop.phone,
+    url: `${SITE_URL}/${city}/${district}/${encodeURIComponent(dongName)}/shop/${id}`,
+    image: `${SITE_URL}${shop.image}`,
+    address: {
       "@type": "PostalAddress",
-      "addressRegion": fullLocation,
-      "addressCountry": "KR"
+      addressRegion: fullLocation,
+      addressCountry: "KR"
     },
-    "priceRange": "$$"
+    priceRange: "$$"
   };
 
   return (
@@ -263,19 +258,39 @@ export default async function DongShopDetailPage({ params }: PageProps) {
       <header className="bg-white border-b border-slate-200 sticky top-0 z-40 px-4 py-3 shadow-sm">
         <div className="max-w-4xl mx-auto flex justify-between items-center">
           <Link href="/" className="text-xl font-bold text-sky-600">인서울테라피</Link>
-          <Link href={`/${city}/${district}/${encodeURIComponent(dongName)}`} className="text-xs font-bold text-sky-600 bg-sky-50 px-3 py-1.5 rounded-xl border border-sky-100 hover:bg-sky-600 hover:text-white transition-all">
+          <Link
+            href={`/${city}/${district}/${encodeURIComponent(dongName)}`}
+            className="text-xs font-bold text-sky-600 bg-sky-50 px-3 py-1.5 rounded-xl border border-sky-100 hover:bg-sky-600 hover:text-white transition-all"
+          >
             &larr; {dongName} 지역 홈으로
           </Link>
         </div>
       </header>
 
+      {/* 브레드크럼 네비게이션 */}
+      <nav className="bg-white/80 border-b border-slate-100 py-2.5 px-4 text-xs text-slate-500">
+        <div className="max-w-4xl mx-auto flex items-center gap-2">
+          <Link href="/" className="text-sky-600 hover:underline">홈</Link>
+          <span>&gt;</span>
+          <Link href={`/${city}`} className="hover:text-slate-800">{cityName}</Link>
+          <span>&gt;</span>
+          <Link href={`/${city}/${district}`} className="hover:text-slate-800">{districtName}</Link>
+          <span>&gt;</span>
+          <Link href={`/${city}/${district}/${encodeURIComponent(dongName)}`} className="hover:text-slate-800">{dongName}</Link>
+          <span>&gt;</span>
+          <span className="text-slate-800 font-bold">{shop.name}</span>
+        </div>
+      </nav>
+
       <main className="max-w-4xl mx-auto px-4 py-8 w-full flex-1 space-y-8">
         
-        {/* 상단 현재 선택된 샵 정보 카드 */}
+        {/* 상단 샵 정보 카드 */}
         <section className="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-sm">
           <div className="relative h-64 md:h-80 w-full overflow-hidden">
             <img src={shop.image} alt={displayShopTitle} className="w-full h-full object-cover filter brightness-[0.85]" />
-            <span className="absolute top-4 left-4 bg-sky-600 text-white text-xs font-black px-3.5 py-1.5 rounded-full shadow-md">✨ {shop.badge}</span>
+            <span className="absolute top-4 left-4 bg-sky-600 text-white text-xs font-black px-3.5 py-1.5 rounded-full shadow-md">
+              ✨ {shop.badge}
+            </span>
           </div>
           <div className="p-6 md:p-8 space-y-4 -mt-8 relative z-10 bg-white rounded-t-3xl border-t border-slate-100">
             <span className="text-xs font-bold text-sky-600 bg-sky-50 px-3 py-1 rounded-lg border border-sky-100">
@@ -283,14 +298,13 @@ export default async function DongShopDetailPage({ params }: PageProps) {
             </span>
             <h1 className="text-xl md:text-3xl font-black text-slate-900 leading-tight">{displayShopTitle}</h1>
             
-            {/* 🌟 SEO 텍스트 고유화를 위해 생성한 서술형 단락 렌더링 */}
             <div className="text-xs md:text-sm text-slate-600 leading-relaxed bg-slate-50 p-4 md:p-5 rounded-2xl border border-slate-100 break-keep text-justify">
               <p>{uniqueContent.intro}</p>
             </div>
           </div>
         </section>
 
-        {/* 🌟 SEO 점수 상승을 위한 샵 전용 고유 FAQ 섹션 */}
+        {/* 샵 전용 FAQ */}
         <section className="bg-white border border-slate-200 p-6 md:p-8 rounded-3xl space-y-5 shadow-sm">
           <h3 className="text-base md:text-lg font-black text-slate-900 flex items-center gap-2">
             <span className="text-sky-500">💡</span> {shop.name} 매장 이용 FAQ
@@ -308,7 +322,7 @@ export default async function DongShopDetailPage({ params }: PageProps) {
         {/* 코스 및 가격 안내 */}
         <section className="bg-white border border-slate-200 p-6 md:p-8 rounded-3xl space-y-6 shadow-sm">
           <div className="text-center">
-            <span className="text-sky-600 text-xs font-bold tracking-widest uppercase">PROGRAM & PRICE</span>
+            <span className="text-sky-600 text-xs font-bold tracking-widest uppercase">PROGRAM &amp; PRICE</span>
             <h2 className="text-lg md:text-2xl font-black text-slate-900 mt-1">💎 {shop.name} 정규 코스 및 요금</h2>
           </div>
           <div className="space-y-6">
@@ -336,7 +350,7 @@ export default async function DongShopDetailPage({ params }: PageProps) {
           </div>
         </section>
 
-        {/* 전체 제휴 샵 목록 보기 카드 섹션 */}
+        {/* 전체 제휴 샵 목록 */}
         <section className="bg-white border border-slate-200 p-6 rounded-3xl space-y-4 shadow-sm">
           <div className="text-center">
             <span className="text-sky-600 text-xs font-bold tracking-widest uppercase">PARTNER SHOPS IN {dongName}</span>
@@ -366,14 +380,14 @@ export default async function DongShopDetailPage({ params }: PageProps) {
                 </div>
                 <div className="flex items-center gap-2 shrink-0 mt-2 sm:mt-0">
                   <Link
-                    href={`/${city}/${district}/${dong}/shop/${s.id}`}
+                    href={`/${city}/${district}/${encodeURIComponent(dongName)}/shop/${s.id}`}
                     className={`w-full sm:w-auto px-4 py-2 text-center rounded-xl text-xs font-bold transition-all ${
                       s.active
                         ? "bg-sky-600 text-white shadow-xs"
                         : "bg-white text-slate-700 border border-slate-200 hover:bg-sky-600 hover:text-white hover:border-sky-600"
                     }`}
                   >
-                    {s.active ? "안내 보기" : "샵 선택;"}
+                    {s.active ? "안내 보기" : "샵 선택"}
                   </Link>
                 </div>
               </div>
@@ -385,8 +399,18 @@ export default async function DongShopDetailPage({ params }: PageProps) {
       {/* 하단 고정 예약 바 */}
       <div className="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-t border-slate-200 p-3 md:p-4 shadow-lg">
         <div className="max-w-4xl mx-auto grid grid-cols-2 gap-3">
-          <a href={`tel:${shop.phone}`} className="flex items-center justify-center gap-2 bg-sky-600 hover:bg-sky-700 text-white font-black py-3.5 rounded-2xl text-xs md:text-sm shadow-sm">📞 전화예약 ({shop.phone})</a>
-          <a href={`sms:${shop.phone}`} className="flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-900 font-black py-3.5 rounded-2xl text-xs md:text-sm">💬 문자상담</a>
+          <a
+            href={`tel:${shop.phone}`}
+            className="flex items-center justify-center gap-2 bg-sky-600 hover:bg-sky-700 text-white font-black py-3.5 rounded-2xl text-xs md:text-sm shadow-sm"
+          >
+            📞 전화예약 ({shop.phone})
+          </a>
+          <a
+            href={`sms:${shop.phone}`}
+            className="flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-900 font-black py-3.5 rounded-2xl text-xs md:text-sm"
+          >
+            💬 문자상담
+          </a>
         </div>
       </div>
     </div>

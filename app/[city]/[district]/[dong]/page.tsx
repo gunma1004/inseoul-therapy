@@ -13,8 +13,6 @@ interface PageProps {
 const SITE_URL = "https://inseoul-therapy.netlify.app";
 const SITE_NAME = "인서울테라피";
 
-
-// 🌟 타이틀용 100개 순차 패턴 ('출장'과 '마사지' 절대 붙이지 않음)
 const title100Patterns = [
   "출장 건식 마사지 & 힐링 케어 | 전지역 안심 예약",
   "출장 스웨디시 마사지 & 프리미엄 테라피 | 100% 안심 후불제",
@@ -118,7 +116,6 @@ const title100Patterns = [
   "출장 퍼펙트 전신 마사지 안내 | 100% 만족 보장 케어"
 ];
 
-// 🌟 시/도 광역 단위 100개 순환 디스크립션 패턴
 const desc100Patterns = [
   "출장 마사지 신속 매칭 시스템. 계신 곳에서 가장 가까운 베스트 샵 안내.",
   "출장 마사지 명품 바디 솔루션. 하루하루 지친 당신을 위한 프라이빗 힐링.",
@@ -129,98 +126,8 @@ const desc100Patterns = [
   "출장 마사지 릴렉싱 케어의 정석. 몸의 균형을 되찾아주는 특별한 테라피.",
   "출장 마사지 웰니스 방문 프로그램. 일상의 질을 높여주는 건강한 바디케어.",
   "출장 마사지 스피드 힐링 예약. 계신 곳으로 바로 찾아가는 감동 서비스.",
-  "출장 마사지 감성 테라피 코스. 섬세한 케어로 하루의 스트레스를 씻어내세요.",
-  "출장 마사지 전신 풀케어 안내. 발끝부터 머리까지 가벼워지는 놀라운 경험.",
-  "출장 마사지 홈 웰니스 1:1 방문. 쾌적한 나만의 쉼터에서 즐기는 테라피.",
-  "출장 마사지 안심 예약 플랫폼. 정직하고 검증된 관리사들만 함께합니다.",
-  "출장 마사지 프리미엄 감성 스웨디시. 하루를 완벽하게 보상받는 힐링 시간.",
-  "출장 마사지 속근육 릴렉스 케어. 굳어있던 관절과 근육을 유연하게 풀어드립니다.",
-  "출장 마사지 정통 아로마 테라피. 고급 천연 오일로 피부에 활력을 부여합니다.",
-  "출장 마사지 100% 현장 결제 시스템. 처음부터 끝까지 안심할 수 있는 케어.",
-  "출장 마사지 감동 힐링 파트너. 매일매일 상쾌한 아침을 맞이할 수 있도록 돕습니다.",
-  "출장 마사지 힐링 라이프 안내. 내 손안에서 시작되는 가장 편안한 휴식.",
-  "출장 마사지 고품격 방문 케어. 호텔 부럽지 않은 프리미엄 테라피를 집에서.",
-  "출장 마사지 맞춤 압 조절 테라피. 나에게 꼭 맞는 최적의 힐링을 선사합니다.",
-  "출장 마사지 스웨디시 & 홈타이 코스. 만족도 1위 제휴 샵에서 확인하세요.",
-  "출장 마사지 안전 케어 솔루션. 고객님의 소중한 프라이버시를 철저히 지킵니다.",
-  "출장 마사지 힐링 리포트. 매일매일 더 가볍고 활기찬 몸을 만들어 드립니다.",
-  "출장 마사지 투명 정찰 방문제. 숨은 추가금 없이 정직하게 운영됩니다.",
-  "출장 마사지 및 프리미엄 홈타이 전문. 검증된 관리사의 100% 후불제 안심 케어.",
-  "출장 마사지 전문 플랫폼. 선입금 전혀 없는 현장 결제로 편안하게 즐기는 테라피.",
-  "출장 마사지 추천 코스. 지친 하루의 피로를 풀어주는 1:1 맞춤형 방문 힐링.",
-  "출장 마사지 스웨디시 & 아로마 전문. 정찰제 요금으로 부담 없이 이용하세요.",
-  "출장 마사지 신속 방문 케어. 전문 자격을 갖춘 한국인 관리사의 명품 바디테라피.",
-  "출장 마사지 100% 후불 보장제. 내 집에서 편안하게 누리는 감성 스웨디시 힐링.",
-  "출장 마사지 예약 안내. 건식, 아로마, 타이 등 다채로운 코스를 합리적으로.",
-  "출장 마사지 프라이빗 케어. 고객 만족도 높은 검증된 제휴 샵 맞춤 매칭.",
-  "출장 마사지 안심 방문 서비스. 늦은 심야 시간에도 할증 걱정 없는 정찰제 힐링.",
-  "출장 마사지 힐링 테라피 안내. 뭉친 근육을 부드럽게 이완하는 프리미엄 프로그램.",
-  "출장 마사지 최고급 아로마 오일 케어. 편안한 공간에서 누리는 VIP 전신 관리.",
-  "출장 마사지 홈타이 & 스웨디시 추천. 안전하고 투명한 100% 현장 결제 방식.",
-  "출장 마사지 맞춤 바디 솔루션. 하루의 스트레스를 날려주는 정성스러운 손길.",
-  "출장 마사지 빠른 배차 안내. 전화 한 통으로 신속하게 찾아가는 방문 테라피.",
-  "출장 마사지 전문 힐러들의 밀착 케어. 위생과 퀄리티를 최우선으로 생각합니다.",
-  "출장 마사지 정통 힐링 바디 테라피. 품격 있는 관리로 몸과 마음에 활력을 충전.",
-  "출장 마사지 실시간 예약 시스템. 선입금 사기 걱정 없는 완벽한 안심 후불제.",
-  "출장 마사지 딥티슈 & 림프 순환 케어. 묵은 피로를 말끔하게 날려드립니다.",
-  "출장 마사지 VIP 스웨디시 안내. 섬세하고 부드러운 테크닉으로 극상의 힐링 선사.",
-  "출장 마사지 홈케어 서비스. 내가 원하는 시간과 장소에서 누리는 고품격 휴식.",
-  "출장 마사지 정찰제 가격 안내. 추가 비용 일체 없이 투명하게 진행되는 바디케어.",
-  "출장 마사지 맞춤형 안심 케어. 프라이빗한 개인 공간에서 경험하는 최고의 휴식.",
-  "출장 마사지 전신 피로해소 코스. 전문적인 테크닉으로 개운한 일상을 선사합니다.",
-  "출장 마사지 스웨디시 테라피 추천. 은은한 향기와 함께 즐기는 감성 바디케어.",
-  "출장 마사지 1:1 예약 안내. 친절하고 숙련된 관리사가 꼼꼼하게 케어해 드립니다.",
-  "출장 마사지 안전 후불 결제. 예약금 요구 없는 투명하고 정직한 테라피 플랫폼.",
-  "출장 마사지 힐링 코스 모음. 나에게 딱 맞는 맞춤형 프로그램으로 힐링하세요.",
-  "출장 마사지 홈타이 전문. 경직된 몸을 시원하게 풀어주는 정통 스트레칭 케어.",
-  "출장 마사지 프리미엄 서비스. 번거로운 이동 없이 집에서 편안하게 받는 바디케어.",
-  "출장 마사지 전문점 안내. 청결하고 안전한 관리로 쾌적한 힐링을 보장합니다.",
-  "출장 마사지 바디 릴렉싱 케어. 일상에 지친 현대인을 위한 맞춤 힐링 솔루션.",
-  "출장 마사지 추천 제휴 샵 안내. 후기와 만족도가 증명하는 고품격 테라피.",
-  "출장 마사지 심야 안심 방문. 늦은 시간에도 언제든 부담 없이 연락해 보세요.",
-  "출장 마사지 감성 아로마 코스. 천연 에센셜 오일로 피부와 마음을 촉촉하게.",
-  "출장 마사지 스피드 방문 예약. 전화 상담 후 가장 빠르게 도착하는 홈케어.",
-  "출장 마사지 힐링의 새로운 기준. 편안함과 전문성을 모두 갖춘 프리미엄 서비스.",
-  "출장 마사지 현장 카드/현금 후불제. 믿고 이용할 수 있는 투명한 케어 시스템.",
-  "출장 마사지 림프 순환 테라피. 가벼워진 몸으로 일상에 활력을 더해드립니다.",
-  "출장 마사지 1인 맞춤 케어. 고객님의 컨디션에 맞춘 맞춤형 압과 테크닉 적용.",
-  "출장 마사지 쾌적한 홈테라피. 편안한 침대나 소파에서 안심하고 케어 받으세요.",
-  "출장 마사지 명품 스웨디시 코스. 따뜻한 온기로 온몸을 녹여주는 감성 바디케어.",
-  "출장 마사지 실속형 정찰제 안내. 거품 없는 착한 가격으로 만나는 고품격 테라피.",
-  "출장 마사지 바디 밸런스 교정 케어. 균형 잡힌 바디 라인을 위한 힐링 프로그램.",
-  "출장 마사지 믿을 수 있는 플랫폼. 검증된 한국인 테라피스트의 정성스러운 관리.",
-  "출장 마사지 타이 & 아로마 복합 코스. 뭉친 근육 이완과 심신 안정을 동시에.",
-  "출장 마사지 프리미엄 방문 서비스. 나만을 위한 가장 안락한 힐링 스튜디오.",
-  "출장 마사지 빠른 도착 보장. 전지역 네트워크망으로 빠르게 방문합니다.",
-  "출장 마사지 릴렉싱 테라피 예약. 피로에 지친 당신을 위한 완벽한 휴식 시간.",
-  "출장 마사지 감동 서비스. 작은 부분까지 세심하게 배려하는 고품격 힐링 케어.",
-  "출장 마사지 100% 현장 정산. 사기 걱정 없는 가장 신뢰할 수 있는 테라피 안내.",
-  "출장 마사지 토탈 바디 솔루션. 하루 한 시간의 여유로 건강한 활력을 충전하세요.",
-  "출장 마사지 감성 스웨디시 안내. 깃털처럼 부드러운 터치로 전신 긴장 해소.",
-  "출장 마사지 전문 출장 방문. 원하는 시간대에 맞춰 방문하는 맞춤 테라피.",
-  "출장 마사지 힐링 네트워크. 지역 최고 수준의 테라피스트들이 찾아갑니다.",
-  "출장 마사지 순수 힐링 프로그램. 조용하고 차분한 분위기에서 즐기는 휴식.",
-  "출장 마사지 스트레스 완화 코스. 뇌와 몸의 긴장을 풀어주는 명품 케어.",
-  "출장 마사지 간편 예약 안내. 복잡한 절차 없이 터치 몇 번으로 손쉬운 예약.",
-  "출장 마사지 바디 리셋 프로그램. 찌뿌둥한 하루를 활기차게 바꿔주는 손길.",
-  "출장 마사지 안심 홈케어. 철저한 위생 관리로 늘 쾌적함을 선물합니다.",
-  "출장 마사지 스웨디시 & 타이 안내. 취향에 따라 자유롭게 선택하는 힐링 코스.",
-  "출장 마사지 VIP 고객 맞춤 케어. 오직 한 사람만을 위한 스페셜 테라피.",
-  "출장 마사지 합리적인 가격 정책. 투명한 정찰제로 편안하게 경험하세요.",
-  "출장 마사지 피로 회복의 명가. 숙련된 테크닉으로 묵은 결림을 말끔히 해결.",
-  "출장 마사지 친절 방문 서비스. 밝은 미소와 정성으로 편안함을 드립니다.",
-  "출장 마사지 딥티슈 테라피. 속근육까지 시원하게 풀어주는 집중 케어.",
-  "출장 마사지 감성 힐링 스웨디시. 감각을 깨우는 프리미엄 전신 바디케어.",
-  "출장 마사지 즉시 출발 서비스. 기다리는 지루함 없이 신속하게 방문합니다.",
-  "출장 마사지 정직한 홈케어. 예약부터 방문까지 투명하게 안심하고 이용하세요.",
-  "출장 마사지 수면 개선 힐링 코스. 깊은 숙면을 유도하는 릴렉싱 아로마 케어.",
-  "출장 마사지 활력 충전 바디테라피. 무거운 어깨와 허리를 가볍게 케어합니다.",
-  "출장 마사지 후불제 전문 플랫폼. 안전과 신뢰를 가장 중요하게 여깁니다.",
-  "출장 마사지 프리미엄 홈타이 예약. 집에서도 수준 높은 타이 관리를 누려보세요.",
-  "출장 마사지 맞춤 아로마 블렌딩. 피부 보습과 릴렉스를 함께 선사합니다.",
-  "출장 마사지 감성 전신 케어. 은은한 향과 따뜻한 손길로 전하는 감동의 휴식.",
+  "출장 마사지 감성 테라피 코스. 섬세한 케어로 하루의 스트레스를 씻어내세요."
 ];
-
 
 const priceHooks = [
   "건식 6만원부터 심야할증 없이 방문합니다.",
@@ -229,11 +136,11 @@ const priceHooks = [
 ];
 
 const shops = [
-  { id: 1, name: "한국골든테라피", badge: "VIP 골든 힐링", desc: "골든 품격의 감성 릴렉싱! 전문 관리사들의 정성스러운 맞춤 테라피", phone: "0507-1280-3361" },
-  { id: 2, name: "한국미인테라피", badge: "재방문율 최우수", desc: "최고급 천연 오일을 활용한 감성 아로마 전신 바디케어 프로그램", phone: "0507-1280-3303" },
-  { id: 3, name: "주주테라피", badge: "만족도 1위 추천", desc: "재방문율 1위 만족도! 정통 힐링 테라피부터 올인원 VIP 코스까지", phone: "0507-1280-3193" },
-  { id: 4, name: "퀸즈홈테라피", badge: "여왕처럼 누리는 VIP", desc: "여왕처럼 누리는 고품격 테라피! 전문 관리사들의 1:1 맞춤 방문 힐링", phone: "0507-1280-3334" },
-  { id: 5, name: "오늘밤테라피", badge: "야간 힐링 만족 1위", desc: "선입금 없는 100% 후불제! 깊은 밤 지친 하루의 피로를 완벽하게", phone: "0507-1280-3223" }
+  { id: 1, name: "한국골든테라피", badge: "VIP 골든 힐링", desc: "골든 품격의 감성 릴렉싱! 전문 관리사들의 정성스러운 맞춤 테라피", phone: "0507-1280-3361", price: "60분 110,000원~" },
+  { id: 2, name: "한국미인테라피", badge: "재방문율 최우수", desc: "최고급 천연 오일을 활용한 감성 아로마 전신 바디케어 프로그램", phone: "0507-1280-3303", price: "90분 100,000원~" },
+  { id: 3, name: "주주테라피", badge: "만족도 1위 추천", desc: "재방문율 1위 만족도! 정통 힐링 테라피부터 올인원 VIP 코스까지", phone: "0507-1280-3193", price: "60분 60,000원~" },
+  { id: 4, name: "퀸즈홈테라피", badge: "여왕처럼 누리는 VIP", desc: "여왕처럼 누리는 고품격 테라피! 전문 관리사들의 1:1 맞춤 방문 힐링", phone: "0507-1280-3334", price: "60분 60,000원~" },
+  { id: 5, name: "오늘밤테라피", badge: "야간 힐링 만족 1위", desc: "선입금 없는 100% 후불제! 깊은 밤 지친 하루의 피로를 완벽하게", phone: "0507-1280-3223", price: "60분 60,000원~" }
 ];
 
 function getDongUniqueContent(cityName: string, districtName: string, dongName: string) {
@@ -252,8 +159,9 @@ function getDongUniqueContent(cityName: string, districtName: string, dongName: 
 
   const faqsList = [
     [
-      { q: `${dongName} 지역은 몇 분 안에 도착하나요?`, a: `교통 상황에 따라 다를 수 있으나, ${dongName} 내 주요 지역은 배차 완료 후 평균 30분 이내에 신속하게 방문하는 것을 원칙으로 하고 있습니다.` },
-      { q: `결제는 언제 어떻게 하나요?`, a: `최근 빈번한 예약금 사기를 방지하기 위해 관리사가 도착한 후 직접 결제(현금, 계좌이체 등)하는 100% 후불제로만 운영됩니다.` }
+      { q: `${dongName} 지역은 몇 분 안에 도착하나요?`, a: `교통 상황에 따라 다를 수 있으나, ${dongName} 내 주요 지역은 배차 완료 후 평균 25~30분 이내에 신속하게 방문하는 것을 원칙으로 하고 있습니다.` },
+      { q: `결제는 언제 어떻게 하나요?`, a: `최근 빈번한 예약금 사기를 방지하기 위해 관리사가 도착한 후 직접 결제(현금, 계좌이체 등)하는 100% 후불제로만 운영됩니다.` },
+      { q: `원하는 관리사나 맞춤 코스 조율이 가능한가요?`, a: `예약 상담 시 선호하시는 압의 강도(강·중·약)나 집중 관리를 원하시는 부위(어깨, 허리 등)를 말씀해 주시면 최적의 맞춤 케어를 진행해 드립니다.` }
     ]
   ];
 
@@ -286,7 +194,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const descIdx = (dayOfYear + charSum * 3) % desc100Patterns.length;
   const priceIdx = (dayOfYear + charSum * 7) % priceHooks.length;
 
-  let finalTitle = `${dongName} ${title100Patterns[titleIdx]} | ${SITE_NAME}`;
+  // 🌟 [요청사항 적용] 구 이름 뒤에 '방문 테라피'가 배치되는 깔끔한 조합
+  let finalTitle = `${dongName} ${title100Patterns[titleIdx]} | ${districtName} 방문 테라피 | ${SITE_NAME}`;
   finalTitle = finalTitle.replace(/출장마사지/g, "출장 마사지");
 
   const finalDescription = `${cityName} ${districtName} ${dongName} ${desc100Patterns[descIdx]} ${priceHooks[priceIdx]}`;
@@ -295,11 +204,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     metadataBase: new URL(SITE_URL),
     title: { absolute: finalTitle },
     description: finalDescription,
-    alternates: { canonical: `${SITE_URL}/${city}/${district}/${dong}` },
+    alternates: { canonical: `${SITE_URL}/${city}/${district}/${encodeURIComponent(dongName)}` },
+    keywords: [
+      `${dongName} 출장마사지`,
+      `${dongName} 방문테라피`,
+      `${dongName} 홈타이`,
+      `${dongName} 스웨디시`,
+      `${districtName} 방문 테라피`,
+      `${districtName} 홈케어`,
+      SITE_NAME
+    ],
     openGraph: {
       title: finalTitle,
       description: finalDescription,
-      url: `${SITE_URL}/${city}/${district}/${dong}`,
+      url: `${SITE_URL}/${city}/${district}/${encodeURIComponent(dongName)}`,
       locale: "ko_KR",
       type: "website"
     }
@@ -316,32 +234,78 @@ export default async function DongPage({ params }: PageProps) {
   const districtName = districtInfo ? districtInfo.name : district;
   const dongName = decodeURIComponent(dong);
   
+  const otherDongs = (districtInfo?.dongs || []).filter((d) => d !== dongName);
   const uniqueContent = getDongUniqueContent(cityName, districtName, dongName);
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: `${cityName} ${districtName} ${dongName} 방문 테라피 홈케어 서비스`,
+    provider: {
+      "@type": "LocalBusiness",
+      name: SITE_NAME,
+      telephone: "0507-1280-3199",
+      url: SITE_URL
+    },
+    areaServed: {
+      "@type": "AdministrativeArea",
+      name: `${cityName} ${districtName} ${dongName}`
+    },
+    description: `${cityName} ${districtName} ${dongName} 전 지역 100% 안심 후불제 방문 테라피 및 바디케어 서비스 안내`
+  };
 
   return (
     <div className="bg-slate-50 text-slate-800 min-h-screen flex flex-col font-sans selection:bg-sky-500 selection:text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      {/* 헤더 */}
       <header className="bg-white border-b border-slate-200 sticky top-0 z-40 px-4 py-3 shadow-sm">
         <div className="max-w-4xl mx-auto flex justify-between items-center">
           <Link href="/" className="text-xl font-black text-sky-600">인서울테라피</Link>
-          <Link href={`/${city}/${district}`} className="text-xs font-bold text-sky-600 bg-sky-50 px-3 py-1.5 rounded-xl border border-sky-100 hover:bg-sky-600 hover:text-white transition-all">
-            ← {districtName} 전체 지역 보기
-          </Link>
+          <div className="flex items-center gap-2">
+            <a
+              href="tel:050712803199"
+              className="text-xs font-bold text-white bg-sky-600 px-3.5 py-1.5 rounded-xl hover:bg-sky-700 transition-all shadow-xs"
+            >
+              📞 24시 전화예약
+            </a>
+            <Link href={`/${city}/${district}`} className="text-xs font-bold text-sky-600 bg-sky-50 px-3 py-1.5 rounded-xl border border-sky-100 hover:bg-sky-600 hover:text-white transition-all">
+              ← {districtName} 전체
+            </Link>
+          </div>
         </div>
       </header>
 
-      <main className="max-w-4xl mx-auto px-4 py-8 w-full flex-1 space-y-6">
-        {/* 동 페이지 소개 본문이 먼저 노출됨 */}
+      {/* 브레드크럼 */}
+      <nav className="bg-white/80 border-b border-slate-100 py-2.5 px-4 text-xs text-slate-500">
+        <div className="max-w-4xl mx-auto flex items-center gap-2">
+          <Link href="/" className="text-sky-600 hover:underline">홈</Link>
+          <span>&gt;</span>
+          <Link href={`/${city}`} className="hover:text-slate-800">{cityName}</Link>
+          <span>&gt;</span>
+          <Link href={`/${city}/${district}`} className="hover:text-slate-800">{districtName}</Link>
+          <span>&gt;</span>
+          <span className="text-slate-800 font-bold">{dongName}</span>
+        </div>
+      </nav>
+
+      <main className="max-w-4xl mx-auto px-4 py-8 w-full flex-1 space-y-8">
+        
+        {/* 상단 히어로 배너 */}
         <section className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-6 sm:p-8 text-white shadow-lg space-y-3">
-          <span className="text-sky-400 text-xs font-black tracking-widest uppercase">📍 {cityName} {districtName} 홈케어 가이드</span>
-          <h1 className="text-2xl sm:text-3xl font-black tracking-tight">{dongName} 출장 마사지 & 프리미엄 테라피</h1>
+          <span className="text-sky-400 text-xs font-black tracking-widest uppercase">📍 {districtName} {dongName} REGIONAL GUIDE</span>
+          <h1 className="text-2xl sm:text-3xl font-black tracking-tight">{dongName} 출장 마사지 &amp; 방문 테라피</h1>
           <p className="text-slate-300 text-xs sm:text-sm max-w-2xl leading-relaxed text-justify break-keep">{uniqueContent.body}</p>
         </section>
 
-        {/* 동 페이지 샵 5개 리스트 */}
+        {/* 제휴 샵 5개 리스트 */}
         <section className="bg-white border border-slate-200 p-5 sm:p-7 rounded-3xl space-y-4 shadow-sm">
           <div className="flex items-center justify-between border-b border-slate-100 pb-3">
             <h2 className="text-base sm:text-lg font-black text-slate-900 flex items-center gap-2">
-              <span>✨</span> {dongName} 추천 제휴 샵 (총 5곳)
+              <span>✨</span> {dongName} 추천 제휴 파트너 (총 5곳)
             </h2>
             <span className="text-xs text-sky-600 font-extrabold bg-sky-50 px-3 py-1 rounded-full border border-sky-100">100% 후불제 보장</span>
           </div>
@@ -357,16 +321,52 @@ export default async function DongPage({ params }: PageProps) {
                       <span className="text-[10px] bg-sky-50 text-sky-600 px-2.5 py-0.5 rounded-full font-extrabold border border-sky-100">{s.badge}</span>
                     </div>
                     <p className="text-xs text-slate-500 leading-snug line-clamp-1">{s.desc}</p>
+                    <p className="text-xs font-bold text-sky-600">{s.price}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 shrink-0">
-                  {/* 동 페이지에서는 해당 동의 샵 상세 페이지로 정확히 연결 */}
-                  <Link href={`/${city}/${district}/${dong}/shop/${s.id}`} className="w-full sm:w-auto px-5 py-2.5 text-center rounded-xl text-xs font-black bg-sky-600 hover:bg-sky-700 text-white shadow-sm transition-all active:scale-95">
-                    샵 선택 →
+                  <a
+                    href={`tel:${s.phone}`}
+                    className="w-full sm:w-auto px-4 py-2.5 text-center rounded-xl text-xs font-black bg-sky-600 hover:bg-sky-700 text-white shadow-sm transition-all active:scale-95"
+                  >
+                    📞 전화 예약
+                  </a>
+                  <Link 
+                    href={`/${city}/${district}/${encodeURIComponent(dongName)}/shop/${s.id}`} 
+                    className="w-full sm:w-auto px-4 py-2.5 text-center rounded-xl text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all"
+                  >
+                    상세보기
                   </Link>
                 </div>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* 동별 안심 서비스 이용 안내 3대 수칙 */}
+        <section className="bg-white border border-slate-200 p-6 sm:p-8 rounded-3xl space-y-4 shadow-sm">
+          <h2 className="text-base sm:text-lg font-black text-slate-900 flex items-center gap-2">
+            <span>🛡️</span> {dongName} 고객 안심 보증 시스템
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs text-slate-600 pt-2">
+            <div className="bg-slate-50 border border-slate-200/80 p-4 rounded-2xl space-y-1.5">
+              <span className="font-bold text-sky-600 block text-sm">선입금 없는 100% 후불제</span>
+              <p className="text-slate-500 leading-relaxed">
+                어떠한 경우에도 예약금을 요구하지 않으며, 관리사가 도착한 후 직접 확인하고 결제합니다.
+              </p>
+            </div>
+            <div className="bg-slate-50 border border-slate-200/80 p-4 rounded-2xl space-y-1.5">
+              <span className="font-bold text-sky-600 block text-sm">{dongName} 전지역 25분 도착</span>
+              <p className="text-slate-500 leading-relaxed">
+                {dongName} 인근 주요 도로 및 상권에 대기 중인 기사를 통해 신속한 배차가 이루어집니다.
+              </p>
+            </div>
+            <div className="bg-slate-50 border border-slate-200/80 p-4 rounded-2xl space-y-1.5">
+              <span className="font-bold text-sky-600 block text-sm">철저한 위생 및 오일 관리</span>
+              <p className="text-slate-500 leading-relaxed">
+                1회용 커버 및 천연 고급 아로마 오일만을 사용하여 피부 트러블 걱정 없이 안심하고 휴식할 수 있습니다.
+              </p>
+            </div>
           </div>
         </section>
 
@@ -384,7 +384,38 @@ export default async function DongPage({ params }: PageProps) {
             ))}
           </div>
         </section>
+
+        {/* 인접 동(洞) 내부 링크망 (크롤러 순환 보장) */}
+        {otherDongs.length > 0 && (
+          <section className="bg-white border border-slate-200 p-5 sm:p-6 rounded-3xl space-y-3 shadow-sm">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-2.5">
+              <h2 className="text-xs sm:text-sm font-bold text-slate-700">
+                📍 {districtName} 인접 다른 동 둘러보기
+              </h2>
+            </div>
+            <div className="flex flex-wrap gap-2 pt-1">
+              {otherDongs.map((dName) => (
+                <Link
+                  key={dName}
+                  href={`/${city}/${district}/${encodeURIComponent(dName)}`}
+                  className="px-3 py-1.5 rounded-xl border border-slate-200 bg-slate-50 text-xs font-medium text-slate-600 hover:text-sky-600 hover:border-sky-300 transition-all"
+                >
+                  {dName} &rarr;
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
       </main>
+
+      {/* 푸터 */}
+      <footer className="bg-white border-t border-slate-200 py-8 text-center text-xs text-slate-500 mt-16">
+        <div className="max-w-4xl mx-auto px-4 space-y-2">
+          <p className="font-bold text-slate-700">{SITE_NAME} · {cityName} {districtName} {dongName} 100% 안심 후불제 방문 테라피</p>
+          <p className="text-[11px] text-slate-400">© 2026 {SITE_NAME}. All rights reserved. (공식 도메인: {SITE_URL}/{city}/{district}/{encodeURIComponent(dongName)})</p>
+        </div>
+      </footer>
     </div>
   );
 }

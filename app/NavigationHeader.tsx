@@ -11,7 +11,7 @@ export default function NavigationHeader() {
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-slate-200 px-4 py-3 shadow-sm">
       <div className="max-w-5xl mx-auto flex items-center justify-between">
         
-        {/* 로고 영역 (인서울테라피 브랜드 적용 및 모바일 레이아웃 최적화) */}
+        {/* 로고 영역 */}
         <Link href="/" className="flex items-center gap-2.5 group">
           <div className="w-9 h-9 bg-sky-600 rounded-xl flex items-center justify-center text-white font-black text-sm shadow-sm group-hover:scale-105 transition-transform shrink-0">
             IS
@@ -29,14 +29,14 @@ export default function NavigationHeader() {
         {/* 데스크톱 메뉴 목록 */}
         <nav className="hidden md:flex items-center gap-5 lg:gap-6 text-xs font-bold text-slate-600">
           
-          {/* 1. 서비스 */}
+          {/* 1. 서비스 안내 */}
           <Link href="/services" className="hover:text-sky-600 transition-colors">
             서비스 안내
           </Link>
 
           {/* 2. 코스 & 가격 */}
           <Link href="/prices" className="hover:text-sky-600 transition-colors">
-            코스&가격
+            코스&amp;가격
           </Link>
 
           {/* 3. 힐링 여행지 */}
@@ -49,7 +49,7 @@ export default function NavigationHeader() {
             주변 제휴명소
           </Link>
 
-          {/* 5. 지역별 안내 (드롭다운) */}
+          {/* 5. 🌟 핵심 수정: 각 시·도 대표 허브 페이지(/seoul, /gyeonggi, /incheon)로 연결 */}
           <div 
             className="relative cursor-pointer py-2"
             onMouseEnter={() => setIsRegionOpen(true)}
@@ -62,14 +62,14 @@ export default function NavigationHeader() {
 
             {isRegionOpen && (
               <div className="absolute top-full left-0 w-36 bg-white border border-slate-200 rounded-2xl shadow-xl py-2 space-y-1 text-xs z-50 animate-in fade-in slide-in-from-top-1">
-                <Link href="/seoul/gangnam/yeoksam/shop/1" className="block px-4 py-2 hover:bg-sky-50 hover:text-sky-600 transition-colors">
-                  📍 서울 지역
+                <Link href="/seoul" className="block px-4 py-2 hover:bg-sky-50 hover:text-sky-600 transition-colors font-bold">
+                  📍 서울 전지역
                 </Link>
-                <Link href="/gyeonggi/seongnam_bundang/jeongja1dong/shop/1" className="block px-4 py-2 hover:bg-sky-50 hover:text-sky-600 transition-colors">
-                  📍 경기 지역
+                <Link href="/gyeonggi" className="block px-4 py-2 hover:bg-sky-50 hover:text-sky-600 transition-colors font-bold">
+                  📍 경기 전지역
                 </Link>
-                <Link href="/incheon/yeonsu/songdo1dong/shop/1" className="block px-4 py-2 hover:bg-sky-50 hover:text-sky-600 transition-colors">
-                  📍 인천 지역
+                <Link href="/incheon" className="block px-4 py-2 hover:bg-sky-50 hover:text-sky-600 transition-colors font-bold">
+                  📍 인천 전지역
                 </Link>
               </div>
             )}
@@ -84,12 +84,12 @@ export default function NavigationHeader() {
 
         {/* 우측 CTA & 모바일 토글 버튼 */}
         <div className="flex items-center gap-2">
-          <Link 
-            href="/seoul/gangnam/yeoksam/shop/1"
-            className="bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs px-3.5 py-2 rounded-xl shadow-sm transition-all active:scale-95"
+          <a 
+            href="tel:050712803199"
+            className="bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs px-3.5 py-2 rounded-xl shadow-sm transition-all active:scale-95 flex items-center gap-1"
           >
-            📞 빠른 제휴/예약
-          </Link>
+            <span>📞</span> 24시 전화예약
+          </a>
 
           {/* 모바일 햄버거 메뉴 버튼 */}
           <button 
@@ -123,34 +123,37 @@ export default function NavigationHeader() {
             onClick={() => setIsMobileMenuOpen(false)}
             className="block py-2 px-3 rounded-lg hover:bg-slate-100 hover:text-sky-600"
           >
-            코스&가격
+            코스&amp;가격
           </Link>
-          <div className="py-2 px-3 rounded-lg bg-slate-50 space-y-1">
-            <span className="text-slate-400 text-[11px]">지역별 바로가기</span>
-            <div className="flex gap-2 pt-1">
+          
+          {/* 모바일 지역별 바로가기: 각 시·도 인덱스로 이동 */}
+          <div className="py-2.5 px-3 rounded-xl bg-slate-50 border border-slate-200/60 space-y-1.5">
+            <span className="text-slate-400 text-[11px] block font-semibold">수도권 지역별 바로가기</span>
+            <div className="flex gap-2 pt-0.5">
               <Link 
-                href="/seoul/gangnam/yeoksam/shop/1" 
+                href="/seoul" 
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="flex-1 text-center py-1.5 bg-white rounded-md border border-slate-200 hover:text-sky-600 text-[11px]"
+                className="flex-1 text-center py-2 bg-white rounded-lg border border-slate-200 hover:text-sky-600 text-xs font-bold shadow-2xs"
               >
                 서울
               </Link>
               <Link 
-                href="/gyeonggi/seongnam_bundang/jeongja1dong/shop/1" 
+                href="/gyeonggi" 
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="flex-1 text-center py-1.5 bg-white rounded-md border border-slate-200 hover:text-sky-600 text-[11px]"
+                className="flex-1 text-center py-2 bg-white rounded-lg border border-slate-200 hover:text-sky-600 text-xs font-bold shadow-2xs"
               >
                 경기
               </Link>
               <Link 
-                href="/incheon/yeonsu/songdo1dong/shop/1" 
+                href="/incheon" 
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="flex-1 text-center py-1.5 bg-white rounded-md border border-slate-200 hover:text-sky-600 text-[11px]"
+                className="flex-1 text-center py-2 bg-white rounded-lg border border-slate-200 hover:text-sky-600 text-xs font-bold shadow-2xs"
               >
                 인천
               </Link>
             </div>
           </div>
+
           <Link 
             href="/reviews" 
             onClick={() => setIsMobileMenuOpen(false)}

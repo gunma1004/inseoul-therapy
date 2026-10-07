@@ -6,26 +6,52 @@ interface Props {
   locationText: string;
 }
 
+// 🌟 네이버/구글 검색 품질 점수를 높이는 순환 헤드라인 패턴
+const headlineMixers = [
+  "출장 프리미엄 힐링 마사지 & 릴렉스 테라피",
+  "출장 감성 스웨디시 마사지 & 프라이빗 홈케어",
+  "출장 아로마 힐링 마사지 & 1:1 맞춤 바디케어",
+  "출장 딥티슈 이완 마사지 & 전문 테라피스트 매칭",
+  "출장 전신 스트레칭 마사지 & 안심 힐링 케어"
+];
+
+const subTextMixers = [
+  "수도권 평균 25분 내 신속한 방문 · 100% 안심 후불제 시스템",
+  "선입금·예약금 0원 원칙 · 현장 도착 후 확인 결제",
+  "엄격한 위생 관리와 최고급 천연 오일 사용 · 정찰제 운영",
+  "늦은 심야 및 새벽 시간 할증 없는 투명한 정찰제 케어"
+];
+
 export default function ClientTextMixer({ locationText }: Props) {
   const [headline, setHeadline] = useState(`${locationText} 방문 힐링 바디케어 서비스`);
   const [subText, setSubText] = useState("선입금 없는 100% 안심 후불제 시스템");
 
   useEffect(() => {
-    // 🌟 '출장'과 '마사지'를 절대 붙여 쓰지 않고 사이에 수식어를 배치하여 분산 (SEO 최적화)
-    setHeadline(`${locationText} 출장 프리미엄 힐링 마사지 & 릴렉스 테라피`);
-    setSubText("수도권 평균 25분 내 신속한 방문 · 100% 안심 후불제 시스템");
+    // 🌟 지역명 기반 해시값을 주어 매일/지역마다 자연스럽게 달라지는 고유 조합 생성
+    const charSum = locationText
+      .split("")
+      .reduce((acc, char) => acc + char.charCodeAt(0), 0);
+    const dayOfYear = Math.floor(
+      (Date.now() - new Date(new Date().getFullYear(), 0, 0).getTime()) /
+        (1000 * 60 * 60 * 24)
+    );
+
+    const hIdx = (charSum + dayOfYear) % headlineMixers.length;
+    const sIdx = (charSum * 3 + dayOfYear) % subTextMixers.length;
+
+    setHeadline(`${locationText} ${headlineMixers[hIdx]}`);
+    setSubText(subTextMixers[sIdx]);
   }, [locationText]);
 
   return (
     <div className="relative overflow-hidden bg-gradient-to-r from-sky-500/10 via-sky-500/5 to-sky-500/10 border border-sky-500/30 p-4 md:p-5 rounded-2xl text-center shadow-sm">
       {/* 상단 실시간 안내 뱃지 */}
-      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-sky-200 text-[11px] font-bold text-sky-700 mb-2 shadow-sm">
+      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-sky-200 text-[11px] font-bold text-sky-700 mb-2 shadow-xs">
         <span className="relative flex h-2 w-2">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
           <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
         </span>
-        {/* 🌟 꿀마 -> 인서울테라피 브랜드명 교체 */}
-        실시간 {locationText} 인서울테라피 매니저 대기중
+        실시간 {locationText} 인서울테라피 전문 관리사 배차 대기중
       </div>
 
       {/* 핵심 키워드 헤드라인 */}

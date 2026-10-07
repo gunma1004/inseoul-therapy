@@ -255,7 +255,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const descIdx = (dayOfYear + charSum * 3) % desc100Patterns.length;
   const priceIdx = (dayOfYear + charSum * 7) % priceHooks.length;
 
-  let finalTitle = `${districtName} ${title100Patterns[titleIdx]} | ${SITE_NAME}`;
+  // 🌟 [수정 포인트] 구 뒤에 키워드, 그리고 뒤쪽에 시(cityName) 이름이 포함되도록 구성
+  let finalTitle = `${districtName} ${title100Patterns[titleIdx]} | ${cityName} 안마 업체 | ${SITE_NAME}`;
   finalTitle = finalTitle.replace(/출장마사지/g, "출장 마사지");
 
   const finalDescription = `${cityName} ${districtName} ${desc100Patterns[descIdx]} ${priceHooks[priceIdx]}`;
@@ -265,6 +266,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: { absolute: finalTitle },
     description: finalDescription,
     alternates: { canonical: `${SITE_URL}/${city}/${district}` },
+    keywords: [
+      `${districtName} 출장마사지`,
+      `${districtName} 홈타이`,
+      `${districtName} 스웨디시`,
+      `${districtName} 안마`,
+      `${cityName} ${districtName} 마사지`,
+      `${cityName} 안마`,
+      SITE_NAME
+    ],
     openGraph: {
       title: finalTitle,
       description: finalDescription,
