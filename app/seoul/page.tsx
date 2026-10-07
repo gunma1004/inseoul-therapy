@@ -137,7 +137,7 @@ export default function SeoulRegionPage() {
       </nav>
 
       <section className="max-w-6xl mx-auto py-10 px-4 space-y-10">
-        {/* 🌟 SEO 텍스트 고유 본문 영역 (Thin Content 방어) */}
+        {/* SEO 고유 본문 영역 */}
         <div className="bg-white border border-slate-200 rounded-3xl p-6 md:p-10 shadow-sm space-y-4">
           <span className="bg-sky-100 text-sky-700 text-xs font-bold px-3 py-1.5 rounded-full inline-block">
             서울특별시 안심 제휴 샵 안내
@@ -150,7 +150,7 @@ export default function SeoulRegionPage() {
           </p>
         </div>
 
-        {/* 🌟 SEO FAQ 영역 */}
+        {/* SEO FAQ 영역 */}
         <div className="bg-white border border-slate-200 rounded-3xl p-6 md:p-8 shadow-sm space-y-5">
           <h2 className="text-lg md:text-xl font-black text-slate-900 flex items-center gap-2">
             <span className="text-sky-500">💡</span> 서울 지역 이용 FAQ
@@ -172,7 +172,7 @@ export default function SeoulRegionPage() {
           </div>
         </div>
 
-        {/* 🌟 25개 구 전체 렌더링 (구 제목을 링크로 연결하여 크롤러 순환 트리 완성) */}
+        {/* 25개 구 전체 렌더링 */}
         <div className="space-y-6">
           <h2 className="text-xl font-extrabold text-slate-900 px-2">
             📍 서울 25개 구 전체 권역 선택
@@ -210,5 +210,11 @@ export default function SeoulRegionPage() {
         </div>
       </section>
 
+      {/* 푸터 영역 정상 닫힘 태그 포함 */}
       <footer className="bg-white border-t border-slate-200 py-8 text-center text-xs text-slate-400 mt-10">
-        <p>© 2026 {SITE_NAME}
+        <p>© 2026 {SITE_NAME} (InSeoul Therapy). All rights reserved.</p>
+        <p className="mt-1">공식 도메인: {SITE_URL}/seoul</p>
+      </footer>
+    </main>
+  );
+}
